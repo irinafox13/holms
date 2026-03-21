@@ -43,5 +43,37 @@
       "id": "feedback_privacy"
     }
   },
-  "title": "Главная страница"
+  "title": "Главная страница",
+  "purchaseOptions": [
+    {
+      "icon": "/images/purchase/discount-percent-square.svg",
+      "name": "Ипотека",
+      "shortDescription": "Разнообразные программы",
+      "button": {
+        "text": "Рассчитать",
+        "class": "",
+        "modalName": "mortgage"
+      }
+    },
+    {
+      "icon": "/images/purchase/installment-plan.svg",
+      "name": "Рассрочка",
+      "shortDescription": "Индивидуальные условия оплаты",
+      "button": {
+        "text": "Обсудить условия",
+        "class": "",
+        "modalName": ""
+      }
+    },
+    {
+      "icon": "/images/purchase/home-house-change.svg",
+      "name": "Старую на&nbsp;новую",
+      "shortDescription": "Выгодные условия обмена",
+      "button": {
+        "text": "Рассчитать",
+        "class": "",
+        "modalName": ""
+      }
+    }
+  ]
 }

@@ -1,0 +1,18 @@
+<section class="section purchase-options">
+  <div class="container section__container">
+    <div class="purchase-options__header">
+      <h2 class="purchase-options__title">Способы покупки</h2>
+      <p class="purchase-options__description">
+        Мы&nbsp;собрали в&nbsp;одном месте наши лучшие сервисы и&nbsp;инструменты для покупки, которые помогут безопасно
+        и&nbsp;удобно приобрести новую квартиру. Выберите условия, подходящие именно вам.
+      </p>
+    </div>
+    <ul class="purchase-options__list">
+      {{#each purchaseOptions}}
+      <li>
+        {{>payment-method-card content=this}}
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

@@ -30,6 +30,8 @@
 @include meta.load-css('modules/form');
 @include meta.load-css('modules/contacts-info');
 @include meta.load-css('modules/navigation');
+@include meta.load-css('modules/purchase-options');
+@include meta.load-css('modules/payment-method-card');
 
 // Стили элементов шаблона
 @include meta.load-css('layout/header');

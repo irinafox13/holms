@@ -9,7 +9,22 @@
     border-bottom: 1px solid $white-10;
   }
 
+  &__container {
+    display: grid;
+    gap: 32px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
   @include media($lg) {
     margin-block: 112px;
+
+    &__container {
+      gap: 64px;
+    }
   }
 }

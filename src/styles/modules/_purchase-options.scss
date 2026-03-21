@@ -1,0 +1,41 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.purchase-options {
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    color: $white-40;
+    @include font(18px, 26px, 300);
+    margin-bottom: 0;
+  }
+
+  &__list {
+    display: grid;
+    gap: 8px;
+  }
+
+  @include media($md) {
+    &__description {
+      max-width: 758px;
+    }
+
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @include media($lg) {
+    &__list {
+      gap: 40px;
+    }
+  }
+
+  @include media($xl) {
+    &__description {
+      max-width: 861px;
+    }
+  }
+}

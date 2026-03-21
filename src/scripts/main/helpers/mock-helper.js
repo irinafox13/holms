@@ -6,15 +6,14 @@
  * @param {object} mswWorker - Экземпляр MSW worker, должен иметь метод start()
  * @param {Function} loadData - Функция, которая загружает реальные или мок данные
  */
-/* global process */
-const isDevelopment = process.env.NODE_ENV === 'development'
+const isDevelopment = import.meta.env.DEV;
 
 export const mockHelper = (mswWorker, loadData) => {
   if (isDevelopment) {
     mswWorker.start().then(() => {
-      loadData()
-    })
+      loadData();
+    });
   } else {
-    loadData()
+    loadData();
   }
-}
+};
