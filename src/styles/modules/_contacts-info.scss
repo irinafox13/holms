@@ -1,0 +1,30 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.contacts-info {
+  flex-direction: column;
+  gap: 16px;
+  padding-block: 24px;
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    gap: 4px;
+  }
+
+  &__link {
+    @include font(16px, 21px, 400);
+  }
+
+  &__text {
+    color: $white-60;
+    @include font(12px, 15px, 400);
+  }
+
+  @include media($lg) {
+    flex-direction: row;
+    gap: 32px;
+    padding: 0;
+  }
+}

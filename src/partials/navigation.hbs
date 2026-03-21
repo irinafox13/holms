@@ -1,0 +1,9 @@
+<nav class="navigation {{dopClass}}" aria-label="{{ariaLabel}}">
+  <ul class="navigation__menu">
+    {{#each menu }}
+    <li>
+      <a class="navigation__link link" href="{{ this.link }}">{{ this.name }}</a>
+    </li>
+    {{/each}}
+  </ul>
+</nav>

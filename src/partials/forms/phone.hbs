@@ -1,0 +1,18 @@
+<div class="form-field js-form-field {{content.disabled}}">
+    <input
+        name="{{#if content.name}}{{content.name}}{{else}}tel{{/if}}"
+        type="tel"
+        {{#if content.required}}required{{/if}}
+        class="form-field__input js-form-field-input"
+        {{content.disabled}}
+        value="{{content.value}}"
+        inputmode="numeric"
+        maxlength="18"
+    >
+    <label class="form-field__label">
+        {{content.title}}
+    </label>
+    <div class="form-field__caption form-field__caption--error">
+        Введите корректнный номер
+    </div>
+</div>

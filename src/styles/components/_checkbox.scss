@@ -1,0 +1,79 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.checkbox {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  position: absolute;
+  transform: scale(0);
+
+  & + label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    @include font(16px, 21px, 400);
+    cursor: pointer;
+    user-select: none;
+    @include css_anim();
+
+    &:before {
+      flex-shrink: 0;
+      display: block;
+      content: '';
+      width: 24px;
+      height: 24px;
+      border: 1px solid $white;
+      background-image: none;
+      background-color: transparent;
+      background-position: center;
+      background-repeat: no-repeat;
+      @include css_anim();
+    }
+
+    &:hover {
+      &:before {
+        background-color: $white-30;
+      }
+    }
+  }
+
+  &:checked + label {
+    &:before {
+      border-color: transparent;
+      background-color: $gold;
+      background-image: url('#{$imgPath}svg/check.svg');
+      background-size: contain;
+    }
+
+    &:hover::before {
+      background-color: $white-60;
+    }
+  }
+
+  &:disabled + label {
+    cursor: auto;
+
+    &:before {
+      opacity: 0.3;
+    }
+
+    &:hover {
+      &:before {
+        border-color: $white;
+      }
+    }
+  }
+
+  &:disabled {
+    cursor: auto;
+    &:checked + label {
+      &:before {
+        cursor: auto;
+        opacity: 0.3;
+      }
+    }
+  }
+}

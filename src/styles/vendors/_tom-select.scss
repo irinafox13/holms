@@ -1,0 +1,197 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.ts {
+  &-control,
+  .option {
+    text-align: left;
+  }
+
+  &-control {
+    height: 40px;
+  }
+
+  &-wrapper {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-grid;
+    position: relative;
+    padding: 0;
+    border: none;
+
+    input {
+      background-color: transparent;
+      border-color: transparent;
+      width: 100%;
+
+      &::placeholder {
+        color: $white;
+      }
+    }
+
+    .item {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 100%;
+      padding-right: 47px;
+      padding-top: 3px;
+    }
+
+    &.dropdown-active {
+      ~ .ts-chevron {
+        transform: scaleY(-1);
+        background-color: transparent;
+      }
+
+      .ts-control {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-color: $white !important;
+      }
+
+      .ts-dropdown,
+      .ts-dropdown-content {
+        border-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    &.has-items {
+      & + .form-field__label {
+        display: none;
+      }
+    }
+
+    &.single {
+      .ts-control {
+        background-image: none;
+        box-shadow: none;
+        border-color: $white-20;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      &.input-active .ts-control {
+        z-index: 1090;
+      }
+    }
+
+    &.input {
+      &-hidden {
+        .ts-control > input {
+          position: initial;
+        }
+      }
+
+      &-active {
+        .ts-control {
+          cursor: pointer;
+          background: transparent;
+        }
+
+        &.single {
+          .ts-control {
+            cursor: pointer;
+            background: $white;
+          }
+        }
+      }
+    }
+  }
+
+  &-chevron {
+    z-index: 1;
+    pointer-events: none;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    color: $white;
+    z-index: 1091;
+
+    & + .form-field__label {
+      z-index: 1091;
+    }
+  }
+
+  &-dropdown {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    margin-top: 0;
+    height: auto;
+    max-height: 160px;
+    border: none;
+    border-radius: 0;
+    background: $white;
+    box-shadow: none;
+    padding: 6px 0 6px 6px;
+    z-index: 1000;
+    overflow: hidden;
+
+    .no-results {
+      padding: 16px;
+      @include font(16px, 21px, 300);
+      color: $white-60;
+    }
+
+    &-content {
+      display: grid;
+      gap: 1px;
+      max-height: 160px;
+      border: none;
+      border-radius: 0;
+      background: $white;
+      padding-right: 6px;
+      padding-bottom: 12px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      @include scrollbar(4px);
+    }
+
+    .option {
+      display: inline-block;
+      min-height: 46px;
+      padding: 12px 8px;
+      @include font(16px, 21px);
+      color: $white;
+      background-color: transparent;
+      box-sizing: border-box;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 100%;
+      border-radius: 0;
+      cursor: pointer;
+
+      &.active {
+        background-color: $white-15;
+      }
+
+      &.selected {
+        color: $white;
+        background-color: $white-30;
+      }
+    }
+  }
+
+  @media (min-width: $md) {
+    &-wrapper {
+      &.dropdown-active {
+        .ts-control {
+          border-top-right-radius: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+.tomselected {
+  display: none;
+}

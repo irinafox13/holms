@@ -1,0 +1,19 @@
+<div class="form-field js-form-field {{content.disabled}}">
+    <input
+        name="{{content.name}}"
+        type="text"
+        {{#if content.required}}required{{/if}}
+        pattern="^[a-zA-Zа-яА-я\-\s]+$"
+        class="form-field__input js-form-field-input"
+        {{content.disabled}}
+        value="{{content.value}}"
+        {{#if content.minlength}}minlength="{{content.minlength}}"{{/if}}
+        {{#if content.maxlength}}maxlength="{{content.maxlength}}"{{/if}}
+    >
+    <label class="form-field__label">
+        {{content.title}}
+    </label>
+    <div class="form-field__caption form-field__caption--error">
+        {{content.error}}
+    </div>
+</div>

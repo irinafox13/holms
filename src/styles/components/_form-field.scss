@@ -1,0 +1,451 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+$form-field-icon-top: 16px;
+$form-field-icon-right: 16px;
+$form-field-icon-width: 24px;
+$form-field-icon-height: 24px;
+
+.form-field {
+  position: relative;
+  $container: &;
+
+  @mixin filled-label-styles() {
+    color: $white;
+    top: 9px;
+    @include font(12px, 16px, 300);
+  }
+
+  @mixin filled-input-styles() {
+    padding: 26px 16px 9px 16px;
+    color: inherit;
+  }
+
+  @mixin filled-textarea-label-styles() {
+    height: 25px;
+    top: 1px;
+    background-color: $white;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &.filled {
+    #{$container} {
+      &__input {
+        @include filled-input-styles();
+
+        &--small {
+          padding-left: 12px;
+
+          ~ #{$container} {
+            &__label {
+              top: 7px;
+            }
+          }
+        }
+      }
+
+      &__textarea + label {
+        @include filled-textarea-label-styles();
+      }
+
+      &__label {
+        @include filled-label-styles();
+      }
+
+      &__icon {
+        &--show-filed {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    #{$container} {
+      &__input {
+        // background-color: $backgroundTertiary;
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+  }
+
+  &.error {
+    position: relative;
+
+    #{$container} {
+      &__caption {
+        display: block;
+        color: red;
+      }
+
+      &__input {
+        border-color: red;
+      }
+    }
+  }
+
+  &.hidden-error-icon {
+    #{$container} {
+      &__caption {
+        &--error::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &--textarea {
+    overflow: hidden;
+
+    textarea {
+      min-height: 106px;
+    }
+  }
+
+  &__caption {
+    position: relative;
+    text-align: left;
+    color: $white;
+    @include font(13px, 18px);
+    margin-top: 8px;
+    padding-left: 20px;
+
+    &::after {
+      content: '';
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      mask-image: url('#{$imgPath}svg/info-circle.svg');
+      mask-size: 16px 16px;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      // background-color: $iconQuaternary;
+      position: absolute;
+      left: 0;
+      top: 1px;
+    }
+
+    &--error {
+      // color: $strokeNegative;
+      display: none;
+
+      &::after {
+        // background-color: $strokeNegative;
+      }
+    }
+  }
+
+  &-file {
+    &__input {
+      display: none;
+
+      &-caption {
+        span {
+          // color: $textQuaternary;
+        }
+      }
+    }
+
+    #{$container} {
+      &__input {
+        height: auto;
+        min-height: 56px;
+      }
+    }
+
+    &.filled {
+      #{$container} {
+        &__icon {
+          &--delete {
+            display: block;
+          }
+
+          &--attach {
+            display: none;
+          }
+        }
+      }
+    }
+
+    #{$container} {
+      &__input {
+        border-style: dashed;
+        cursor: pointer;
+      }
+
+      &__icon {
+        // color: $iconQuaternary;
+
+        &--delete {
+          display: none;
+          position: absolute;
+          right: 16px;
+          width: 24px;
+          height: 24px;
+          top: 16px;
+          z-index: 2000;
+          pointer-events: all;
+          cursor: pointer;
+          @include css_anim();
+
+          &:hover {
+            // color: $iconPrimary;
+          }
+        }
+      }
+
+      &__label {
+        color: $white-60;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: calc(100% - 64px);
+
+        span {
+          // color: $textQuaternary;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    z-index: 1;
+    pointer-events: none;
+    position: absolute;
+    top: $form-field-icon-top;
+    right: $form-field-icon-right;
+    width: $form-field-icon-width;
+    height: $form-field-icon-height;
+    display: inline-block;
+    color: $white;
+
+    &--clickable {
+      pointer-events: unset;
+      cursor: pointer;
+    }
+
+    &--show-filed {
+      display: none;
+    }
+  }
+
+  &__label {
+    z-index: 1;
+    pointer-events: none;
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: calc(100% - 32px);
+    overflow: hidden;
+    @include font(16px, 22px);
+    color: $white-60;
+    @include css_anim();
+  }
+
+  &__input {
+    width: 100%;
+    display: block;
+    height: 56px;
+    padding: 17px 16px;
+    background-color: transparent;
+    border: 1px solid $white-20;
+    color: $white;
+    @include font(16px, 21px, 300);
+    position: relative;
+    transition:
+      padding 0.2s ease-out,
+      color 0.2s ease-out,
+      background-color 0.2s ease-out,
+      border 0.2s ease-out;
+
+    &[type='text']:read-only {
+      pointer-events: none;
+    }
+
+    &:hover {
+      // border-color: $strokePrimary;
+    }
+
+    &::placeholder {
+      color: $white-20;
+      opacity: 1;
+    }
+
+    &:focus {
+      // border-color: $strokeAccent !important;
+      @include filled-input-styles();
+
+      ~ #{$container} {
+        &__label {
+          @include filled-label-styles();
+        }
+      }
+    }
+
+    &:required:valid,
+    &:auto-fill,
+    &:-internal-autofill-selected {
+      // border-color: $strokeAccent !important;
+      @include filled-input-styles();
+
+      ~ #{$container} {
+        &__label {
+          @include filled-label-styles();
+        }
+      }
+    }
+
+    &--small {
+      height: 48px;
+      padding-left: 12px;
+
+      ~ #{$container} {
+        &__label {
+          top: 14px;
+          left: 12px;
+        }
+      }
+
+      &:focus {
+        padding-left: 12px;
+
+        ~ #{$container} {
+          &__label {
+            top: 7px;
+          }
+        }
+      }
+    }
+
+    &[type='date'] {
+      @include filled-input-styles();
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+      }
+
+      ~ #{$container} {
+        &__label {
+          @include filled-label-styles();
+        }
+      }
+    }
+
+    &[type='password']::-ms-reveal,
+    &[type='password']::-ms-clear {
+      display: none;
+    }
+
+    &::-webkit-strong-password-autofill-button {
+      display: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: $white;
+      transition: background-color 5000s ease-in-out 0s;
+      box-shadow: inset 0 0 32px 32px $dark;
+    }
+
+    &:-webkit-autofill {
+      @include filled-input-styles();
+
+      ~ #{$container} {
+        &__label {
+          @include filled-label-styles();
+        }
+      }
+    }
+  }
+
+  &__textarea {
+    min-height: 120px;
+    resize: none;
+    @include scrollbar(4px);
+
+    &:focus {
+      ~ #{$container} {
+        &__label {
+          @include filled-textarea-label-styles();
+        }
+      }
+    }
+  }
+  &__checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__checkbox-default {
+    appearance: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 6px;
+    border: 1px solid $dark;
+    background-color: $white;
+    cursor: pointer;
+
+    &:checked {
+      accent-color: $white;
+      border-color: $white;
+      background-color: #456fd2;
+      background-image: url('#{$imgPath}svg/check.svg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &:hover {
+        // accent-color: $backgroundAccentHover;
+        // border-color: $backgroundAccentHover;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+
+  &.filled {
+    #{$container} {
+      &__input {
+        color: $white;
+      }
+    }
+  }
+
+  input::-webkit-contacts-auto-fill-button,
+  input::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    height: 0;
+    width: 0;
+    margin: 0;
+  }
+
+  input:focus::-webkit-textfield-decoration-container {
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+  }
+
+  select {
+    height: 56px;
+    opacity: 0;
+  }
+}

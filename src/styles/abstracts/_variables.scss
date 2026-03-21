@@ -1,0 +1,57 @@
+@use 'sass:color';
+@use 'sass:map';
+// Точки медиа запросов
+$sm: 320px;
+$md: 768px;
+$lg: 1080px;
+$xl: 1440px;
+$xxl: 1920px;
+
+// Основные цвета
+$dark: #0c0b0a;
+$darkLight: #1a1a1a;
+$white: #ffffff;
+$gold: #f7c588;
+$darkPurple: #362e35;
+
+// Цвета с прозрачностью
+$white-05: color.scale($white, $alpha: -95%);
+$white-10: color.scale($white, $alpha: -90%);
+$white-15: color.scale($white, $alpha: -85%);
+$white-20: color.scale($white, $alpha: -80%);
+$white-30: color.scale($white, $alpha: -70%);
+$white-60: color.scale($white, $alpha: -40%);
+$darkLight-90: color.scale($darkLight, $alpha: -10%);
+
+// Отступы
+$spaces: (
+  none: 0,
+  1x: 4px,
+  2x: 8px,
+  3x: 12px,
+  4x: 16px,
+  5x: 20px,
+  6x: 24px,
+  8x: 32px,
+  10x: 40px,
+  12x: 48px,
+  14x: 56px,
+  16x: 64px,
+  20x: 80px,
+  24x: 96px,
+  28x: 112px,
+);
+
+// Тени
+$elevation-0: 0px 2px 16px -2px #6e757e14;
+$elevation-1: 0px 10px 40px -6px #6e757e29;
+$elevation-2: 0px 18px 64px -10px #6e757e3d;
+$elevation-3: 0px 26px 88px -14px rgba(110, 117, 126, 0.322);
+$menuShadow: 0px 8px 36px 0px #0000000f;
+
+// Пути
+$fontPath: '../fonts/';
+$imgPath: '../images/';
+
+// Шрифты
+$baseFontFamily: 'NTSakharov', sans-serif;

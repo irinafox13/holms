@@ -1,0 +1,49 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.tippy {
+  $tippy: &;
+
+  &-box {
+    background-color: transparent;
+    box-shadow: none;
+
+    #{$tippy}-content {
+      background: $white-20;
+      color: $white;
+    }
+
+    #{$tippy}-arrow {
+      color: $white-20;
+    }
+  }
+
+  &-content {
+    padding: 12px;
+    color: $white;
+    background-color: $white-20;
+    border-radius: 4px;
+    text-align: center;
+
+    h5 {
+      @include font(24px, 24px, 300);
+      text-transform: none;
+      margin: 0;
+
+      & + p {
+        margin-top: 8px;
+      }
+    }
+
+    p {
+      @include font(14px, 24px, 300);
+      color: $white-60;
+      margin: 0;
+    }
+  }
+
+  &-arrow {
+    color: $white;
+    background: $white;
+  }
+}

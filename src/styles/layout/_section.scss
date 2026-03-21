@@ -1,0 +1,15 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.section {
+  margin-block: 80px;
+  overflow: hidden;
+
+  &--bottom-line {
+    border-bottom: 1px solid $white-10;
+  }
+
+  @include media($lg) {
+    margin-block: 112px;
+  }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+  {{>layout/head}}
+  <body>
+    {{>layout/sprite}}
+    {{>layout/header}}
+
+    <main>
+      <div class="page-wrap">
+        <header class="page-wrap__header container">
+          <h1>{{ title }}</h1>
+        </header>
+        <div class="container">
+          <section class="elements">
+            <h2 class="elements__title">Модальное окна</h2>
+            <button type="button" class="button button--primary button--size--normal js-modal-open-button" data-modal="base">Открыть модальное окно</button>
+          </section>
+
+          <section class="elements">
+            <h2 class="elements__title">Аккордеон</h2>
+            {{#each accordions}}
+              <div class="accordion js-accordion">
+                <div class="accordion__header js-accordion-header">
+                  {{this.header}}
+                </div>
+                <div class="accordion__body js-accordion-body">
+                  <div class="accordion__inner">{{this.body}}</div>
+                </div>
+              </div>
+            {{/each}}
+          </section>
+
+          <section class="elements">
+            <h2 class="elements__title">Табы</h2>
+            {{>tabs}}
+          </section>
+
+          <section class="elements">
+            <h2 class="elements__title">Тултип</h2>
+            <span
+              class="text-tooltip js-tooltip"
+              data-title="Университет"
+              data-text="Московский финансово-юридический университет"
+              data-placement="bottom"
+            >МФЮА</span>
+          </section>
+
+          <section class="elements">
+            <h2 class="elements__title">Раскрывающийся текст</h2>
+            <div class="text-container js-text-container">
+              <p id="text" class="text">
+                  Ваш длинный текст здесь. Он может содержать много информации, и мы хотим ограничить его отображение до трех строк. После этого будет кнопка, чтобы показать весь текст.
+              </p>
+              <button type="button" id="toggleButton" class="toggle-button">...Еще</button>
+            </div>
+          </section>
+
+          <section class="elements">
+            <h2 class="elements__title">
+                Форма
+            </h2>
+            <div class="elements__block">
+              <form class="form js-ajax-form" data-url="{{routes.request}}" autocomplete="off">
+                <div class="form__wrap">
+                  <div class="form__fields">
+                    <div class="form__fields-group">
+                      <div class="form-field js-form-field">
+                        <select class="js-form-field-input">
+                          <option value="" placeholder></option>
+                          <option value="1">
+                                            Option 1
+                                        </option>
+                          <option value="2">
+                                            Option 2
+                                        </option>
+                        </select>
+                        <svg class="ts-chevron">
+                          <use href="#arrow-down"></use>
+                        </svg>
+                        <label class="form-field__label">
+                                        Выбрать значение
+                                    </label>
+                      </div>
+                      <div class="form__fields-row">
+                        {{> forms/name content=form.name }}
+                        {{> forms/name content=form.lastName }}
+                      </div>
+                      {{> forms/phone content=form.phone }}
+                      {{> forms/email content=form.email }}
+                    </div>
+                    <button type="submit" class="form__button button button--primary button--size--normal form__button--submit">
+                        Отправить
+                    </button>
+                    <div class="form__note">
+                      Продолжая, вы соглашаетесь с
+                      <a href="#">
+                          обработкой персональных данных
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    {{>layout/scripts}}
+  </body>
+</html>

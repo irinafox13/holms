@@ -1,0 +1,23 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+@keyframes fadeInTabsPane {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-block {
+  will-change: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  @media (min-width: $md) {
+    will-change: transform, opacity;
+  }
+}

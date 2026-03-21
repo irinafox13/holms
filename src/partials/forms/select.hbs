@@ -1,0 +1,12 @@
+<div class="form-field js-form-field">
+    <select class="js-form-field-input" name="{{ content.name }}">
+        <option value="" placeholder></option>
+        {{#each content.options as |option|}}
+        <option value="{{ option.value }}" {{#if option.selected}}selected{{/if}}>{{ option.label }}</option>
+        {{/each}}
+    </select>
+    <svg class="ts-chevron">
+        <use href="#arrow-down"></use>
+    </svg>
+    <label class="form-field__label">{{ content.title }}</label>
+</div>

@@ -1,0 +1,95 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+  font-family: $baseFontFamily;
+  font-style: normal;
+  margin: 0;
+  font-feature-settings:
+    'cv11' on,
+    'ordn' on;
+}
+
+h1,
+.h1 {
+  @include font(52px, 68px, 200);
+  @include letter-spacing(52px, -1);
+  text-transform: uppercase;
+}
+
+h2,
+.h2 {
+  @include font(40px, 52px, 300);
+  text-transform: uppercase;
+}
+
+h3,
+.h3 {
+  @include font(32px, 40px, 300);
+}
+
+h4,
+.h4 {
+  @include font(24px, 32px, 300);
+}
+
+.headline {
+  @include font(18px, 23px, 400);
+  @include letter-spacing(18px, 40);
+}
+
+p,
+.text {
+  @include font(16px, 21px);
+}
+
+.text-small {
+  @include font(14px, 20px, 300);
+}
+
+.text-big {
+  @include font(18px, 26px, 300);
+}
+
+.text-caption {
+  @include font(13px, 18px);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+@media (min-width: $lg) {
+  h1,
+  .h1 {
+    @include font(112px, 146px, 200);
+  }
+
+  h2,
+  .h2 {
+    @include font(56px, 73px, 300);
+  }
+
+  h3,
+  .h3 {
+    @include font(40px, 48px, 300);
+  }
+
+  .headline {
+    @include font(20px, 26px, 400);
+    @include letter-spacing(20px, 40);
+  }
+
+  .text-big {
+    @include font(20px, 28px, 300);
+  }
+}

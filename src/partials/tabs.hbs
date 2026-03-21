@@ -1,0 +1,21 @@
+<div class="tabs js-tabs js-slider-block">
+  <div class="tabs__slider keen-slider js-line-slider">
+    {{#each tabsItems }}
+    <div class="tabs__slider-tab keen-slider__slide">
+      <button
+        type="button"
+        class="button button--primary button--size--small tabs__item {{#if @first}}tabs__item--active{{/if}} js-tabs-item"
+        role="tab"
+        data-tab="{{ this.id }}"
+      >
+        {{ this.name }}
+      </button>
+    </div>
+    {{/each}}
+  </div>
+  <div class="tabs__content">
+    <div class="tabs__pane tabs__pane--active js-tabs-pane" data-tab-content="1">Текст 444554уу1</div>
+    <div class="tabs__pane js-tabs-pane" data-tab-content="2">Текст 7</div>
+    <div class="tabs__pane js-tabs-pane" data-tab-content="3">Текст 3</div>
+  </div>
+</div>

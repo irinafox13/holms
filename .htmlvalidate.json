@@ -1,0 +1,18 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "no-trailing-whitespace": "off",
+    "element-required-attributes": "warn",
+    "doctype-style": "off",
+    "attr-quotes": "off",
+    "void-style": "off",
+    "no-inline-style": [
+      "error",
+      {
+        "allowedProperties": ["background-image"]
+      }
+    ],
+    "tel-non-breaking": "off",
+    "wcag/h63": "warn"
+  }
+}

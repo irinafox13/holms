@@ -1,0 +1,54 @@
+<div data-modal-name="feedback" class="modal js-modal">
+  <button
+    type="button"
+    class="button button--action button--action--circle modal__close js-modal-close"
+    aria-label="Закрыть модальное окно"
+  >
+    <svg class="button__icon">
+      <use href="#close"></use>
+    </svg>
+    <span class="visually-hidden">Закрыть окно</span>
+  </button>
+  <div class="modal__wrap">
+    <div class="modal__dialog js-modal-dialog">
+      <div class="modal__content js-modal-content">
+        <svg class="modal__icon modal__icon--error" width="112" height="112">
+          <use href="#feedback-icon"></use>
+        </svg>
+        <h2 class="modal__title js-modal-title">Заказать звонок</h2>
+        <form class="form js-ajax-form" data-url="{{ routes.feedback }}" autocomplete="off">
+          <div class="form__wrap">
+            <div class="form__fields">
+              <div class="form__fields-group">
+                {{> forms/name content=formFeedback.name }}
+                {{> forms/phone content=formFeedback.phone }}
+                <div class="form__agreement js-form-field">
+                  <input
+                    id="{{ formFeedback.privacy.id }}"
+                    class="checkbox js-form-field-input"
+                    name="{{ formFeedback.privacy.id }}"
+                    type="checkbox"
+                    value=""
+                    required
+                  />
+                  <label for="{{ formFeedback.privacy.id }}">
+                    <span class="form__agreement-text">
+                      Нажимая кнопку «Отправить», я&nbsp;соглашаюсь с&nbsp;условиями
+                      <a href="#" target="_blank" class="link link--underline">политики конфиденциальности</a>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="form__button button button--primary button--size--normal form__button--submit"
+              >
+                Свяжитесь со мной
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

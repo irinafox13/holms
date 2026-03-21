@@ -1,0 +1,40 @@
+@use 'sass:meta';
+
+// Плагины
+@import 'normalize.css/normalize.css';
+@import 'keen-slider/keen-slider.min.css';
+@import 'tippy.js/dist/tippy.css';
+@import "tom-select/dist/css/tom-select.default.css";
+
+//Кастомизация плагинов
+@include meta.load-css('vendors/tippy');
+@include meta.load-css('vendors/tom-select');
+
+// Базовые стили
+@include meta.load-css('base/base');
+@include meta.load-css('base/container');
+@include meta.load-css('base/fonts');
+@include meta.load-css('base/typography');
+@include meta.load-css('base/display');
+
+// Стили UI-компонентов
+@include meta.load-css('components/button');
+@include meta.load-css('components/link');
+@include meta.load-css('components/form-field');
+@include meta.load-css('components/checkbox');
+@include meta.load-css('components/logo');
+
+// Стили модулей
+@include meta.load-css('modules/modal');
+@include meta.load-css('modules/tabs');
+@include meta.load-css('modules/form');
+@include meta.load-css('modules/contacts-info');
+@include meta.load-css('modules/navigation');
+
+// Стили элементов шаблона
+@include meta.load-css('layout/header');
+@include meta.load-css('layout/footer');
+@include meta.load-css('layout/section');
+
+// Стили отдельных страниц
+@include meta.load-css('pages/elements');

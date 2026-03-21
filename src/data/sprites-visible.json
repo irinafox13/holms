@@ -1,0 +1,18 @@
+{
+  "page": "sprites-visible",
+  "title": "Иконки",
+  "menu": [
+    {
+      "name": "Главная",
+      "link": "/"
+    },
+    {
+      "name": "Иконки",
+      "link": "/sprites-visible.html"
+    },
+    {
+      "name": "Компоненты",
+      "link": "/components.html"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+// Свойство display в зависимости от точки медиа-запроса
+// Пример использования: .d-sm-none .d-md-block
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+@each $dValue in (none, block, flex, inline-flex, grid, inline) {
+  .d-#{$dValue} {
+    display: $dValue !important;
+  }
+}
+
+@each $key, $media in ('': $sm, -md: $md, -lg: $lg, -xl: $xl) {
+  @media (min-width: $media) {
+    @each $dValue in (none, block, flex, inline-flex, grid, inline) {
+      .d#{$key}-#{$dValue} {
+        display: $dValue !important;
+      }
+    }
+  }
+}

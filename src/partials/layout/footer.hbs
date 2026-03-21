@@ -1,0 +1,59 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__body">
+      <div class="footer__connection">
+        {{>contacts-info dopClass="footer__contacts"}}
+        <ul class="footer__socials">
+          <li>
+            <a
+              class="button button--action"
+              href="https://vk.com/stroysoyuz_kirov"
+              target="_blank"
+              rel="nofollow"
+              aria-label="Перейти в ВКонтакте"
+            >
+              <svg width="64" height="64">
+                <use href="#vk-icon"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              class="button button--action"
+              href="https://t.me/stroysouse"
+              target="_blank"
+              rel="nofollow"
+              aria-label="Перейти в Телеграм"
+            >
+              <svg width="64" height="64">
+                <use href="#telegram-icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__separator"></div>
+      {{>navigation dopClass="footer__navigation" ariaLabel="Навигация в подвале сайта"}}
+      <div class="footer__logo-block">
+        {{>logo dopClass="footer__logo"}}
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__bottom-links">
+          <div>© 2026 ООО СЗ «Стройсоюз»</div>
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Договор оферты</a>
+          <a href="#">Проектная декларация</a>
+        </div>
+        <div class="footer__developer">
+          Разработано командой
+          <span class="footer__developer-logo">
+            <svg width="16" height="16">
+              <use href="#circle" />
+            </svg>
+            КРУГ
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

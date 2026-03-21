@@ -1,0 +1,47 @@
+{
+  "page": "main",
+  "menu": [
+    {
+      "name": "о проекте",
+      "link": "#about-project"
+    },
+    {
+      "name": "Квартиры",
+      "link": "#apartments"
+    },
+    {
+      "name": "преимущества",
+      "link": "#advantages"
+    },
+    {
+      "name": "инфраструктура",
+      "link": "#infrastructure"
+    },
+    {
+      "name": "галерея",
+      "link": "#gallery"
+    },
+    {
+      "name": "контакты",
+      "link": "#contacts"
+    }
+  ],
+  "formFeedback": {
+    "name": {
+      "name": "name",
+      "title": "Ваше имя",
+      "error": "Введите корректнное имя",
+      "minlength": 2,
+      "maxlength": 30,
+      "required": true
+    },
+    "phone": {
+      "title": "Телефон",
+      "required": true
+    },
+    "privacy": {
+      "id": "feedback_privacy"
+    }
+  },
+  "title": "Главная страница"
+}

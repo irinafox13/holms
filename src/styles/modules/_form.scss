@@ -1,0 +1,113 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.form {
+  margin-bottom: 0;
+  $form: &;
+
+  &__wrap {
+    position: relative;
+  }
+
+  &__fields {
+    position: relative;
+    z-index: 1;
+
+    &-group,
+    &-row {
+      display: grid;
+      gap: 12px;
+    }
+
+    &-group {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  &__note {
+    @include font(12px, 16px, 300);
+    text-align: center;
+    color: $white;
+
+    a {
+      border-bottom: 1px solid $white-60;
+      padding-bottom: 1px;
+      @include css_anim();
+
+      &:hover {
+        text-decoration-color: $white;
+      }
+    }
+  }
+
+  &__agreement {
+    &-text {
+      @include font(14px, 21px, 300);
+    }
+  }
+
+  &__success,
+  &__error {
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    @include css_anim();
+  }
+
+  &__error {
+    display: none;
+  }
+
+  &__success {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  &.success {
+    #{$form} {
+      &__fields {
+        opacity: 0;
+        visibility: hidden;
+
+        &--show-success {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      &__success {
+        opacity: 1;
+        visibility: visible;
+        z-index: 2;
+      }
+    }
+  }
+
+  &.error {
+    #{$form} {
+      &__fields {
+        opacity: 1;
+        visibility: visible;
+
+        &--hide-on-error {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      &__error {
+        opacity: 1;
+        visibility: visible;
+        z-index: 2;
+        display: block;
+      }
+    }
+  }
+}

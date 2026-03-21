@@ -1,0 +1,138 @@
+// Здесь необходимо расположить базовые стили. Например для тегов: html, body, h1, h2, button и т.д.
+// Служебные стили (напр. ".hidden") так же должны располагаться здесь, чтобы не создавать кашу с остальными стилями.
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  outline: none;
+  appearance: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-nbsp-mode: space;
+  -webkit-font-smoothing: antialiased;
+
+  &:hover {
+    outline: none;
+  }
+}
+
+.preload-transitions * {
+  $null-transition: none !important;
+
+  -webkit-transition: $null-transition;
+  -moz-transition: $null-transition;
+  -ms-transition: $null-transition;
+  -o-transition: $null-transition;
+  transition: $null-transition;
+}
+
+html,
+body {
+  font-family: $baseFontFamily;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  @include font(16px, 21px, 400);
+  &.prevent-scroll {
+    overflow: hidden;
+
+    &-x {
+      overflow-x: hidden;
+    }
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  min-height: 100dvh;
+  color: $white;
+  background-color: $dark;
+  overflow-x: hidden;
+  @include scrollbar(4px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  display: grid;
+  min-width: 100%;
+  flex: 1;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  @include css_anim();
+}
+
+form {
+  margin: 0;
+}
+
+button {
+  appearance: none;
+  padding: 0;
+  line-height: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+address {
+  font-style: normal;
+}
+
+svg {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+*::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}

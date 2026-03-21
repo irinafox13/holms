@@ -1,0 +1,50 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.elements {
+  display: grid;
+  justify-items: flex-start;
+  gap: 12px;
+  padding: 24px;
+  $elem: &;
+
+  & + #{$elem} {
+    margin-top: 24px;
+  }
+
+  &--first {
+    margin-top: 24px;
+  }
+
+  &:last-child {
+    margin-bottom: 48px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  &__block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+
+    & + #{$elem}__block {
+      margin-top: 12px;
+    }
+  }
+
+  &__sprite {
+    color: $dark;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

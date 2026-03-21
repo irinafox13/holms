@@ -1,0 +1,23 @@
+<div data-modal-name="error" class="modal modal--error js-modal">
+  <button
+    type="button"
+    class="button button--action button--action--circle modal__close js-modal-close"
+    aria-label="Закрыть модальное окно"
+  >
+    <svg class="button__icon">
+      <use href="#close"></use>
+    </svg>
+    <span class="visually-hidden">Закрыть окно</span>
+  </button>
+  <div class="modal__wrap">
+    <div class="modal__dialog js-modal-dialog">
+      <div class="modal__content js-modal-content">
+        <svg class="modal__icon modal__icon--error" width="64" height="64">
+          <use href="#cancel"></use>
+        </svg>
+        <h2 class="title-large-5 modal__title js-modal-title">Произошла ошибка</h2>
+        <p class="modal__subtitle modal__subtitle--no-mb js-modal-error">Попробуйте еще раз</p>
+      </div>
+    </div>
+  </div>
+</div>

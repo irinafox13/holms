@@ -1,0 +1,132 @@
+@use './variables' as *;
+
+// Медиа запросы. Использование: @include media($md) {styles}
+@mixin media($breakpoint) {
+  @if $breakpoint == all {
+    @media screen {
+      @content;
+    }
+  } @else if $breakpoint != all {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// Подключение шрифтов
+// Пример использования: @include import-font('Font', 'Font-Regular', 'Font Regular', normal, normal);
+@mixin import-font($name, $file, $file2, $weight, $style) {
+  @font-face {
+    font-family: '#{$name}';
+    src: url('#{$fontPath}#{$file}.eot');
+    src:
+      local('#{$file2}'),
+      local('#{$file}'),
+      url('#{$fontPath}#{$file}.eot?#iefix') format('embedded-opentype'),
+      url('#{$fontPath}#{$file}.woff2') format('woff2'),
+      url('#{$fontPath}#{$file}.woff') format('woff'),
+      url('#{$fontPath}#{$file}.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+// Анимация по-умолчанию
+@mixin css_anim($time: 0.2s, $item: all, $style: ease) {
+  transition: $item $style $time;
+
+  &:hover {
+    transition: $item $style $time;
+  }
+}
+
+// Создание пустого блока
+@mixin empty-block($width, $height: $width, $display: block) {
+  content: '';
+  display: $display;
+  width: $width;
+  height: $height;
+}
+
+// Необходимые стили для картинок на заднем фоне
+@mixin img-back($size: cover, $posX: center, $posY: center, $repeat: no-repeat) {
+  background-size: $size;
+  background-position-x: $posX;
+  background-position-y: $posY;
+  background-repeat: $repeat;
+}
+
+// Указание размера, жирности и межстрочного интервала шрифта
+@mixin font($size, $line-height, $weight: 400) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
+}
+
+// Миксин для сетки CSS Grid с определенным числом колонок и шага
+@mixin grid-columns($columns: 3, $gap: 15px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Позволяет «обнулять» список
+@mixin reset-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Центрирование блока по горизонтали и вертикали (Flexbox)
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Стилизация скролл-бара
+@mixin scrollbar($width) {
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+
+  &::-webkit-scrollbar {
+    width: $width;
+    background-color: $dark;
+    border: none;
+    border-radius: 32px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    margin: 10px 0;
+    width: $width;
+    background-color: $white-20;
+    border-radius: 32px;
+  }
+}
+
+// Обрезаем текст по указанному количеству строк с добавлением троеточия в конце
+@mixin line-clamp($number-lines) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $number-lines;
+  line-clamp: $number-lines;
+  -webkit-box-orient: vertical;
+}
+
+// Миксин для плавного появления и скрытия (opacity и visibility)
+@mixin fade($duration: 0.4s, $ease: ease-in-out) {
+  transition:
+    opacity $duration $ease,
+    visibility $duration $ease;
+  opacity: 0;
+  visibility: hidden;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Высчитать интервал между буквами
+@mixin letter-spacing($font-size, $percent-spacing) {
+  letter-spacing: calc($font-size * ($percent-spacing / 100));
+}

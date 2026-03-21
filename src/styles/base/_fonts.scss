@@ -1,0 +1,5 @@
+@use './../abstracts/mixins' as *;
+
+@include import-font(NTSakharov, NTSakharov-ExtraLight, NTSakharov ExtraLight, 200, normal);
+@include import-font(NTSakharov, NTSakharov-Light, NTSakharov Light, 300, normal);
+@include import-font(NTSakharov, NTSakharov-Regular, NTSakharov Regular, 400, normal);

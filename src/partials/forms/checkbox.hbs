@@ -1,0 +1,12 @@
+<div class="form-field form-field__checkbox-container js-form-field {{ content.disabled }}">
+    <input 
+        type="checkbox" 
+        class="form-field__checkbox-default js-form-field-input"
+        {{ content.disabled }}
+        id="{{ content.name }}_{{ content.id }}" 
+        name="{{ content.name }}"
+        {{ content.checked }}
+        {{#if content.required}}required{{/if}}
+    >
+    <label for="{{ content.name }}_{{ content.id }}">{{ content.title }}</label>
+</div>

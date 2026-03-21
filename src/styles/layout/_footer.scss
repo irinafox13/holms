@@ -1,0 +1,139 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.footer {
+  padding-block: 64px 32px;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__connection {
+    display: grid;
+    gap: 32px;
+  }
+
+  &__contacts {
+    display: grid;
+    gap: 24px;
+    padding-block: 0;
+
+    .contacts-info {
+      &__link {
+        @include font(32px, 42px, 300);
+      }
+
+      &__text {
+        @include font(16px, 21px, 400);
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__separator {
+    width: 100%;
+    height: 1px;
+    background-color: $white-10;
+    margin: 0;
+  }
+
+  &__navigation {
+    padding-block: 0;
+  }
+
+  &__logo-block {
+    width: 100%;
+  }
+
+  &__logo {
+    width: 100%;
+    height: auto;
+  }
+
+  &__bottom {
+    display: grid;
+    gap: 16px;
+    @include font(14px, 24px, 300);
+
+    &-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+
+      > * {
+        color: $white-60;
+      }
+
+      a {
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &__developer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $white-30;
+
+    &-logo {
+      height: 24px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  @include media($lg) {
+    &__body {
+      gap: 64px;
+    }
+
+    &__connection {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    &__contacts {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+
+      .contacts-info {
+        &__link {
+          @include font(40px, 52px, 300);
+        }
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &-links {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+  }
+}
