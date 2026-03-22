@@ -1,11 +1,11 @@
-<section class="section gallery tabs js-fade-in-block js-tabs" id="gallery">
+<section class="section apartments tabs js-fade-in-block js-tabs" id="apartments">
   <div class="container">
     <header class="section__header">
-      <h2>Галерея</h2>
-      {{>tabs-slider content=gallery.tabs}}
+      <h2>Квартиры</h2>
+      {{>tabs-slider content=apartments.tabs}}
     </header>
     <div class="tabs__content">
-      {{#each gallery.panes }}
+      {{#each apartments.panes }}
       <div class="tabs__pane {{#if @first}}tabs__pane--active{{/if}} js-tabs-pane gallery__block-slider js-gallery-slider-block" data-tab-content="{{ this.id }}">
         <div class="gallery__slider swiper ">
           <div class="swiper-wrapper">

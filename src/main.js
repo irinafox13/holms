@@ -7,6 +7,7 @@ window.app.run();
 require('fslightbox');
 import '@main/components/burger-menu';
 import '@main/components/scroll-header';
+import '@main/components/scroll-to-top';
 import '@main/animations/';
 
 // Ленивая загрузка компонентов при прокрутке для лендинга с 12 секциями
