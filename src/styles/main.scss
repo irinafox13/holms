@@ -7,9 +7,7 @@
 @import "tom-select/dist/css/tom-select.default.css";
 
 //Кастомизация плагинов
-@include meta.load-css('vendors/tippy');
-@include meta.load-css('vendors/tom-select');
-@include meta.load-css('vendors/swiper');
+@include meta.load-css('vendors/index');
 
 // Базовые стили
 @include meta.load-css('base/base');

@@ -24,12 +24,19 @@
       height: 100%;
       object-fit: cover;
     }
+
+    &:hover {
+      button {
+        background-color: $white-30;
+      }
+    }
   }
 
   &__open-gallery-btn {
     position: absolute;
     top: 16px;
     right: 16px;
+    color: $white;
   }
 
   &__content {

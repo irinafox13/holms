@@ -1,0 +1,86 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.fslightbox {
+  &-container {
+    background: $darkLight-90 !important;
+  }
+
+  &-nav {
+    top: 16px !important;
+  }
+
+  &-toolbar {
+    height: 64px !important;
+    column-gap: 8px;
+    right: 16px !important;
+    background: none !important;
+
+    &-button {
+      width: 64px !important;
+      background: $white-15 !important;
+      backdrop-filter: blur(32px) !important;
+      border-radius: 50%;
+
+      @include css_anim();
+
+      &:hover {
+        background: $white-30 !important;
+      }
+    }
+  }
+
+  &-svgp {
+    fill: $white !important;
+  }
+
+  &-slash {
+    background: $white !important;
+    margin: 0 8px !important;
+    height: 14px !important;
+    transform: rotate(15deg) translateY(-1px) !important;
+  }
+
+  &-slide-number-container {
+    color: $white !important;
+    left: space(6x);
+    font-family: $baseFontFamily;
+  }
+
+  &-svg-path {
+    fill: $white !important;
+  }
+
+  &-slide-btn {
+    width: 64px !important;
+    background: $white-15 !important;
+    backdrop-filter: blur(32px) !important;
+    border-radius: 50%;
+    @include css_anim();
+
+    &:hover {
+      background: $white-30 !important;
+    }
+  }
+
+  @include media($lg) {
+    &-slide-btn {
+      width: 64px;
+      height: 64px;
+    }
+
+    &-slide-btn-container {
+      &-previous {
+        padding-left: 16px !important;
+      }
+
+      &.fslightbox-slide-btn-container-next {
+        padding-right: 16px !important;
+      }
+    }
+  }
+}
+
+.fslightboxsn {
+  margin-top: 0 !important;
+}
