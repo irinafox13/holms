@@ -91,7 +91,7 @@
   &__logo {
     width: 248px;
     height: 40px;
-    @include css_anim();
+    transition: all 0.6s cubic-bezier(0.2, 0.85, 0.4, 1);
   }
 
   &__contacts {

@@ -35,6 +35,7 @@ h2,
 h3,
 .h3 {
   @include font(32px, 40px, 300);
+  text-transform: uppercase;
 }
 
 h4,

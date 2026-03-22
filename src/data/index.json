@@ -43,7 +43,72 @@
       "id": "feedback_privacy"
     }
   },
-  "title": "Главная страница",
+  "advantages": [
+    {
+      "images": {
+        "1x": "/images/advantages/1.png",
+        "2x": "/images/advantages/1@2x.png"
+      },
+      "name": "Приватная территория",
+      "text": "Закрытое и спокойное пространство для жителей без лишнего городского шума"
+    },
+    {
+      "images": {
+        "1x": "/images/advantages/2.png",
+        "2x": "/images/advantages/2@2x.png"
+      },
+      "name": "Подземный паркинг",
+      "text": "Машина всегда в безопасности, без перегруженного двора и поиска места"
+    },
+    {
+      "images": {
+        "1x": "/images/advantages/3.png",
+        "2x": "/images/advantages/3@2x.png"
+      },
+      "name": "Авторская архитектура",
+      "text": "Выразительный современный фасад и продуманный визуальный образ ЖК"
+    },
+    {
+      "images": {
+        "1x": "/images/advantages/4.png",
+        "2x": "/images/advantages/4@2x.png"
+      },
+      "name": "Исторический тихий центр",
+      "text": "Удобное расположение в развитом районе рядом с городской инфраструктурой."
+    },
+    {
+      "images": {
+        "1x": "/images/advantages/1.png",
+        "2x": "/images/advantages/1@2x.png"
+      },
+      "name": "Приватная территория",
+      "text": "Закрытое и спокойное пространство для жителей без лишнего городского шума"
+    },
+    {
+      "images": {
+        "1x": "/images/advantages/2.png",
+        "2x": "/images/advantages/2@2x.png"
+      },
+      "name": "Подземный паркинг",
+      "text": "Машина всегда в безопасности, без перегруженного двора и поиска места"
+    },
+    {
+      "images": {
+        "1x": "/images/advantages/3.png",
+        "2x": "/images/advantages/3@2x.png"
+      },
+      "name": "Авторская архитектура",
+      "text": "Выразительный современный фасад и продуманный визуальный образ ЖК"
+    },
+    {
+      "images": {
+        "1x": "/images/advantages/4.png",
+        "2x": "/images/advantages/4@2x.png"
+      },
+      "name": "Исторический тихий центр",
+      "text": "Удобное расположение в развитом районе рядом с городской инфраструктурой."
+    }
+  ],
   "purchaseOptions": [
     {
       "icon": "/images/purchase/discount-percent-square.svg",

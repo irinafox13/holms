@@ -118,6 +118,7 @@
     width: 64px;
     height: 64px;
     background-color: $white-10;
+    backdrop-filter: blur(32px);
 
     &--circle {
       border-radius: 50%;

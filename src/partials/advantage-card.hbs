@@ -1,0 +1,12 @@
+<div class="advantage-card {{ dopClass }}">
+  <picture class="advantage-card__background">
+    <source srcset="{{content.images.1x}}, {{content.images.2x}} 2x" />
+    <img class="advantage-card__img" src="{{content.images.1x}}" alt="{{ content.name }}" />
+  </picture>
+  <div class="advantage-card__content">
+    <h3 class="h4 advantage-card__title">{{ content.name }}</h3>
+    <div class="advantage-card__text">
+      <p>{{ content.text }}</p>
+    </div>
+  </div>
+</div>

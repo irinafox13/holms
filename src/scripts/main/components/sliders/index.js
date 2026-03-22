@@ -1,1 +1,2 @@
-import './line-slider'
+import './tabs-slider';
+import './advantages-slider';

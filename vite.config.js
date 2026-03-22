@@ -166,7 +166,6 @@ const buildConfig = {
         // Разделяем vendor зависимости на логические группы
         'vendor-ui': ['tippy.js', 'tom-select'],
         'vendor-utils': ['axios'],
-        'vendor-form': ['keen-slider'],
       },
       chunkFileNames: isProd ? 'assets/[name]-[hash].js' : 'assets/[name].js',
       entryFileNames: isProd ? 'assets/[name]-[hash].js' : 'assets/[name].js',
@@ -240,7 +239,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['axios', 'tippy.js', 'tom-select', 'keen-slider'],
+    include: ['axios', 'tippy.js', 'tom-select'],
     exclude: ['@std/app'],
   },
   define: {

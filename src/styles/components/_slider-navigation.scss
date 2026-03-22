@@ -1,0 +1,32 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.slider-navigation {
+  display: none;
+
+  @include media($lg) {
+    position: absolute;
+    left: -32px;
+    right: -32px;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 2;
+
+    &__button {
+      pointer-events: all;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      &--prev {
+        scale: -1;
+      }
+    }
+  }
+}

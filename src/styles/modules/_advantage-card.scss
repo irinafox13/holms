@@ -1,0 +1,57 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.advantage-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  padding: 8px;
+  user-select: none;
+  $card: &;
+
+  &__background {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    align-self: flex-end;
+    background-color: $darkGray-25;
+    backdrop-filter: blur(64px);
+    padding: 24px;
+    margin-top: auto;
+    overflow: hidden;
+    @include css_anim();
+  }
+
+  &__text {
+    color: $white-60;
+    margin: 0;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+      max-height 0.9s cubic-bezier(0.2, 0.85, 0.4, 1);
+
+    p {
+      @include font(14px, 24px, 300);
+      margin: 0;
+      padding-top: 12px;
+    }
+  }
+
+  @include media($lg) {
+  }
+}

@@ -1,0 +1,19 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.swiper {
+  &-wrapper {
+    height: auto;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  &-button {
+    &-disabled {
+      &.button:disabled,
+      .button[disabled] {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}
