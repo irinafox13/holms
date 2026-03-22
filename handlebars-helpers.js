@@ -1,30 +1,33 @@
+import {generateResponsivePicture} from './src/scripts/main/helpers/picture-helper.js';
+
 export const helpers = {
   upperCase: (str) => str.toUpperCase(),
   getLengthArray: (arr) => arr.length,
   ifCond: (v1, operator, v2, options) => {
     switch (operator) {
-    case '==':
-      return (v1 == v2) ? options.fn(this) : options.inverse(this)
-    case '===':
-      return (v1 === v2) ? options.fn(this) : options.inverse(this)
-    case '!=':
-      return (v1 != v2) ? options.fn(this) : options.inverse(this)
-    case '!==':
-      return (v1 !== v2) ? options.fn(this) : options.inverse(this)
-    case '<':
-      return (v1 < v2) ? options.fn(this) : options.inverse(this)
-    case '<=':
-      return (v1 <= v2) ? options.fn(this) : options.inverse(this)
-    case '>':
-      return (v1 > v2) ? options.fn(this) : options.inverse(this)
-    case '>=':
-      return (v1 >= v2) ? options.fn(this) : options.inverse(this)
-    case '&&':
-      return (v1 && v2) ? options.fn(this) : options.inverse(this)
-    case '||':
-      return (v1 || v2) ? options.fn(this) : options.inverse(this)
-    default:
-      return options.inverse(this)
+      case '==':
+        return v1 == v2 ? options.fn(this) : options.inverse(this);
+      case '===':
+        return v1 === v2 ? options.fn(this) : options.inverse(this);
+      case '!=':
+        return v1 != v2 ? options.fn(this) : options.inverse(this);
+      case '!==':
+        return v1 !== v2 ? options.fn(this) : options.inverse(this);
+      case '<':
+        return v1 < v2 ? options.fn(this) : options.inverse(this);
+      case '<=':
+        return v1 <= v2 ? options.fn(this) : options.inverse(this);
+      case '>':
+        return v1 > v2 ? options.fn(this) : options.inverse(this);
+      case '>=':
+        return v1 >= v2 ? options.fn(this) : options.inverse(this);
+      case '&&':
+        return v1 && v2 ? options.fn(this) : options.inverse(this);
+      case '||':
+        return v1 || v2 ? options.fn(this) : options.inverse(this);
+      default:
+        return options.inverse(this);
     }
   },
-}
+  responsivePicture: generateResponsivePicture,
+};

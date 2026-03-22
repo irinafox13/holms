@@ -6,6 +6,10 @@
     margin-bottom: 16px;
   }
 
+  &__header {
+    margin-bottom: 32px;
+  }
+
   &__description {
     color: $white-40;
     @include font(18px, 26px, 300);
@@ -28,6 +32,10 @@
   }
 
   @include media($lg) {
+    &__header {
+      margin-bottom: 64px;
+    }
+    
     &__list {
       gap: 40px;
     }

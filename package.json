@@ -8,12 +8,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run convert-webp",
     "preview": "vite preview",
     "lint": "eslint src/ --fix",
     "format": "prettier --write .",
     "html-validate": "html-validate ./dist",
     "check": "npm run build && npm run lint && npm run html-validate",
+    "convert-webp": "node scripts/convert-webp.js",
     "prepare": "husky"
   },
   "husky": {
@@ -63,6 +64,7 @@
     "html-webpack-plugin": "^5.6.6",
     "husky": "^9.1.7",
     "msw": "^2.12.10",
+    "sharp": "^0.34.5",
     "typescript": "^5.9.3",
     "vite": "^6.2.1",
     "vite-bundle-visualizer": "^1.2.1",
@@ -71,6 +73,7 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-handlebars": "^2.0.0",
     "vite-plugin-image-optimizer": "^2.0.3",
+    "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-static-copy": "^2.3.2",
     "yarn": "^1.22.22"
   },

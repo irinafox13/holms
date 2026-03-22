@@ -37,7 +37,7 @@
 @include meta.load-css('modules/payment-method-card');
 @include meta.load-css('modules/advantage-card');
 @include meta.load-css('modules/advantages');
-
+@include meta.load-css('modules/about-project');
 
 // Стили элементов шаблона
 @include meta.load-css('layout/header');

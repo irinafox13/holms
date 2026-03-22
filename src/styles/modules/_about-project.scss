@@ -1,0 +1,147 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.about-project {
+  &__wrapper {
+    display: grid;
+    gap: 40px;
+  }
+
+  &__image-wrap {
+    position: relative;
+    overflow: hidden;
+
+    picture {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      aspect-ratio: 358 / 400;
+      max-height: 500px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__open-gallery-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+
+  &__content {
+    display: grid;
+    gap: 32px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__brief-info {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    &-col {
+      display: grid;
+    }
+
+    &-title {
+      height: 48px;
+      text-transform: inherit;
+      border-bottom: 1px solid $white-20;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+    &-text {
+      @include font(14px, 21px, 300);
+    }
+  }
+
+  &__text {
+    p {
+      margin: 0;
+
+      & + p {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 16px;
+    &-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: $white-30;
+      }
+    }
+  }
+
+  &__btn {
+    width: 100%;
+  }
+
+  @include media($lg) {
+    &__wrapper {
+      grid-template-columns: 415px 1fr;
+      column-gap: 40px;
+    }
+
+    &__content {
+      gap: 48px;
+      justify-items: flex-start;
+    }
+
+    &__image-wrap {
+      picture {
+        aspect-ratio: unset;
+        width: 100%;
+        height: 519px;
+        max-height: none;
+      }
+    }
+
+    &__brief-info {
+      &-title {
+        height: 60px;
+      }
+    }
+
+    &__list {
+      gap: 16px;
+
+      &-item {
+        gap: 16px;
+      }
+    }
+
+    &__btn {
+      width: auto;
+    }
+  }
+
+  @include media($xl) {
+    &__wrapper {
+      grid-template-columns: 523px 1fr;
+      column-gap: 153px;
+    }
+
+    &__image-wrap {
+      picture {
+        height: 100%;
+      }
+    }
+  }
+}
