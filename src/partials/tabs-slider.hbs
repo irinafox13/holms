@@ -1,0 +1,16 @@
+<div class="tabs__slider swiper js-swiper-tabs">
+  <div class="swiper-wrapper">
+    {{#each content }}
+    <div class="tabs__slider-tab swiper-slide">
+      <button
+        type="button"
+        class="button button--outline button--size--small tabs__item {{#if @first}}tabs__item--active{{/if}} js-tabs-item"
+        role="tab"
+        data-tab="{{ this.id }}"
+      >
+        {{ this.name }}
+      </button>
+    </div>
+    {{/each}}
+  </div>
+</div>

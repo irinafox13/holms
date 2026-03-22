@@ -27,6 +27,11 @@
     padding-block: 112px;
 
     &__header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 64px;
       margin-bottom: 64px;
     }
   }

@@ -1,0 +1,51 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.gallery-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &__figure {
+    display: block;
+    height: 100%;
+    margin: 0;
+
+    picture {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 12px;
+    background-color: $white-10;
+    @include letter-spacing(16px, 3);
+    backdrop-filter: blur(32px);
+    text-transform: uppercase;
+  }
+
+  &__open-gallery-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: $white;
+  }
+
+  @include media($lg) {
+    &__caption {
+      padding: 17.5px 16px;
+    }
+  }
+}

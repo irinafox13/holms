@@ -126,6 +126,11 @@
         }
       }
 
+      &__wrapper {
+        max-height: 90dvh;
+        overflow-y: auto;
+      }
+
       &__navigation,
       &__contacts {
         display: flex;

@@ -11,19 +11,15 @@
   overflow: hidden;
 
   &__slider {
-    display: none;
-    overflow: hidden;
-
-    &.initialized {
-      display: flex;
-    }
+    width: 100%;
+    overflow: visible;
 
     &-tab {
       width: auto !important;
       flex-shrink: 0;
 
       &:not(:last-child) {
-        padding-right: 12px;
+        margin-right: 8px;
       }
     }
   }
@@ -32,6 +28,11 @@
     width: 100%;
     text-decoration: none;
     @include css_anim();
+
+    &--active {
+      background-color: $white;
+      color: $dark;
+    }
   }
 
   &__nav {
@@ -49,7 +50,14 @@
 
     &--active {
       display: block;
-      animation: fadeInTabsPane 0.65s ease forwards;
+      animation: fadeInTabsPane 0.7s ease forwards;
+    }
+  }
+
+  @include media($lg) {
+    &__slider {
+      width: fit-content;
+      margin: 0;
     }
   }
 }

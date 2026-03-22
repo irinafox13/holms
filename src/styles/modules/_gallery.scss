@@ -1,0 +1,67 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.gallery {
+  &__block-slider {
+    position: relative;
+  }
+
+  &__slider {
+    height: 350px;
+    overflow: visible;
+
+    &:not(.swiper-initialized) {
+      .swiper-slide {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  &__item {
+    max-height: 350px;
+    width: 298px;
+  }
+
+  @include media($md) {
+    &__slider {
+      height: 600px;
+      &:not(.swiper-initialized) {
+        .swiper-slide {
+          width: 100%;
+        }
+      }
+    }
+
+    &__item {
+      width: auto;
+      max-height: 600px;
+      transition:
+              opacity 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+              max-height 0.7s cubic-bezier(0.2, 0.85, 0.4, 1),
+              margin 0.7s cubic-bezier(0.2, 0.85, 0.4, 1);
+
+      &:not(.swiper-slide-visible) {
+        max-height: 460px;
+        margin-block: auto;
+        opacity: 0.3;
+        transition:
+              opacity 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+              max-height 1.3s cubic-bezier(0.2, 0.85, 0.4, 1), margin 0.7s cubic-bezier(0.2, 0.85, 0.4, 1);
+      }
+    }
+  }
+
+  @include media($xl) {
+    &__slider {
+      height: 700px;
+    }
+
+    &__item {
+      max-height: 700px;
+
+      &:not(.swiper-slide-visible) {
+        max-height: 572px;
+      }
+    }
+  }
+}

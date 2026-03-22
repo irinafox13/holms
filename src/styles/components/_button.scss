@@ -130,14 +130,14 @@
     }
 
     &:hover {
-      //   background-color: $backgroundTertiary;
+      background-color: $white-30;
     }
 
     &:focus,
     &:active,
     &.focus,
     &.active {
-      //   background-color: $backgroundSecondary;
+        background-color: $white-40;
     }
   }
 }

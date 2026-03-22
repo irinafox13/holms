@@ -50,7 +50,8 @@ async function createResponsiveImages(inputPath, baseName, dir, sharp) {
     if (sharp) {
       // Создаем несколько размеров с помощью sharp
       for (const size of responsiveSizes) {
-        const outputPath = join(dir, `${baseName}-${size.name}.webp`);
+        // Создаем WebP версию
+        const webpPath = join(dir, `${baseName}-${size.name}.webp`);
 
         await sharp
           .default(inputPath)
@@ -59,17 +60,36 @@ async function createResponsiveImages(inputPath, baseName, dir, sharp) {
             fit: 'inside',
           })
           .webp({quality: 80})
-          .toFile(outputPath);
+          .toFile(webpPath);
 
         console.log(`✓ Создан responsive: ${baseName}-${size.name}.webp (${size.width}px)`);
+
+        // Создаем PNG версию
+        const pngPath = join(dir, `${baseName}-${size.name}.png`);
+
+        await sharp
+          .default(inputPath)
+          .resize(size.width, null, {
+            withoutEnlargement: true, // Не увеличиваем маленькие изображения
+            fit: 'inside',
+          })
+          .png({quality: 80})
+          .toFile(pngPath);
+
+        console.log(`✓ Создан responsive: ${baseName}-${size.name}.png (${size.width}px)`);
       }
     } else {
       // ImageMagick fallback - создаем разные размеры
       for (const size of responsiveSizes) {
-        const outputPath = join(dir, `${baseName}-${size.name}.webp`);
-
-        await execAsync(`magick "${inputPath}" -resize ${size.width} -quality 80 "${outputPath}"`);
+        // Создаем WebP версию
+        const webpPath = join(dir, `${baseName}-${size.name}.webp`);
+        await execAsync(`magick "${inputPath}" -resize ${size.width} -quality 80 "${webpPath}"`);
         console.log(`✓ Создан responsive (ImageMagick): ${baseName}-${size.name}.webp (${size.width}px)`);
+
+        // Создаем PNG версию
+        const pngPath = join(dir, `${baseName}-${size.name}.png`);
+        await execAsync(`magick "${inputPath}" -resize ${size.width} -quality 80 "${pngPath}"`);
+        console.log(`✓ Создан responsive (ImageMagick): ${baseName}-${size.name}.png (${size.width}px)`);
       }
     }
   } catch (error) {
@@ -107,13 +127,13 @@ async function findAndConvertImages(dir, sharp) {
 }
 
 async function main() {
-  console.log('🔄 Начинаю конвертацию изображений в WebP с responsive размерами...');
+  console.log('🔄 Начинаю конвертацию изображений в WebP и PNG с responsive размерами...');
   console.log(`📐 Будут созданы размеры: ${responsiveSizes.map((s) => `${s.name}px`).join(', ')}`);
 
   try {
     const sharp = await getSharp();
     await findAndConvertImages(join(distDir, 'images'), sharp);
-    console.log('✅ Конвертация изображений в WebP завершена!');
+    console.log('✅ Конвертация изображений в WebP и PNG завершена!');
     console.log('📱 Responsive изображения готовы для использования в picture тегах');
   } catch (error) {
     console.error('❌ Ошибка при конвертации изображений:', error);

@@ -1,13 +1,13 @@
+const defaultSizes = '(max-width: 768px) 100vw, (max-width: 1400px) 1200px, 90vw';
 /**
  * Генерирует HTML для responsive picture элемента с WebP
  * @param {string} imageBase - Базовое имя изображения
  * @param {string} ext - Расширение изображения
  * @param {string} alt - Alt текст
+ * @param {string} sizes - Размеры
  * @returns {string} HTML код picture элемента
  */
-export function generateResponsivePicture(imageBase, ext, alt = '') {
-  // Default sizes
-  const defaultSizes = '(max-width: 768px) 100vw, (max-width: 1400px) 1200px, 90vw';
+export function generateResponsivePicture(imageBase, ext, alt = '', sizes = defaultSizes) {
 
   // WebP srcset
   const webpSrcset = [
@@ -26,8 +26,8 @@ export function generateResponsivePicture(imageBase, ext, alt = '') {
   ].join(', ');
 
   return `<picture>
-  <source type="image/webp" srcset="${webpSrcset}" sizes="${defaultSizes}">
-  <source type="image/${ext === 'jpg' ? 'jpeg' : ext}" srcset="${originalSrcset}" sizes="${defaultSizes}">
+  <source type="image/webp" srcset="${webpSrcset}" sizes="${sizes}">
+  <source type="image/${ext === 'jpg' ? 'jpeg' : ext}" srcset="${originalSrcset}" sizes="${sizes}">
   <img src="${imageBase}.${ext}" alt="${alt}" loading="lazy">
 </picture>`;
 }

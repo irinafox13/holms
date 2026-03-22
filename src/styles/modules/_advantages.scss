@@ -32,14 +32,13 @@
 
   @include media($md) {
     &__slider {
-      overflow: visible;
-
       &:not(.swiper-initialized) {
         .swiper-slide {
           width: calc(50% - 8px);
         }
       }
     }
+
     &__slide {
       width: auto;
     }

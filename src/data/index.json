@@ -109,6 +109,60 @@
       "text": "Удобное расположение в развитом районе рядом с городской инфраструктурой."
     }
   ],
+  "gallery": {
+    "tabs": [
+      {
+        "id": "facade",
+        "name": "Фасад"
+      },
+      {
+        "id": "yard",
+        "name": "Двор"
+      },
+      {
+        "id": "entrance",
+        "name": "Подъезд"
+      },
+      {
+        "id": "apartments",
+        "name": "квартиры"
+      },
+      {
+        "id": "parking",
+        "name": "паркинг"
+      },
+      {
+        "id": "commerce",
+        "name": "коммерция"
+      }
+    ],
+    "panes": [
+      {
+        "id": "facade",
+        "images": []
+      },
+      {
+        "id": "yard",
+        "images": []
+      },
+      {
+        "id": "entrance",
+        "images": []
+      },
+      {
+        "id": "apartments",
+        "images": []
+      },
+      {
+        "id": "parking",
+        "images": []
+      },
+      {
+        "id": "commerce",
+        "images": []
+      }
+    ]
+  },
   "purchaseOptions": [
     {
       "icon": "/images/purchase/discount-percent-square.svg",
