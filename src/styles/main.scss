@@ -10,37 +10,13 @@
 @include meta.load-css('vendors/index');
 
 // Базовые стили
-@include meta.load-css('base/base');
-@include meta.load-css('base/container');
-@include meta.load-css('base/fonts');
-@include meta.load-css('base/typography');
-@include meta.load-css('base/display');
+@include meta.load-css('base/index');
 
 // Стили UI-компонентов
-@include meta.load-css('components/button');
-@include meta.load-css('components/link');
-@include meta.load-css('components/form-field');
-@include meta.load-css('components/checkbox');
-@include meta.load-css('components/logo');
-@include meta.load-css('components/slider');
-@include meta.load-css('components/slider-navigation');
+@include meta.load-css('components/index');
 
 // Стили модулей
-@include meta.load-css('modules/modal');
-@include meta.load-css('modules/tabs');
-@include meta.load-css('modules/form');
-@include meta.load-css('modules/contacts-info');
-@include meta.load-css('modules/navigation');
-@include meta.load-css('modules/purchase-options');
-@include meta.load-css('modules/payment-method-card');
-@include meta.load-css('modules/advantage-card');
-@include meta.load-css('modules/advantages');
-@include meta.load-css('modules/about-project');
+@include meta.load-css('modules/index');
 
 // Стили элементов шаблона
-@include meta.load-css('layout/header');
-@include meta.load-css('layout/footer');
-@include meta.load-css('layout/section');
-
-// Стили отдельных страниц
-@include meta.load-css('pages/elements');
+@include meta.load-css('layout/index');

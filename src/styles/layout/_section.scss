@@ -2,8 +2,11 @@
 @use './../abstracts/mixins' as *;
 
 .section {
-  margin-block: 80px;
+  padding-block: 80px;
   overflow: hidden;
+  will-change: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 
   &--bottom-line {
     border-bottom: 1px solid $white-10;
@@ -16,8 +19,12 @@
     margin-bottom: 32px;
   }
 
+  @include media($md) {
+    will-change: transform, opacity;
+  }
+
   @include media($lg) {
-    margin-block: 112px;
+    padding-block: 112px;
 
     &__header {
       margin-bottom: 64px;

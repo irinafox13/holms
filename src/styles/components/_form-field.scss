@@ -242,7 +242,7 @@ $form-field-icon-height: 24px;
     text-overflow: ellipsis;
     width: calc(100% - 32px);
     overflow: hidden;
-    @include font(16px, 22px);
+    @include font(16px, 21px, 300);
     color: $white-60;
     @include css_anim();
   }

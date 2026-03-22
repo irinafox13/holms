@@ -1,0 +1,29 @@
+<section class="section contact-form js-fade-in-block">
+  <div class="container">
+    <header class="section__header">
+      <h2>Остались вопросы?</h2>
+    </header>
+    <div class="contact-form__block">
+      <form class="form js-ajax-form" data-url="{{ routes.feedback }}" autocomplete="off">
+          <div class="form__wrap">
+            <div class="form__fields contact-form__grid">
+              <div class="form__fields-group contact-form__group">
+                {{> forms/name content=contactForm.name }}
+                {{> forms/phone content=contactForm.phone }}
+                {{> forms/email content=contactForm.email }}
+                <div class="contact-form__agreement">
+                  {{> forms/agreement content=contactForm.privacy }}
+                </div>                
+              </div>
+              <button
+                type="submit"
+                class="form__button button button--primary button--size--large form__button--submit"
+              >
+                Свяжитесь со мной
+              </button>
+            </div>
+          </div>
+        </form>
+    </div>    
+  </div>
+</section>

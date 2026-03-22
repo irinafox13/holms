@@ -140,5 +140,26 @@
         "modalName": ""
       }
     }
-  ]
+  ],
+  "contactForm": {
+    "name": {
+      "name": "name",
+      "title": "Ваше имя",
+      "error": "Введите корректнное имя",
+      "minlength": 2,
+      "maxlength": 30,
+      "required": true
+    },
+    "phone": {
+      "title": "Телефон",
+      "required": true
+    },
+    "email": {
+      "title": "Электронная почта",
+      "required": true
+    },
+    "privacy": {
+      "id": "contact_privacy"
+    }
+  }
 }

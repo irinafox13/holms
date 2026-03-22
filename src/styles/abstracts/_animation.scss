@@ -11,13 +11,3 @@
     transform: translateY(0);
   }
 }
-
-.fade-in-block {
-  will-change: auto;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-
-  @media (min-width: $md) {
-    will-change: transform, opacity;
-  }
-}

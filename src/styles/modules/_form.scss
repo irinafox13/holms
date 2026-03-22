@@ -16,17 +16,16 @@
     &-group,
     &-row {
       display: grid;
-      gap: 12px;
+      gap: 16px;
     }
 
     &-group {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
   }
 
   &__button {
     width: 100%;
-    margin-bottom: 16px;
   }
 
   &__note {

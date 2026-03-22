@@ -69,7 +69,7 @@ p,
   text-transform: uppercase;
 }
 
-@media (min-width: $lg) {
+@include media($lg) {
   h1,
   .h1 {
     @include font(112px, 146px, 200);

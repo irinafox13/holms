@@ -181,7 +181,7 @@
     }
   }
 
-  @media (min-width: $md) {
+  @include media($md) {
     &-wrapper {
       &.dropdown-active {
         .ts-control {

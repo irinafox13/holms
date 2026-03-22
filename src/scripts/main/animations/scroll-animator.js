@@ -7,7 +7,7 @@ class ScrollAnimator {
     gsap.registerPlugin(ScrollTrigger);
 
     this.defaults = {
-      selector: '.fade-in-block',
+      selector: '.js-fade-in-block',
       start: 'top 80%',
       toggleActions: 'play none none reverse',
       opacity: 0,
@@ -90,8 +90,6 @@ class ScrollAnimator {
 
 // Использование
 
-const animator = new ScrollAnimator({
-  selector: '.js-fade-in-block',
-});
+const animator = new ScrollAnimator();
 
 animator.init();

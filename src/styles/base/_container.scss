@@ -4,15 +4,15 @@
 .container {
   padding: 0 16px;
 
-  @media (min-width: $md) {
+  @include media($md) {
     padding: 0 32px;
   }
 
-  @media (min-width: $lg) {
+  @include media($lg) {
     padding: 0 48px;
   }
 
-  @media (min-width: $xl) {
+  @include media($xl) {
     width: 1312px;
     padding: 0;
     margin-left: auto;
