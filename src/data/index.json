@@ -112,6 +112,10 @@
   "apartments": {
     "tabs": [
       {
+        "id": "one-room",
+        "name": "1 комната"
+      },
+      {
         "id": "two-room",
         "name": "2 комнаты"
       },
@@ -126,16 +130,159 @@
     ],
     "panes": [
       {
+        "id": "one-room",
+        "objects": [
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "1",
+            "area": "42",
+            "layout": "/images/plan.png"
+          }, {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "1",
+            "area": "32",
+            "layout": "/images/plan.png"
+          },{
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "1",
+            "area": "37",
+            "layout": "/images/plan.png"
+          },{
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "1",
+            "area": "42",
+            "layout": "/images/plan.png"
+          },{
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "1",
+            "area": "32",
+            "layout": "/images/plan.png"
+          },{
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "1",
+            "area": "35",
+            "layout": "/images/plan.png"
+          }
+        ]
+      },
+      {
         "id": "two-room",
-        "name": "2 комнаты"
+        "objects": [
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "2",
+            "area": "45",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "2",
+            "area": "46",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "2",
+            "area": "50",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "2",
+            "area": "46",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "2",
+            "area": "42",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "2",
+            "area": "42",
+            "layout": "/images/plan.png"
+          }
+        ]
       },
       {
         "id": "three-room",
-        "name": "3 комнаты"
+        "objects": [
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "3",
+            "area": "62",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "3",
+            "area": "60",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "3",
+            "area": "64",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "3",
+            "area": "56",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "3",
+            "area": "58",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "3",
+            "area": "62",
+            "layout": "/images/plan.png"
+          }
+        ]
       },
       {
         "id": "four-room",
-        "name": "4 комнаты"
+        "objects": [
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "4",
+            "area": "72",
+            "layout": "/images/plan.png"
+          },
+          {
+            "id": "1",
+            "type": "apartment",
+            "numberOfRooms": "4",
+            "area": "68",
+            "layout": "/images/plan.png"
+          }
+        ]
       }
     ]
   },

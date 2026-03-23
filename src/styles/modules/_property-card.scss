@@ -1,0 +1,66 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.property-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  background-color: $white-05;
+  padding: 24px;
+  cursor: pointer;
+  $card: &;
+
+  &:hover {
+    #{$card} {
+      &__action-text {
+        text-decoration-color: $white;
+      }
+
+      &__image {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__layout {
+    display: block;
+    width: 100%;
+    height: 205px;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.25s linear;
+  }
+
+  &__body {
+    display: grid;
+    gap: 8px;
+    flex: 1;
+    flex-basis: 71px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &__list {
+    color: $white-60;
+    display: grid;
+    gap: 8px;
+    @include font(16px, 21px, 300);
+  }
+
+  &__action-text {
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: from-font;
+    text-decoration-color: $white-20;
+    @include css_anim();
+  }
+}

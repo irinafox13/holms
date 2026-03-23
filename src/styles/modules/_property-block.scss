@@ -1,0 +1,73 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.property-block {
+  &__wrap {
+    position: relative;
+  }
+
+  &__slider {
+    overflow: visible;
+
+    &:not(.swiper-initialized) {
+      .swiper-slide {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  &__card {
+    width: 298px;
+    height: 100%;
+  }
+
+  @include media($md) {
+    &__slider {
+      &:not(.swiper-initialized) {
+        .swiper-slide {
+          width: calc(50% - 8px);
+        }
+      }
+    }
+
+    &__card {
+      width: auto;
+      max-height: 393px;
+      transition:
+        opacity 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+        max-height 0.7s cubic-bezier(0.2, 0.85, 0.4, 1),
+        margin 0.7s cubic-bezier(0.2, 0.85, 0.4, 1);
+
+      &:not(.swiper-slide-visible) {
+        max-height: 313px;
+        opacity: 0.6;
+        margin-block: auto;
+        pointer-events: none;
+        transition:
+          opacity 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+          max-height 1.3s cubic-bezier(0.2, 0.85, 0.4, 1),
+          margin 0.7s cubic-bezier(0.2, 0.85, 0.4, 1);
+      }
+    }
+  }
+
+  @include media($lg) {
+    &__slider {
+      &:not(.swiper-initialized) {
+        .swiper-slide {
+          width: calc(33.33% - 10.67px);
+        }
+      }
+    }
+  }
+
+  @include media($xl) {
+    &__slider {
+      &:not(.swiper-initialized) {
+        .swiper-slide {
+          width: calc(25% - 12px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<div class="property-card property-block__card swiper-slide" data-id="{{ content.id }}">
+  <picture class="property-card__layout">
+    <img class="property-card__image" src="{{ content.layout }}" alt="Планировка квартиры" />
+  </picture>
+  <div class="property-card__body">
+    <div class="h4 property-card__title">
+      {{#ifCond content.type "==" "apartment"}}
+      <div>
+        {{ ../content.numberOfRooms }}-комнатная {{ ../content.area }} м
+        <sup>2</sup>
+      </div>
+      {{/ifCond}}
+    </div>
+    {{#ifCond content.type "!==" "apartment" }}
+    <ul class="property-card__list">
+      <li>
+        Площадь {{ content.area }} м
+        <sup>2</sup>
+      </li>
+      <li>Номер: {{ content.number }}</li>
+      <li>Стоимость: {{ content.price }} ₽</li>
+    </ul>
+    {{/ifCond }}
+  </div>
+  <span class="property-card__action-text">Забронировать</span>
+</div>
