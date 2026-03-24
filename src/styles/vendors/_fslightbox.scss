@@ -7,13 +7,14 @@
   }
 
   &-nav {
-    top: 16px !important;
+    position: static !important;
   }
 
   &-toolbar {
     height: 64px !important;
     column-gap: 8px;
     right: 16px !important;
+    top: 16px !important;
     background: none !important;
 
     &-button {
@@ -21,8 +22,11 @@
       background: $white-15 !important;
       backdrop-filter: blur(32px) !important;
       border-radius: 50%;
-
       @include css_anim();
+
+      &[title='Enter fullscreen'] {
+        display: none;
+      }
 
       &:hover {
         background: $white-30 !important;
@@ -53,13 +57,35 @@
 
   &-slide-btn {
     width: 64px !important;
-    background: $white-15 !important;
+    height: 64px !important;
+    background-color: $white-15 !important;
+    background-image: url('#{$imgPath}svg/slider-arrow.svg') !important;
+    background-repeat: no-repeat !important;
+    background-size: 24px 24px !important;
+    background-position: center center !important;
     backdrop-filter: blur(32px) !important;
     border-radius: 50%;
     @include css_anim();
 
+    &-container {
+      &-next {
+        button {
+          scale: -1;
+          margin-right: 10px;
+        }
+      }
+
+      &-previous {
+        padding-left: 16px !important;
+      }
+    }
+
+    svg {
+      display: none;
+    }
+
     &:hover {
-      background: $white-30 !important;
+      background-color: $white-30 !important;
     }
   }
 
@@ -82,5 +108,22 @@
 }
 
 .fslightboxsn {
-  margin-top: 0 !important;
+  position: absolute;
+  bottom: 16px !important;
+  top: auto !important;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 !important;
+  z-index: 100 !important;
+  padding: 16px !important;
+  background-color: $white-10;
+  backdrop-filter: blur(32px);
+  color: $white-60 !important;
+  font-family: $baseFontFamily;
+  @include font(16px, 21px, 400);
+}
+
+.fslightboxsl {
+  background: $white-60 !important;
+  margin: 0 3px !important;
 }

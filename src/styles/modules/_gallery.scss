@@ -10,6 +10,10 @@
     height: 350px;
     overflow: visible;
 
+    .swiper-wrapper {
+      height: 100%;
+    }
+
     &:not(.swiper-initialized) {
       .swiper-slide {
         margin-right: 16px;

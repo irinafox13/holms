@@ -1,0 +1,29 @@
+<div class="property-info">
+  <ul class="property-info__list">
+    <li>{{ content.name }}</li>
+    {{#if content.area}}
+    <li>
+      Площадь
+      <span class="nowrap">
+        {{ content.area }} м
+        <sup>2</sup>
+      </span>
+    </li>
+    {{/if}}
+    {{#if content.number}}
+    <li>Номер {{ content.number }}</li>
+    {{/if}}
+    {{#if content.price}}
+    <li>
+      Стоимость
+      <span class="nowrap">{{ content.price }} ₽</span>
+    </li>
+    {{/if}}
+  </ul>
+  {{#if content.layout}}
+  <div class="property-info__download-block">
+    <a href="{{content.layout}}" download="" class="button-link">Скачать планировку</a>
+    <span class="button-link">.PDF</span>
+  </div>
+  {{/if}}
+</div>

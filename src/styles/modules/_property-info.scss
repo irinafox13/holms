@@ -1,0 +1,30 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.property-info {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  padding-bottom: 24px;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    @include font(16px, 21px, 300);
+    color: $white-60;
+  }
+
+  &__download-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    span {
+      opacity: 0.3;
+    }
+  }
+}

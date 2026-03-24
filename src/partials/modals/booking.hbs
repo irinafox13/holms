@@ -1,4 +1,4 @@
-<div data-modal-name="feedback" class="modal js-modal">
+<div data-modal-name="booking" class="modal modal--booking js-modal">
   <button
     type="button"
     class="button button--action button--action--circle modal__close js-modal-close"
@@ -13,22 +13,26 @@
     <div class="modal__dialog js-modal-dialog">
       <div class="modal__content js-modal-content">
         <svg class="modal__icon" width="112" height="112">
-          <use href="#feedback-icon"></use>
+          <use href="#booking"></use>
         </svg>
-        <h2 class="modal__title js-modal-title">Заказать звонок</h2>
-        <form class="form js-ajax-form" data-url="{{ routes.feedback }}" autocomplete="off">
+        <h2 class="modal__title js-modal-title">Забронировать</h2>
+        <form class="form js-ajax-form" data-url="{{ routes.booking }}" autocomplete="off">
           <div class="form__wrap">
             <div class="form__fields">
               <div class="form__fields-group">
-                {{> forms/name content=formFeedback.name }}
-                {{> forms/phone content=formFeedback.phone }}
-                {{> forms/agreement content=formFeedback.privacy }}
+                <input type="hidden" value="1" name="id_object" />
+                {{> forms/name content=bookingForm.name }}
+                {{> forms/phone content=bookingForm.phone }}
+                {{> forms/email content=bookingForm.email }}
+                {{> forms/textarea
+                    content=bookingForm.comment }}
+                {{> forms/agreement content=bookingForm.privacy }}
               </div>
               <button
                 type="submit"
                 class="form__button button button--primary button--size--normal form__button--submit"
               >
-                Свяжитесь со мной
+                Отправить заявку
               </button>
             </div>
           </div>

@@ -1,8 +1,8 @@
 export const routes = {
-  // Пример
-  example: '/api/example',
-  // Заявка "Заказать звонок"
-  request: '/api/request',
   // Форма обратной связи
   feedback: '/api/feedback',
+  // Форма бронирования коммерческого объекта
+  booking: '/api/booking',
+  // Получения данных об объекте для оформления бронирования
+  getPropertyData: '/api/getPropertyData',
 };

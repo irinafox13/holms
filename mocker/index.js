@@ -1,7 +1,9 @@
 import {setupWorker} from 'msw/browser';
 
-import {exampleHandlers} from './example.js';
 import {feedbackForm} from './feedback.js';
+import {bookingForm} from './booking.js';
+import {propertyData} from './getPropertyData.js';
 
-export const example = setupWorker(...exampleHandlers);
 export const feedback = setupWorker(...feedbackForm);
+export const booking = setupWorker(...bookingForm);
+export const getPropertyData = setupWorker(...propertyData);

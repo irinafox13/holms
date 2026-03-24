@@ -1,5 +1,10 @@
 {
   "page": "main",
+  "routes": {
+    "feedback": "/api/feedback",
+    "booking": "/api/booking",
+    "getPropertyData": "/api/getPropertyData"
+  },
   "menu": [
     {
       "name": "о проекте",
@@ -137,37 +142,42 @@
             "type": "apartment",
             "numberOfRooms": "1",
             "area": "42",
-            "layout": "/images/plan.png"
-          }, {
+            "layout": "/images/apartment.png"
+          },
+          {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "1",
             "area": "32",
-            "layout": "/images/plan.png"
-          },{
+            "layout": "/images/apartment.png"
+          },
+          {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "1",
             "area": "37",
-            "layout": "/images/plan.png"
-          },{
+            "layout": "/images/apartment.png"
+          },
+          {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "1",
             "area": "42",
-            "layout": "/images/plan.png"
-          },{
+            "layout": "/images/apartment.png"
+          },
+          {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "1",
             "area": "32",
-            "layout": "/images/plan.png"
-          },{
+            "layout": "/images/apartment.png"
+          },
+          {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "1",
             "area": "35",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           }
         ]
       },
@@ -179,42 +189,42 @@
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "45",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "46",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "50",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "46",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "42",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "42",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           }
         ]
       },
@@ -226,42 +236,42 @@
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "62",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "60",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "64",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "56",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "58",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "62",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           }
         ]
       },
@@ -273,14 +283,14 @@
             "type": "apartment",
             "numberOfRooms": "4",
             "area": "72",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "4",
             "area": "68",
-            "layout": "/images/plan.png"
+            "layout": "/images/apartment.png"
           }
         ]
       }
@@ -352,7 +362,7 @@
       }
     },
     {
-      "icon": "/images/purchase/installment-plan.svg",
+      "icon": "/images/purchase/installment-apartment.svg",
       "name": "Рассрочка",
       "shortDescription": "Индивидуальные условия оплаты",
       "button": {
@@ -372,6 +382,131 @@
       }
     }
   ],
+  "commercialProperties": {
+    "tabs": [
+      {
+        "id": "storerooms",
+        "name": "кладовые"
+      },
+      {
+        "id": "parking",
+        "name": "паркинг"
+      },
+      {
+        "id": "offices",
+        "name": "офисы"
+      }
+    ],
+    "panes": [
+      {
+        "id": "storerooms",
+        "objects": [
+          {
+            "id": "1",
+            "name": "К01",
+            "type": "storerooms",
+            "number": "118",
+            "area": "42",
+            "price": ""
+          },
+          {
+            "id": "1",
+            "name": "К02",
+            "type": "storerooms",
+            "number": "1",
+            "area": "42",
+            "price": "390 000"
+          },
+          {
+            "id": "1",
+            "name": "К03",
+            "type": "storerooms",
+            "number": "119",
+            "area": "42",
+            "price": "390 000"
+          },
+          {
+            "id": "1",
+            "name": "К04",
+            "type": "storerooms",
+            "number": "120",
+            "area": "42",
+            "price": ""
+          },
+          {
+            "id": "1",
+            "name": "К05",
+            "type": "storerooms",
+            "number": "129",
+            "area": "42",
+            "price": "390 000"
+          },
+          {
+            "id": "1",
+            "name": "К06",
+            "type": "storerooms",
+            "number": "130",
+            "area": "42",
+            "price": "390 000"
+          }
+        ]
+      },
+      {
+        "id": "parking",
+        "objects": [
+          {
+            "id": "1",
+            "name": "P05",
+            "type": "parking",
+            "number": "39",
+            "area": "15",
+            "price": "690 000"
+          }
+        ]
+      },
+      {
+        "id": "offices",
+        "objects": [
+          {
+            "id": "1",
+            "type": "offices",
+            "name": "Офис № 1",
+            "number": "985",
+            "area": "190",
+            "price": "15 690 000",
+            "layout": "/images/office.png"
+          },
+          {
+            "id": "1",
+            "type": "offices",
+            "name": "Офис № 2",
+            "number": "985",
+            "area": "191",
+            "price": "",
+            "layout": "/images/office.png"
+          },
+          {
+            "id": "1",
+            "type": "offices",
+            "name": "Офис № 3",
+            "number": "985",
+            "area": "192",
+            "price": "15 690 000",
+            "layout": "/images/office.png"
+          },
+          {
+            "id": "1",
+            "type": "offices",
+            "name": "Офис № 4",
+            "number": "985",
+            "area": "194",
+            "price": "15 690 000",
+            "layout": "/images/office.png"
+          }
+        ]
+      }
+    ]
+  },
   "contactForm": {
     "name": {
       "name": "name",
@@ -391,6 +526,32 @@
     },
     "privacy": {
       "id": "contact_privacy"
+    }
+  },
+  "bookingForm": {
+    "name": {
+      "name": "name",
+      "title": "Ваше имя",
+      "error": "Введите корректнное имя",
+      "minlength": 2,
+      "maxlength": 30,
+      "required": true
+    },
+    "phone": {
+      "title": "Телефон",
+      "required": true
+    },
+    "email": {
+      "title": "Электронная почта",
+      "required": true
+    },
+    "comment": {
+      "name": "comment",
+      "title": "Комментарий (необязательно)",
+      "required": false
+    },
+    "privacy": {
+      "id": "booking_privacy"
     }
   }
 }

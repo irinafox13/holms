@@ -1,26 +1,55 @@
-<div class="property-card property-block__card swiper-slide" data-id="{{ content.id }}">
+<div class="property-card property-block__card swiper-slide">
+  {{#if content.layout }}
   <picture class="property-card__layout">
-    <img class="property-card__image" src="{{ content.layout }}" alt="Планировка квартиры" />
+    <img class="property-card__image" src="{{ content.layout }}" alt="Планировка квартиры" loading="lazy" />
   </picture>
+  {{/if}}
   <div class="property-card__body">
     <div class="h4 property-card__title">
       {{#ifCond content.type "==" "apartment"}}
       <div>
-        {{ ../content.numberOfRooms }}-комнатная {{ ../content.area }} м
-        <sup>2</sup>
+        {{ ../content.numberOfRooms }}-комнатная
+        <span class="nowrap">
+          {{ ../content.area }} м
+          <sup>2</sup>
+        </span>
       </div>
+      {{else}}
+      {{../content.name }}
       {{/ifCond}}
     </div>
     {{#ifCond content.type "!==" "apartment" }}
     <ul class="property-card__list">
       <li>
-        Площадь {{ content.area }} м
-        <sup>2</sup>
+        Площадь
+        <span class="nowrap">
+          {{ ../content.area }} м
+          <sup>2</sup>
+        </span>
       </li>
-      <li>Номер: {{ content.number }}</li>
-      <li>Стоимость: {{ content.price }} ₽</li>
+      <li>Номер: {{ ../content.number }}</li>
+      <li>
+        Стоимость:
+        {{#if ../content.price }}
+        <span>{{ ../../content.price }} ₽</span>
+        {{else}}
+        по запросу
+        {{/if}}
+      </li>
     </ul>
     {{/ifCond }}
   </div>
-  <span class="property-card__action-text">Забронировать</span>
+  {{#ifCond content.type "==" "apartment"}}
+  <button type="button" class="property-card__action-button button-link js-modal-open-button" data-modal="apartment">
+    Подробнее
+  </button>
+  {{else}}
+  <button
+    type="button"
+    class="property-card__action-button button-link js-open-booking-request"
+    data-id="{{ ../content.id }}"
+  >
+    Забронировать
+  </button>
+  {{/ifCond}}
 </div>

@@ -1,0 +1,22 @@
+<section class="section property-block tabs js-fade-in-block js-tabs js-commercial-properties" id="commercial-properties" data-url="{{ routes.getPropertyData }}">
+  <div class="container">
+    <header class="section__header">
+      <h2>Коммерческие объекты</h2>
+      {{>tabs-slider content=commercialProperties.tabs}}
+    </header>
+    <div class="tabs__content">
+      {{#each commercialProperties.panes }}
+      <div class="tabs__pane {{#if @first}}tabs__pane--active{{/if}} js-tabs-pane property-block__wrap js-property-block-slider" data-tab-content="{{ this.id }}">
+        <div class="property-block__slider swiper ">
+          <div class="swiper-wrapper">
+            {{#each this.objects }}
+              {{>property-card content=this }}
+            {{/each}}
+          </div>
+        </div>
+        {{>slider-navigation}}
+      </div>      
+      {{/each}}
+    </div>
+  </div>
+</section>

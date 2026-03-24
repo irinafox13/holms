@@ -24,7 +24,7 @@ $form-field-icon-height: 24px;
   @mixin filled-textarea-label-styles() {
     height: 25px;
     top: 1px;
-    background-color: $white;
+    background-color: $darkLight;
     display: flex;
     align-items: flex-end;
   }

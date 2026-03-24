@@ -12,7 +12,7 @@ import {
 } from '@main/helpers/consts';
 import {Modal} from '@main/components/modal/modal';
 import {mockHelper} from '@main/helpers/mock-helper';
-import {feedback} from '@mocker/index';
+import {feedback, booking} from '@mocker/index';
 
 import * as Validation from './validation.js';
 import {startTimer} from './timer.js';
@@ -158,6 +158,7 @@ export class Form {
 
     // Используем mockHelper для запуска MSW
     mockHelper(feedback, loadData);
+     mockHelper(booking, loadData);
   }
 
   /**

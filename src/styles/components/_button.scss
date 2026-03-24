@@ -137,7 +137,19 @@
     &:active,
     &.focus,
     &.active {
-        background-color: $white-40;
+      background-color: $white-40;
     }
+  }
+
+  &-link {
+    color: $white;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: from-font;
+    text-decoration-color: $white-20;
+    @include font(16px, 21px, 400);
+    @include letter-spacing(16px, 3);
+    @include css_anim();
   }
 }

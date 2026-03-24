@@ -46,7 +46,8 @@
 
   &__agreement {
     &-text {
-      @include font(14px, 21px, 300);
+     color: $white-60;
+     font-weight: 300;
     }
   }
 
