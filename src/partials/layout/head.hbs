@@ -1,18 +1,23 @@
 <head>
-  <meta charset="utf-8">
-  <meta
-    name="viewport"
-    content="width=360, initial-scale=1, shrink-to-fit=no, maximum-scale=1"
-  >
-  <meta name="format-detection" content="telephone=no">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=360, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
 
   <title>
     {{#if title}}
-      {{title}}
+    {{ title }}
     {{else}}
-      Заголовок
+    Заголовок
     {{/if}}
   </title>
-  
-  <link rel="stylesheet" href="/styles/main.scss">
+
+  <script>
+    window.loadYandexMap = function () {
+      let mapOnload = new CustomEvent('maponload');
+      document.dispatchEvent(mapOnload);
+    };
+  </script>
+  <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU&apikey={{ env.YMAPS_API_KEY }}&onload=loadYandexMap"></script>
+
+  <link rel="stylesheet" href="/styles/main.scss" />
 </head>

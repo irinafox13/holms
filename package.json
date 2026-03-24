@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run convert-webp",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src/ --fix",
     "format": "prettier --write .",

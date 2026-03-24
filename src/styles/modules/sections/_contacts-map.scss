@@ -1,0 +1,204 @@
+@use './../../abstracts/variables' as *;
+@use './../../abstracts/mixins' as *;
+
+.contacts-map {
+  position: relative;
+  overflow: hidden;
+
+  &__aside {
+    display: grid;
+    gap: 4px;
+    padding-block: 16px;
+  }
+
+  &__section {
+    display: grid;
+    gap: 24px;
+    background-color: $white-15;
+    backdrop-filter: blur(64px);
+    padding: 24px;
+
+    &--sm-gap {
+      gap: 16px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &__info {
+    display: grid;
+    gap: 4px;
+  }
+
+  &__phone {
+    color: $white;
+    @include font(24px, 31px, 300);
+  }
+
+  &__schedule {
+    @include font(12px, 16px, 400);
+    color: $white-60;
+  }
+
+  &__list {
+    display: grid;
+    gap: 12px;
+
+    li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      opacity: 0.3;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__ymaps {
+    height: 420px;
+  }
+
+  @include media($md) {
+    &__aside {
+      width: 300px;
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      z-index: 100;
+      padding: 0;
+    }
+
+    &__ymaps {
+      height: 503px;
+    }
+  }
+
+  @include media($lg) {
+    &__ymaps {
+      height: 700px;
+    }
+
+    &__aside {
+      width: 340px;
+      top: 40px;
+      left: 48px;
+    }
+  }
+
+  @include media($xl) {
+    &__aside {
+      left: calc((100vw - 1312px) / 2);
+    }
+  }
+}
+
+[class*='ymaps-2'] {
+  &[class*='-ground-pane'] {
+    filter: grayscale(1) invert(85%) hue-rotate(120deg);
+  }
+
+  &[class*='-zoom'] {
+    height: 104px !important;
+    width: 48px;
+    padding: 0;
+  }
+
+  &[class*="-copyrights-pane"] {
+    display: none !important;
+  }
+
+  &[class*='-zoom__button'] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px !important;
+    background: $white-10;
+    backdrop-filter: blur(32px);
+    border-radius: 50%;
+    border: none;
+
+    &:hover {
+      background: $white-30;
+    }
+  }
+
+  &[class*='-zoom__plus'] {
+    [class*='ymaps-2'][class*='-zoom__icon'] {
+      background-image: url('#{$imgPath}svg/plus.svg');
+      background-size: 32px;
+      width: 32px !important;
+      height: 32px !important;
+      border: 0;
+      padding: 8px;
+      box-shadow: none;
+    }
+  }
+
+  &[class*='-zoom__minus'] {
+    [class*='ymaps-2'][class*='-zoom__icon'] {
+      background-image: url('#{$imgPath}svg/minus.svg');
+      background-size: 32px;
+      width: 32px !important;
+      height: 32px !important;
+      border: 0;
+      padding: 8px;
+      box-shadow: none;
+    }
+  }
+
+  &[class*='-controls__control'] {
+    &[class*='-user-selection-none'] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px !important;
+
+      .ymaps-2-1-79-float-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: none !important;
+        width: 48px !important;
+        height: 48px !important;
+        background: $white-10;
+        backdrop-filter: blur(32px);
+        border-radius: 50%;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        &:hover {
+          background: $white-30;
+        }
+
+        &-icon {
+          background-size: 48px;
+          width: 48px !important;
+          height: 48px !important;
+          border: 0;
+          padding: 0;
+
+          &_icon_expand {
+            background-image: url('#{$imgPath}svg/full-screen.svg');
+          }
+
+          &_icon_collapse {
+            background-image: url('#{$imgPath}svg/collapse-screen.svg');
+            background-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}

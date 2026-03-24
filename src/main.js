@@ -10,9 +10,8 @@ import '@main/components/scroll-header';
 import '@main/components/scroll-to-top';
 import '@main/animations/';
 import '@main/components/open-booking-request';
-import {routes} from './../routes';
-console.log(routes)
-// Ленивая загрузка компонентов при прокрутке для лендинга с 12 секциями
+import '@main/components/contacts-map';
+// Ленивая загрузка компонентов при прокрутке
 class LazyComponentLoader {
   constructor() {
     this.loadedComponents = new Set();

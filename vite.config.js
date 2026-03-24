@@ -183,12 +183,12 @@ export default defineConfig({
       },
     },
   },
-  optimizeDeps: {
-    include: ['axios', 'tippy.js', 'tom-select'],
-    exclude: ['@std/app'],
-  },
   define: {
     __DEV__: isDev,
     __PROD__: isProd,
+  },
+  optimizeDeps: {
+    include: ['axios', 'tippy.js', 'tom-select'],
+    exclude: ['@std/app'],
   },
 });

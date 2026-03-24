@@ -362,7 +362,7 @@
       }
     },
     {
-      "icon": "/images/purchase/installment-apartment.svg",
+      "icon": "/images/purchase/installment-plan.svg",
       "name": "Рассрочка",
       "shortDescription": "Индивидуальные условия оплаты",
       "button": {

@@ -1,5 +1,5 @@
-@use './../abstracts/variables' as *;
-@use './../abstracts/mixins' as *;
+@use './../../abstracts/variables' as *;
+@use './../../abstracts/mixins' as *;
 
 .purchase-options {
   &__title {
@@ -35,7 +35,7 @@
     &__header {
       margin-bottom: 64px;
     }
-    
+
     &__list {
       gap: 40px;
     }
