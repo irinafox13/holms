@@ -1,0 +1,15 @@
+<div class="burger-menu js-burger-menu">
+  <div class="burger-menu__inner">
+    <div class="burger-menu__main container">
+      <nav class="burger-menu__nav">
+        <ul class="burger-menu__list">
+          {{#each menu }}
+          <li>
+            <a href="{{ this.link }}">{{ this.name }}</a>
+          </li>
+          {{/each}}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

@@ -20,14 +20,38 @@ class ContactsMap {
 
   constructor(mapNode) {
     this.map = mapNode;
-    this.lg = mapNode.getAttribute('data-lg');
-    this.lt = mapNode.getAttribute('data-lt');
-    this.zoom = mapNode.getAttribute('data-zoom');
-    document.addEventListener('maponload', this.onMapLoaded);
+    this.lg = mapNode.dataset.lg;
+    this.lt = mapNode.dataset.lt;
+    this.zoom = mapNode.dataset.zoom;
+    this.isTabletScreen = window.innerWidth >= MD_WIDTH && window.innerWidth < LG_WIDTH;
+    this.isDesktopScreen = window.innerWidth >= LG_WIDTH;
+
+    this.init();
+    this.updateScreenSize();
+    window.addEventListener('resize', () => this.updateScreenSize());
+  }
+
+  init() {
+    const checkYmaps = () => {
+      if (window.ymaps && window.ymaps.Map) {
+        this.createMap();
+      } else {
+        setTimeout(checkYmaps, 100);
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', checkYmaps);
+    } else {
+      checkYmaps();
+    }
+  }
+
+  updateScreenSize() {
     this.isTabletScreen = window.innerWidth >= MD_WIDTH && window.innerWidth < LG_WIDTH;
     this.isDesktopScreen = window.innerWidth >= LG_WIDTH;
   }
-
+  
   async createMap() {
     return new Promise((resolve) => {
       window.ymaps.ready(() => {
@@ -94,27 +118,29 @@ class ContactsMap {
     });
   }
 
-  onMapLoaded = async () => {
-    await this.createMap();
-  };
-
   getCoordsCenterMap() {
     const lg = Number(this.lg);
     const lt = Number(this.lt);
 
+    if (isNaN(lg) || isNaN(lt)) {
+      return [58.594344, 49.677814];
+    }
+
     // Возвращаем массив [широта, долгота] для центра карты
     if (this.isTabletScreen) {
       return [lt - SHIFT_COORD_LT_FOR_TABLET, lg - SHIFT_COORD_LG_FOR_TABLET];
-    } 
+    }
     if (this.isDesktopScreen) {
       return [lt, lg - SHIFT_COORD_LG_FOR_DESKTOP];
     }
+
+    return [lt, lg];
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const mapNode = document.querySelector('.js-contacts-map');
-  if (mapNode) {
-    new ContactsMap(mapNode);
-  }
-});
+// document.addEventListener('DOMContentLoaded', () => {
+const mapNode = document.querySelector('.js-contacts-map');
+if (mapNode) {
+  new ContactsMap(mapNode);
+}
+// });

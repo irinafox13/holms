@@ -13,16 +13,15 @@
 
     picture {
       display: inline-block;
-      height: 100%;
+      height: 400px;
       width: 100%;
-      aspect-ratio: 358 / 400;
-      max-height: 500px;
     }
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top center;
     }
 
     &:hover {

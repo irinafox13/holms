@@ -1,0 +1,51 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.burger-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $darkLight-90;
+  backdrop-filter: blur(32px);
+  // padding-top: calc($height-mobile-header + $burger-menu-pt);
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  @include css_anim();
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  &__main {
+    flex: 1;
+  }
+
+  &__nav {
+    display: block;
+    // margin-bottom: $burger-menu-nav-mb;
+  }
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    // row-gap: $burger-menu-list-row-gap;
+  }
+
+  &__button {
+    // width: $burger-menu-button-width;
+  }
+
+  &.is-open {
+    opacity: 1;
+    z-index: 99;
+    pointer-events: auto;
+  }
+}

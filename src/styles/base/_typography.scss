@@ -14,9 +14,6 @@ h5,
   font-family: $baseFontFamily;
   font-style: normal;
   margin: 0;
-  // font-feature-settings:
-  //   'cv11' on,
-  //   'ordn' on;
 }
 
 h1,
@@ -46,6 +43,7 @@ h4,
 .headline {
   @include font(18px, 23px, 400);
   @include letter-spacing(18px, 40);
+  text-transform: uppercase;
 }
 
 p,
@@ -73,6 +71,7 @@ p,
   h1,
   .h1 {
     @include font(112px, 146px, 200);
+    @include letter-spacing(112px, -1);
   }
 
   h2,
