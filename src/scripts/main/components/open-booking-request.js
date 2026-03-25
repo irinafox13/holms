@@ -10,7 +10,7 @@ const propertyInfo = Handlebars.compile(propertyInfoTemplate);
  * Класс для открытия формы заявки бронирования коммерческого объекта
  * @class
  */
-class OpenBookingRequest {
+export class OpenBookingRequest {
   /**
    * Создает экземпляр OpenBookingRequest
    * @constructor
@@ -43,6 +43,10 @@ class OpenBookingRequest {
       });
       this.button.classList.remove('waiting');
       if (data?.success) {
+        const openModals = document.querySelectorAll('.js-modal.visible');
+        openModals.forEach((modal) => {
+          Modal.close(modal);
+        });
         Modal.open(this.bookingModal);
         this.addPropertyInfo(data.data);
       }

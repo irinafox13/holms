@@ -40,7 +40,7 @@
     {{/ifCond }}
   </div>
   {{#ifCond content.type "==" "apartment"}}
-  <button type="button" class="property-card__action-button button-link js-modal-open-button" data-modal="apartment">
+  <button type="button" class="property-card__action-button button-link js-open-apartment-data" data-id="{{ ../content.id }}">
     Подробнее
   </button>
   {{else}}

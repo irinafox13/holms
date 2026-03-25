@@ -1,11 +1,13 @@
 import axios from 'axios';
 import Handlebars from 'handlebars';
 import {Modal} from '@main/components/modal/modal';
+import {OpenModal} from '@main/components/modal/open-modal';
 import {ApartmentSlider} from '@main/components/sliders/apartment-slider';
 import {mockHelper} from '@main/helpers/mock-helper';
 import {getApartmentData} from '@mocker/index';
 import apartmentCardTemplate from '@partials/apartment-card.hbs?raw';
 import sliderNavigationTemplate from '@partials/slider-navigation.hbs?raw';
+import {OpenBookingRequest} from '@main/components/open-booking-request';
 
 Handlebars.registerPartial('slider-navigation', sliderNavigationTemplate);
 const apartmentCard = Handlebars.compile(apartmentCardTemplate);
@@ -51,13 +53,8 @@ class OpenApartmentData {
         Modal.open(this.apartmentModal);
         this.addApartmentData(data.data);
 
-        // Инициализируем слайдер после добавления DOM
-        this.initSlider();
-
-        // Обновляем fslightbox после добавления новых элементов
-        if (typeof window.refreshFsLightbox === 'function') {
-          window.refreshFsLightbox();
-        }
+        // Инициализируем компоненты после добавления DOM
+        this.refresh();
       }
     };
 
@@ -76,10 +73,17 @@ class OpenApartmentData {
     this.modalContent.insertAdjacentHTML('beforeend', apartmentCard({content: data}));
   }
 
-  initSlider() {
-    document.querySelectorAll('.js-apartment-slider').forEach((slider) => {
-      new ApartmentSlider(slider);
-    });
+  refresh() {
+    new ApartmentSlider(this.modalContent.querySelector('.js-apartment-slider'));
+
+    new OpenBookingRequest(this.modalContent.querySelector('.js-open-booking-request'));
+
+    new OpenModal(this.modalContent.querySelector('.js-modal-open-button'));
+
+    // Обновляем fslightbox после добавления новых элементов
+    if (typeof window.refreshFsLightbox === 'function') {
+      window.refreshFsLightbox();
+    }
   }
 }
 

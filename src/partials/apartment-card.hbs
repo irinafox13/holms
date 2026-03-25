@@ -10,7 +10,7 @@
               data-fslightbox="apartment-{{ ../content.id }}"
               class="apartment-card__open-gallery-btn button button--action button--action--small button--action--circle"
             >
-              <svg width="24" height="24">
+              <svg width="48" height="48">
                 <use href="#full-screen"></use>
               </svg>
               <span class="visually-hidden">Открыть изображение в полном размере</span>
@@ -44,8 +44,7 @@
         <button
           type="button"
           class="button button--primary button--size--large js-open-booking-request"
-          data-modal="booking"
-          data-id="{{ content.id }}"
+          data-id="{{ content.id }}" data-url="/api/getPropertyData"
         >
           Забронировать
         </button>

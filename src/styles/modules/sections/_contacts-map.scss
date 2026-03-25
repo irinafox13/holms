@@ -4,6 +4,7 @@
 .contacts-map {
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 72px;
 
   &__aside {
     display: grid;

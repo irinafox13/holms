@@ -22,6 +22,14 @@ class BurgerMenu {
     this.burgerButtons.forEach((button) => {
       button.addEventListener('click', this.toggleMenu.bind(this));
     });
+
+    // Закрываем меню при клике на ссылки навигации
+    const navLinks = this.menuElement.querySelectorAll('.burger-menu__list a');
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        this.closeMenu();
+      });
+    });
   }
 
   /**
@@ -33,6 +41,17 @@ class BurgerMenu {
     const isMenuOpen = this.header.classList.toggle('is-menu-open');
     this.toggleScrollLock(isMenuOpen);
     this.toggleMenuVisibility(isMenuOpen);
+  }
+
+  /**
+   * Закрытие мобильного меню.
+   *
+   * @returns {void}
+   */
+  closeMenu() {
+    this.header.classList.remove('is-menu-open');
+    this.toggleScrollLock(false);
+    this.toggleMenuVisibility(false);
   }
 
   /**

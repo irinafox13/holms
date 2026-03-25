@@ -156,9 +156,8 @@ export class Form {
       }
     };
 
-    // Используем mockHelper для запуска MSW
-    mockHelper(feedback, loadData);
-     mockHelper(booking, loadData);
+    const worker = this.url.includes('/feedback') ? feedback : booking;
+    mockHelper(worker, loadData);
   }
 
   /**
