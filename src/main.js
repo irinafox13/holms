@@ -10,8 +10,6 @@ import '@main/components/burger-menu';
 import '@main/components/scroll-header';
 import '@main/components/scroll-to-top';
 import '@main/animations/';
-import '@main/components/open-booking-request';
-import '@main/components/contacts-map';
 // Ленивая загрузка компонентов при прокрутке
 class LazyComponentLoader {
   constructor() {
@@ -118,6 +116,30 @@ class LazyComponentLoader {
           console.log(`📑 Loading tabs component for section: ${sectionId}`);
           components.push(import('@main/components/tabs'));
           this.loadedComponents.add('tabs');
+        }
+      }
+
+      if (section.querySelector('.js-open-apartment-data, .js-apartments-section')) {
+        if (!this.loadedComponents.has('apartment-data')) {
+          console.log(`🏠 Loading apartment data component for section: ${sectionId}`);
+          components.push(import('@main/components/open-apartment-data'));
+          this.loadedComponents.add('apartment-data');
+        }
+      }
+
+      if (section.querySelector('.js-open-booking-request')) {
+        if (!this.loadedComponents.has('booking-request')) {
+          console.log(`📅 Loading booking request component for section: ${sectionId}`);
+          components.push(import('@main/components/open-booking-request'));
+          this.loadedComponents.add('booking-request');
+        }
+      }
+
+      if (section.querySelector('.js-contacts-map')) {
+        if (!this.loadedComponents.has('contacts-map')) {
+          console.log(`🗺️ Loading contacts map component for section: ${sectionId}`);
+          components.push(import('@main/components/contacts-map'));
+          this.loadedComponents.add('contacts-map');
         }
       }
 

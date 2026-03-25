@@ -5,4 +5,6 @@ export const routes = {
   booking: '/api/booking',
   // Получения данных об объекте для оформления бронирования
   getPropertyData: '/api/getPropertyData',
+  // Получения данных о квартире
+  getApartmentData: '/api/getApartmentData',
 };

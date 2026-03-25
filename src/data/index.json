@@ -3,7 +3,8 @@
   "routes": {
     "feedback": "/api/feedback",
     "booking": "/api/booking",
-    "getPropertyData": "/api/getPropertyData"
+    "getPropertyData": "/api/getPropertyData",
+    "getApartmentData": "/api/getApartmentData"
   },
   "menu": [
     {

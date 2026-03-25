@@ -1,4 +1,8 @@
-<section class="section property-block tabs js-fade-in-block js-tabs" id="apartments">
+<section
+  class="section property-block tabs js-fade-in-block js-tabs js-apartments-section"
+  id="apartments"
+  data-url="{{ routes.getApartmentData }}"
+>
   <div class="container">
     <header class="section__header">
       <h2>Квартиры</h2>
@@ -6,16 +10,19 @@
     </header>
     <div class="tabs__content">
       {{#each apartments.panes }}
-      <div class="tabs__pane {{#if @first}}tabs__pane--active{{/if}} js-tabs-pane property-block__wrap js-property-block-slider" data-tab-content="{{ this.id }}">
-        <div class="property-block__slider swiper ">
+      <div
+        class="tabs__pane {{#if @first}}tabs__pane--active{{/if}} js-tabs-pane property-block__wrap js-property-block-slider"
+        data-tab-content="{{ this.id }}"
+      >
+        <div class="property-block__slider swiper">
           <div class="swiper-wrapper">
             {{#each this.objects }}
-              {{>property-card content=this }}
+            {{>property-card content=this routes=@root.routes}}
             {{/each}}
           </div>
         </div>
         {{>slider-navigation}}
-      </div>      
+      </div>
       {{/each}}
     </div>
   </div>

@@ -22,8 +22,7 @@ class OpenBookingRequest {
      */
     this.button = button;
     this.propertyId = this.button.dataset.id;
-    this.commercialProperties = this.button.closest('.js-commercial-properties');
-    this.routeUrl = this.commercialProperties.dataset.url;
+    this.routeUrl = this.button.dataset.url;
     this.bookingModal = document.querySelector('.js-modal[data-modal-name="booking"]');
     this.modalTitle = this.bookingModal.querySelector('.js-modal-title');
 
@@ -60,11 +59,15 @@ class OpenBookingRequest {
   }
 
   addPropertyInfo(data) {
+    let nextElement = this.modalTitle.nextElementSibling;
+    while (nextElement && nextElement.classList.contains('property-info')) {
+      const elementToRemove = nextElement;
+      nextElement = nextElement.nextElementSibling;
+      elementToRemove.remove();
+    }
+
     this.modalTitle.insertAdjacentHTML('afterend', propertyInfo({content: data}));
   }
 }
 
-/**
- * Инициализирует кнопки прокрутки к началу страницы
- */
 document.querySelectorAll('.js-open-booking-request').forEach((button) => new OpenBookingRequest(button));

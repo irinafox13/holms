@@ -1,4 +1,4 @@
-<section class="section property-block tabs js-fade-in-block js-tabs js-commercial-properties" id="commercial-properties" data-url="{{ routes.getPropertyData }}">
+<section class="section property-block tabs js-fade-in-block js-tabs" id="commercial-properties">
   <div class="container">
     <header class="section__header">
       <h2>Коммерческие объекты</h2>
@@ -10,7 +10,7 @@
         <div class="property-block__slider swiper ">
           <div class="swiper-wrapper">
             {{#each this.objects }}
-              {{>property-card content=this }}
+              {{>property-card content=this routes=@root.routes}}
             {{/each}}
           </div>
         </div>

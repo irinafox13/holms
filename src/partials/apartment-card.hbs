@@ -1,0 +1,62 @@
+<div class="apartment-card">
+  <div class="apartment-card__container container">
+    <div class="apartment-card__slider-block js-apartment-slider">
+      <div class="apartment-card__slider swiper">
+        <div class="swiper-wrapper">
+          {{#each content.images}}
+          <div class="apartment-card__slide swiper-slide">
+            <a
+              href="{{ this }}"
+              data-fslightbox="apartment-{{ ../content.id }}"
+              class="apartment-card__open-gallery-btn button button--action button--action--small button--action--circle"
+            >
+              <svg width="24" height="24">
+                <use href="#full-screen"></use>
+              </svg>
+              <span class="visually-hidden">Открыть изображение в полном размере</span>
+            </a>
+            <img src="{{ this }}" alt="" />
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      {{> slider-navigation}}
+    </div>
+    <div class="apartment-card__info">
+      <div class="apartment-card__headline headline">ЖК «Холмс»</div>
+      <ul class="apartment-card__description">
+        {{#each content.info}}
+        <li class="apartment-card__desc-col">
+          <span>{{ this.name }}</span>
+          <span>{{ this.value }}</span>
+        </li>
+        {{/each}}
+      </ul>
+      <div class="apartment-card__price-box">
+        {{#if content.price}}
+        <div class="apartment-card__price">{{ content.price }}</div>
+        {{else}}
+        <span class="apartment-card__price-text">Стоимость</span>
+        <div class="apartment-card__price">По запросу</div>
+        {{/if}}
+      </div>
+      <div class="apartment-card__buttons-group">
+        <button
+          type="button"
+          class="button button--primary button--size--large js-open-booking-request"
+          data-modal="booking"
+          data-id="{{ content.id }}"
+        >
+          Забронировать
+        </button>
+        <button
+          type="button"
+          class="button button--outline button--size--large js-modal-open-button"
+          data-modal="feedback"
+        >
+          Консультация
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

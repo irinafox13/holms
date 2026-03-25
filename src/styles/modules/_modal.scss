@@ -64,6 +64,10 @@
     }
   }
 
+  &__wrap {
+    max-width: 100vw;
+  }
+
   &__dialog {
     position: relative;
     width: 100%;
@@ -119,6 +123,15 @@
     #{$modal} {
       &__dialog {
         max-width: 392px;
+      }
+    }
+  }
+
+  &--apartment {
+     #{$modal} {
+      &__dialog {
+        max-width: none;
+        padding-inline: 0;
       }
     }
   }
