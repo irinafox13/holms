@@ -1,0 +1,78 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  height: 100dvh;
+  background-color: $darkLight;
+  padding-block: 40px;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+  }
+
+  &__logo {
+    width: auto;
+    height: 53px;
+  }
+
+  &__body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    z-index: 3;
+  }
+
+  &__number {
+    text-align: center;
+    @include font(300px, 390px, 300);
+    transition: transform 0.2s ease;
+
+    &--update {
+      transform: scale(1.1);
+    }
+  }
+
+  &__developer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+
+    img {
+      height: 40px;
+      width: auto;
+    }
+  }
+
+  &__progressbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100dvh;
+    width: 0;
+    background-color: $white-10;
+    transition: width 0.1s linear;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.1s linear;
+  }
+}

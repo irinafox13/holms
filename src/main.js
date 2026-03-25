@@ -5,6 +5,7 @@ window.app = new App();
 window.app.run();
 
 require('fslightbox');
+import '@main/components/preloader';
 import '@main/components/burger-menu';
 import '@main/components/scroll-header';
 import '@main/components/scroll-to-top';
