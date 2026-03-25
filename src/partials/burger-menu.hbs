@@ -1,7 +1,14 @@
 <div class="burger-menu js-burger-menu">
   <div class="burger-menu__inner">
     <div class="burger-menu__main container">
-      <nav class="burger-menu__nav">
+      <button
+        type="button"
+        class="burger-menu__feedback-btn button button--outline button--size--small js-modal-open-button"
+        data-modal="feedback"
+      >
+        Заказать звонок
+      </button>
+      <nav class="burger-menu__nav" aria-label="Навигация из бургер-меню">
         <ul class="burger-menu__list">
           {{#each menu }}
           <li>
@@ -10,6 +17,12 @@
           {{/each}}
         </ul>
       </nav>
+      <span class="burger-menu__separator"></span>
+      <div class="burger-menu__col">
+        {{>contacts-info dopClass="burger-menu__contacts"}}
+        {{>socials class="burger-menu__socials"}}
+      </div>
+      {{>info-plash dopClass="burger-menu__bottom"}}
     </div>
   </div>
 </div>

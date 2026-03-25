@@ -1,0 +1,65 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.info-plash {
+  position: relative;
+  display: grid;
+  gap: 24px;
+  margin-top: auto;
+  padding-block: 16px 24px;
+  z-index: 3;
+
+  &::before {
+    content: '';
+    width: 100vw;
+    height: 1px;
+    background-color: $white-30;
+    position: absolute;
+    top: 0;
+    left: -16px;
+  }
+
+  &__buttons-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  &__developer {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: auto;
+      height: 40px;
+      object-fit: contain;
+    }
+  }
+
+  @include media($md) {
+    grid-template-columns: 1fr auto;
+    padding-block: 24px;
+
+    &::before {
+      left: -24px;
+    }
+
+    &__buttons-group {
+      flex-direction: row;
+    }
+  }
+
+  @include media($lg) {
+    &::before {
+      left: -48px;
+    }
+  }
+
+  @include media($xl) {
+    &::before {
+      left: calc((100vw - 1312px) / 2 * -1);
+    }
+  }
+}

@@ -2,6 +2,7 @@
 @use './../abstracts/mixins' as *;
 
 .button-up {
+  display: none;
   opacity: 0;
   visibility: hidden;
   transition:

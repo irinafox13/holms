@@ -15,12 +15,12 @@
     display: block;
   }
 
-  @include media($lg) {
+  @include media($md) {
     &__menu {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
+      gap: 24px;
     }
   }
 }

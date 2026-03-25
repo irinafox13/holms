@@ -53,9 +53,10 @@ class ScrollHeader {
    * Добавляет класс фиксации
    */
   addFixedClass() {
+    document.body.style.paddingTop = "73px"
     this.header.classList.add(this.options.fixedClass);
     this.isFixed = true;
-
+    
     // Вызываем колбэк, если передан
     if (this.options.onFixed) {
       this.options.onFixed(this.header);
@@ -66,6 +67,7 @@ class ScrollHeader {
    * Удаляет класс фиксации
    */
   removeFixedClass() {
+    document.body.style.paddingTop = '0';
     this.header.classList.remove(this.options.fixedClass);
     this.isFixed = false;
 

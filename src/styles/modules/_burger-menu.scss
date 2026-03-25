@@ -7,9 +7,8 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: $darkLight-90;
-  backdrop-filter: blur(32px);
-  // padding-top: calc($height-mobile-header + $burger-menu-pt);
+  background-color: $darkLight;
+  padding-top: 104px;
   z-index: -1;
   opacity: 0;
   pointer-events: none;
@@ -23,12 +22,15 @@
   }
 
   &__main {
+    display: grid;
+    gap: 32px;
     flex: 1;
   }
 
   &__nav {
     display: block;
-    // margin-bottom: $burger-menu-nav-mb;
+    @include font(24px, 31px, 300);
+    text-transform: uppercase;
   }
 
   &__list {
@@ -36,16 +38,117 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // row-gap: $burger-menu-list-row-gap;
+    gap: 20px;
   }
 
-  &__button {
-    // width: $burger-menu-button-width;
+  &__separator {
+    width: 100%;
+    height: 1px;
+    display: block;
+    background-color: $white-10;
+  }
+
+  &__col {
+    display: grid;
+    gap: 32px;
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .button {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__contacts {
+    display: grid;
+    gap: 24px;
+    padding: 0 !important;
+
+    a {
+      @include font(24px, 31px, 300);
+    }
+  }
+
+  &__bottom {
+    padding-top: 0 !important;
+
+    .info-plash__developer {
+      display: none;
+    }
   }
 
   &.is-open {
     opacity: 1;
     z-index: 99;
     pointer-events: auto;
+  }
+
+  @include media($lg) {
+    background-color: $darkLight-90;
+    backdrop-filter: blur(32px);
+
+    &__main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 58px;
+      align-items: flex-start;
+    }
+
+    &__feedback-btn {
+      display: none;
+    }
+
+    &__nav {
+      @include font(40px, 53px, 300);
+    }
+
+    &__list {
+      gap: 16px;
+    }
+
+    &__separator {
+      display: none;
+    }
+
+    &__contacts {
+      gap: 20px;
+
+      a {
+        @include font(40px, 52px, 300);
+      }
+    }
+
+    &__socials {
+      .button {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    &__bottom {
+      grid-column: span 2;
+      padding-block: 24px !important;
+
+      .info-plash__developer {
+        display: flex;
+      }
+    }
+  }
+
+  @include media($xl) {
+    &__main {
+      grid-template-columns: 636px 1fr;
+    }
+
+    &__nav {
+      @include font(56px, 73px, 300);
+    }
+
   }
 }
