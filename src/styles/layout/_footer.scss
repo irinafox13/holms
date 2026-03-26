@@ -98,10 +98,23 @@
       align-items: center;
       gap: 6px;
       text-transform: uppercase;
+      color: $white-30;
+      cursor: pointer;
+      @include css_anim();
+
+      &:hover {
+        color: $white;
+
+        svg {
+          color: $white;
+        }
+      }
 
       svg {
         width: 16px;
         height: 16px;
+        color: $white-30;
+        @include css_anim();
       }
     }
   }

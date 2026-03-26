@@ -1,0 +1,46 @@
+<div data-modal-name="team" class="modal js-modal">
+  <button
+    type="button"
+    class="button button--action button--action--circle modal__close js-modal-close"
+    aria-label="Закрыть модальное окно"
+  >
+    <svg class="button__icon">
+      <use href="#close"></use>
+    </svg>
+    <span class="visually-hidden">Закрыть окно</span>
+  </button>
+  <div class="modal__wrap">
+    <div class="modal__dialog js-modal-dialog">
+      <div class="modal__content js-modal-content">
+        <svg class="modal__icon" width="112" height="112">
+          <use href="#team"></use>
+        </svg>
+        <h2 class="modal__title js-modal-title">команда разработки</h2>
+        <div class="team">
+          <ul class="team__list">
+            {{#each team}}
+            <li class="team__participant">
+              <div class="team__participant-info">
+                <span class="team__participant-post">{{ this.post }}</span>
+                <div class="text-big">{{ this.name }}</div>
+              </div>
+              <ul class="team__participant-socials">
+                {{#each this.socials}}
+                <li>
+                  <a class="button-link" href="{{ this.url }}" target="_blank" rel="noopener noreferrer">
+                    {{ this.name }}
+                    <svg class="button-link__icon" width="24" height="24">
+                      <use href="#arrow-link" />
+                    </svg>
+                  </a>
+                </li>
+                {{/each}}
+              </ul>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

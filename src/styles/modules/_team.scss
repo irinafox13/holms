@@ -1,0 +1,50 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.team {
+  width: 100%;
+  padding-block: 32px;
+
+  &__list {
+    display: grid;
+    gap: 24px;
+  }
+
+  &__participant {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-bottom: 1px solid $white-10;
+    padding-bottom: 24px;
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    &-info {
+      display: grid;
+      gap: 8px;
+    }
+
+    &-post {
+      text-transform: uppercase;
+      color: $white-60;
+    }
+
+    &-socials {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+
+  @include media($md) {
+    &__participant {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+  }
+}

@@ -142,6 +142,9 @@
   }
 
   &-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     color: $white;
     text-transform: uppercase;
     text-decoration: underline;
@@ -151,5 +154,14 @@
     @include font(16px, 21px, 400);
     @include letter-spacing(16px, 3);
     @include css_anim();
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      text-decoration-color: $white-60;
+    }
   }
 }
