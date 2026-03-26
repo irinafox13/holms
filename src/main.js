@@ -10,6 +10,7 @@ import '@main/components/burger-menu';
 import '@main/components/scroll-header';
 import '@main/components/scroll-to-top';
 import '@main/animations/';
+
 // Ленивая загрузка компонентов при прокрутке
 class LazyComponentLoader {
   constructor() {
@@ -140,6 +141,14 @@ class LazyComponentLoader {
           console.log(`🗺️ Loading contacts map component for section: ${sectionId}`);
           components.push(import('@main/components/contacts-map'));
           this.loadedComponents.add('contacts-map');
+        }
+      }
+
+      if (section.querySelector('.js-infrastructure-map')) {
+        if (!this.loadedComponents.has('infrastructure')) {
+          console.log(`🗺️ Loading infrastructure map component for section: ${sectionId}`);
+          components.push(import('@main/components/infrastructure'));
+          this.loadedComponents.add('infrastructure');
         }
       }
 

@@ -555,6 +555,37 @@
       "id": "booking_privacy"
     }
   },
+  "infrastructure": [
+    {
+      "name": "Школы и детские сады",
+      "icon": "/images/infrastructure/school.svg",
+      "type": "school"
+    },{
+      "name": "Магазины и ТЦ",
+      "icon": "/images/infrastructure/shop.svg",
+      "type": "shop"
+    }, {
+      "name": "Поликлиники и аптеки",
+      "icon": "/images/infrastructure/medical.svg",
+      "type": "medical"
+    }, {
+      "name": "Спорт",
+      "icon": "/images/infrastructure/sport.svg",
+      "type": "sport"
+    }, {
+      "name": "Транспорт",
+      "icon": "/images/infrastructure/transport.svg",
+      "type": "transport"
+    }, {
+      "name": "Парки и зоны отдыха",
+      "icon": "/images/infrastructure/park.svg",
+      "type": "park"
+    }, {
+      "name": "Рестораны и кафе",
+      "icon": "/images/infrastructure/food.svg",
+      "type": "food"
+    }
+  ],
   "team": [
     {
       "name": "Дмитрий Поздеев",

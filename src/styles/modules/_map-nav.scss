@@ -1,0 +1,72 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.map-nav {
+  $nav: &;
+
+  &__list {
+    width: 100%;
+    display: grid;
+    max-height: 280px;
+    overflow: auto;
+    @include scrollbar(4px);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 56px;
+    padding: 16px;
+    background-color: transparent;
+    cursor: pointer;
+    @include css_anim();
+
+    &--active {
+      background-color: $white-15;
+
+      &.empty {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      #{$nav} {
+        &__item {
+          &-icon {
+            background-color: $white;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: $white-05;
+    }
+
+    &-icon {
+      display: block;
+      width: 24px;
+      height: 24px;
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      background-color: $white-60;
+      @include css_anim();
+    }
+
+    &-name {
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-transform: uppercase;
+      @include font(16px, 21px, 400);
+    }
+  }
+
+  @include media($lg) {
+    &__list {
+      overflow: inherit;
+      max-height: none;
+    }
+  }
+}

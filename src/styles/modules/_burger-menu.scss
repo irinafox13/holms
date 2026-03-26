@@ -9,16 +9,32 @@
   height: 100%;
   background-color: $darkLight;
   padding-top: 104px;
-  z-index: -1;
+  z-index: 99;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  @include css_anim();
-
+  will-change: transform, opacity, visibility;
+    transform-origin: top right;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  
   &__inner {
     display: flex;
     flex-direction: column;
     height: 100%;
     overflow-y: auto;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    @include scrollbar(4px);
+  }
+  
+  &__nav,
+  &__col,
+  &__bottom {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
   }
 
   &__main {
@@ -62,6 +78,11 @@
     .button {
       width: 48px;
       height: 48px;
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
@@ -84,9 +105,10 @@
   }
 
   &.is-open {
-    opacity: 1;
     z-index: 99;
     pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
   }
 
   @include media($lg) {
@@ -149,6 +171,5 @@
     &__nav {
       @include font(56px, 73px, 300);
     }
-
   }
 }

@@ -1,0 +1,46 @@
+<section class="infrastructure contacts-map section js-fade-in-block js-infrastructure" id="infrastructure">
+  <div class="container">
+    <header class="section__header">
+      <h2>Всё под рукой</h2>
+    </header>
+    <div class="infrastructure__block">
+      <aside class="contacts-map__aside infrastructure__aside">
+        <div class="infrastructure__dropdown js-infrastructure-dropdown">
+          <button type="button" class="infrastructure__dropdown-button js-infrastructure-dropdown-btn">
+            <span class="infrastructure__dropdown-name">Все категориии</span>
+            <svg width="24" height="24" class="infrastructure__dropdown-arrow">
+              <use href="#chevron" />
+            </svg>
+          </button>
+          <div class="contacts-map__section infrastructure__dropdown-list js-infrastructure-dropdown-list">
+            <div class="map-nav">
+              <ul class="map-nav__list js-map-nav">
+                <li class="map-nav__item map-nav__item--active" data-type="all">
+                  <span class="map-nav__item-icon" style="mask-image: url('/images/infrastructure/all.svg')"></span>
+                  <div class="map-nav__item-name">
+                    <span class="d-lg-none">Показывать все</span>
+                    <span class="d-none d-lg-inline">Все категории</span>
+                  </div>
+                </li>
+                {{#each infrastructure}}
+                <li class="map-nav__item" data-type="{{ this.type }}">
+                  <span class="map-nav__item-icon" style="mask-image: url({{ this.icon }})"></span>
+                  <div class="map-nav__item-name">{{ this.name }}</div>
+                </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div
+        id="infrastructure-map"
+        class="infrastructure__ymaps contacts-map__ymaps js-infrastructure-map"
+        data-zoom="20"
+        data-lt="58.590869"
+        data-lg="49.688226"
+        loading="lazy"
+      ></div>
+    </div>
+  </div>
+</section>

@@ -25,10 +25,16 @@
     object-fit: contain;
   }
 
+  &__info {
+    width: 100%;
+    display: grid;
+    gap: 12px;
+    margin-top: auto;
+  }
+
   &__name {
     text-transform: uppercase;
-    margin-top: auto;
-    margin-bottom: 12px;
+    
   }
 
   &__text {
@@ -41,7 +47,38 @@
     margin-top: 24px;
   }
 
+  @include media($md) {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    min-height: auto;
+
+    &__image-wrap {
+      margin-bottom: 0;
+    }
+
+    &__info {
+      margin-top: 0;
+    }
+
+    &__btn {
+      margin-top: 0;
+      flex: 0 0 200px;
+    }
+  }
+
   @include media($lg) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
     min-height: 340px;
+
+    &__info {
+      margin-top: auto;
+    }
+
+    &__btn {
+      flex: 0 0 auto;
+    }
   }
 }

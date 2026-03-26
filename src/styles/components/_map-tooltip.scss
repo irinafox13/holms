@@ -1,0 +1,40 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.map-tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: $white-20;
+  font-family: $baseFontFamily;
+  backdrop-filter: blur(64px);
+  color: $white-60;
+  @include font(14px, 24px, 300);
+  padding: 16px;
+  padding-bottom: 12px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 24px;
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__name {
+    @include font(24px, 32px, 300);
+    color: $white;
+  }
+
+  &__address {
+    font-style: normal;
+  }
+
+  &__info {
+    @include font(14px, 24px, 300);
+    text-align: center;
+  }
+}

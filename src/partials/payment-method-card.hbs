@@ -2,8 +2,10 @@
   <div class="payment-method-card__image-wrap">
      <img src="{{ content.icon }}" class="payment-method-card__icon" alt="{{ content.name }}" loading="lazy" />
   </div> 
-  <h3 class="h4 payment-method-card__name">{{{ content.name }}}</h3>
+  <div class="payment-method-card__info">
+    <h3 class="h4 payment-method-card__name">{{{ content.name }}}</h3>
   <p class="payment-method-card__text">{{ content.shortDescription }}</p>
+  </div>  
   <button
     type="button"
     class="payment-method-card__btn button button--outline button--size--small js-modal-open-button"

@@ -138,9 +138,7 @@ class ContactsMap {
   }
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
 const mapNode = document.querySelector('.js-contacts-map');
 if (mapNode) {
   new ContactsMap(mapNode);
 }
-// });

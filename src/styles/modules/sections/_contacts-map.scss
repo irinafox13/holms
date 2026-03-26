@@ -114,7 +114,7 @@
     padding: 0;
   }
 
-  &[class*="-copyrights-pane"] {
+  &[class*='-copyrights-pane'] {
     display: none !important;
   }
 
@@ -155,6 +155,42 @@
       border: 0;
       padding: 8px;
       box-shadow: none;
+    }
+  }
+
+  &[class*='-places-pane'] .ymaps-2-1-79-placemark-overlay:first-child {
+    z-index: 1000 !important;
+
+    .ymaps-2-1-79-image {
+      background-color: transparent;
+      background-size: 120px 129px !important;
+    }
+  }
+
+  &[class*='-image'] {
+    position: absolute;
+    background-color: $white;
+    border-radius: 50%;
+    background-size: 24px 24px !important;
+    background-repeat: no-repeat;
+    background-position: center center !important;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 56px;
+      height: 56px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid transparent;
+      @include css_anim();
+    }
+
+    &:hover::after {
+      border-color: $white;
     }
   }
 
@@ -202,4 +238,41 @@
       }
     }
   }
+}
+
+[class*='ymaps-2'][class*='-hint'] {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border: none !important;
+}
+@include media($lg) {
+  [class*='ymaps-2'][class*='-hint']:not([class*='-hint__content']):not([class*='tail'])::before {
+    content: '';
+    display: none;
+    width: 8px;
+    height: 24px;
+    position: absolute;
+    left: -8px;
+    top: 0;
+    background-image: url('/images/svg/tooltip-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 8px 24px;
+    pointer-events: none;
+  }
+}
+
+/* Убираем треугольную "ножку" (хвостик), которая указывает на объект */
+[class*='ymaps-2'][class*='-hint'] [class*='hint-tail'],
+[class*='ymaps-2'][class*='-hint'] [class*='tail'] {
+  display: none !important;
+}
+
+/* Если внутри все еще есть внутренний контейнер с отступами */
+[class*='ymaps-2'][class*='-hint'] .ymaps-2-1-79-hint__content,
+[class*='ymaps-2'][class*='-hint'] > div {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
 }

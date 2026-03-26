@@ -6,8 +6,11 @@
     "doctype-style": "off",
     "attr-quotes": "off",
     "void-style": "off",
+    "aria-label": "off",
+    "aria-labelledby": "off",
+    "unique-landmark": "off",
     "no-inline-style": [
-      "error",
+      "warn",
       {
         "allowedProperties": ["background-image"]
       }

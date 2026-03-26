@@ -1,0 +1,11 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.6">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 18H3V14C3 13.4477 3.44772 13 4 13H11C11.5523 13 12 13.4477 12 14V18Z" stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11 18V21" stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4 21V18" stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2 18H13" stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2 21H22" stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="18.5" cy="9.5" rx="4" ry="6.5" stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.5 10V21" stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

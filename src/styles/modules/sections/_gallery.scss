@@ -2,6 +2,9 @@
 @use './../../abstracts/mixins' as *;
 
 .gallery {
+  border-bottom: 1px solid $white-10;
+  backdrop-filter: blur(160px);
+
   &__block-slider {
     position: relative;
   }

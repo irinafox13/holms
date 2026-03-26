@@ -1,0 +1,202 @@
+@use './../../abstracts/variables' as *;
+@use './../../abstracts/mixins' as *;
+
+.infrastructure {
+  &__block {
+    position: relative;
+    display: grid;
+    gap: 32px;
+  }
+
+  &__aside {
+    position: relative;
+    padding: 0;
+  }
+
+  &__dropdown {
+    position: relative;
+    width: 100%;
+    z-index: 11;
+    $dropdown: &;
+
+    &-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 16px;
+      min-height: 56px;
+      background-color: $white-15;
+      color: $white;
+      z-index: 11;
+    }
+
+    &-name {
+      text-transform: uppercase;
+    }
+
+    &-icon {
+      color: $white;
+      @include css_anim();
+    }
+
+    &-list {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: auto;
+      top: calc(100% + 8px);
+      padding: 0;
+      background-color: $white-15;
+      backdrop-filter: blur(64px);
+      opacity: 0;
+      max-height: 0;
+      z-index: -1;
+      pointer-events: none;
+      transform: translateY(-8px);
+      @include css_anim();
+    }
+
+    &.active {
+      #{$dropdown} {
+        &-arrow {
+          scale: -1;
+        }
+
+        &-list {
+          opacity: 1;
+          max-height: 500px;
+          z-index: 9;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  &__ymaps {
+    height: 420px;
+  }
+
+  &__no-objects {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    text-align: center;
+
+    &-content {
+      p {
+        margin: 0 0 12px 0;
+        color: #666;
+      }
+    }
+  }
+  &__error-fallback {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-content {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 16px;
+      border-radius: 8px;
+
+      h3 {
+        margin: 0 0 8px 0;
+        font-size: 16px;
+      }
+
+      p {
+        margin: 0 0 8px 0;
+        font-size: 14px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+
+        li {
+          font-size: 12px;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+
+  &__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  @include media($md) {
+    &__aside {
+      position: relative;
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  @include media($lg) {
+    &__aside {
+      width: 340px;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      bottom: 8px;
+    }
+
+    &__dropdown {
+      &-button {
+        display: none;
+      }
+
+      &-list {
+        position: static;
+        transform: none;
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        height: 100%;
+        max-height: none;
+        padding: 16px;
+      }
+    }
+
+    &__ymaps {
+      height: 600px;
+    }
+  }
+}
