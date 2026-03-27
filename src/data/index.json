@@ -506,6 +506,49 @@
       "id": "exchange_privacy"
     }
   },
+  "mortgage": [
+    {
+      "title": "стоимость квартиры",
+      "type": "cost_apartment",
+      "unit": "₽",
+      "step": 10000,
+      "value": {
+        "default": "5000000",
+        "min": "5000000",
+        "max": "30000000"
+      }
+    }, {
+      "title": "Первоначальный взнос",
+      "type": "down_payment",
+      "unit": "₽",
+      "step": 10000,
+      "value": {
+        "default": "500000",
+        "min": "100000",
+        "max": "10000000"
+      }
+    },{
+      "title": "Ставка",
+      "type": "interest_rate",
+      "unit": "%",
+      "step": 1,
+      "value": {
+        "default": "3",
+        "min": "3",
+        "max": "20"
+      }
+    },{
+      "title": "срок",
+      "type": "term",
+      "unit": "лет",
+      "step": 1,
+      "value": {
+        "default": "3",
+        "min": "3",
+        "max": "30"
+      }
+    }
+  ],
   "commercialProperties": {
     "tabs": [
       {

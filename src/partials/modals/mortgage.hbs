@@ -1,4 +1,4 @@
-<div data-modal-name="exchange" class="modal js-modal">
+<div data-modal-name="mortgage" class="modal modal--mortgage js-modal">
   <button
     type="button"
     class="button button--action button--action--circle modal__close js-modal-close"
@@ -13,10 +13,28 @@
     <div class="modal__dialog js-modal-dialog">
       <div class="modal__content js-modal-content">
         <svg class="modal__icon" width="112" height="112">
-          <use href="#exchange"></use>
+          <use href="#mortgage"></use>
         </svg>
         <h2 class="modal__title js-modal-title">Рассчитать ипотеку</h2>
-       
+        <div class="mortgage">
+          <div class="mortgage__group">
+            {{#each mortgage}}
+            {{> range-component content=this}}
+            {{/each}}
+            <div class="mortgage__result">
+              <span class="mortgage__result-text">Ежемесячный платеж</span>
+              <span class="mortgage__payment-amount">130 865 ₽</span>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="mortgage__btn button button--primary button--size--large js-modal-open-button"
+            data-modal="feedback"
+          >
+            Оставить заявку
+          </button>
+          <footer class="mortgage__note">Расчет приблизительный и носит информационный характер</footer>
+        </div>
       </div>
     </div>
   </div>

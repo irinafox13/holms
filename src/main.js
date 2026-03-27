@@ -9,6 +9,7 @@ import '@main/components/preloader';
 import '@main/components/burger-menu';
 import '@main/components/scroll-header';
 import '@main/components/scroll-to-top';
+import '@main/components/range-component';
 import '@main/animations/';
 
 // Ленивая загрузка компонентов при прокрутке

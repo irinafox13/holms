@@ -1,0 +1,18 @@
+<div class="range-component" data-range-type="{{ content.type }}">
+  <h3 class="range-component__title">{{ content.title }}</h3>
+  <div class="range-component__wrapper">
+    <div class="range-component__value">
+      <span class="range-component__value-number" data-range-value>{{formatNumber content.value.default }}</span>
+      <span class="range-component__value-unit">{{ content.unit }}</span>
+    </div>
+    <div
+      class="range-component__slider"
+      data-range-slider
+      data-min="{{ content.value.min }}"
+      data-max="{{ content.value.max }}"
+      data-start="{{ content.value.default }}"
+      data-step="{{ content.step }}"
+      data-format="{{ content.format }}"
+    ></div>
+  </div>
+</div>

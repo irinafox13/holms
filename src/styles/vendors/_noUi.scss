@@ -1,0 +1,58 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.noUi {
+  &-target {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    position: relative;
+    margin: 0 8px;
+
+    &::before {
+      content: '';
+      height: 4px;
+      background: $white-10;
+      position: absolute;
+      top: 0;
+      left: -8px;
+      right: -8px;
+    }
+  }
+
+  &-horizontal {
+    height: 4px;
+
+    .noUi-handle {
+      height: 4px;
+      width: 16px;
+      top: 0;
+      right: -8px;
+      border-radius: 0;
+      background: $white;
+      cursor: pointer;
+      border: none;
+      box-shadow: none;
+      
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &-connects {
+    border-radius: 0;
+  }
+
+  &-connect {
+    background-color: transparent;
+  }
+
+  &-handle {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

@@ -97,6 +97,7 @@
     position: absolute;
     right: 16px;
     top: 16px;
+    z-index: 10;
   }
 
   &__icon {
@@ -126,10 +127,18 @@
   }
 
   &--apartment {
-     #{$modal} {
+    #{$modal} {
       &__dialog {
         max-width: none;
         padding-inline: 0;
+      }
+    }
+  }
+
+  &--mortgage {
+    #{$modal} {
+      &__dialog {
+        max-width: 442px;
       }
     }
   }

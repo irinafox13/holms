@@ -16,6 +16,12 @@ export const helpers = {
     }
     return result;
   },
+  formatNumber: (number) => {
+    if (number === undefined || number === null) return '';
+    const numStr = String(number);
+    // Форматируем с пробелами каждые 3 цифры
+    return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  },
   ifCond: (v1, operator, v2, options) => {
     switch (operator) {
       case '==':

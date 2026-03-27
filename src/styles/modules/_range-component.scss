@@ -1,0 +1,36 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.range-component {
+  width: 100%;
+  display: grid;
+  gap: 12px;
+
+  &__title {
+    @include font(16px, 21px, 400);
+    @include letter-spacing(16px, 3);
+    text-transform: uppercase;
+    color: $white-60;
+  }
+
+  &__wrapper {
+    position: relative;
+    background-color: $white-10;
+    height: 56px;    
+    padding-bottom: 0;
+  }
+
+  &__value {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px;
+    font-weight: 300;
+    user-select: none;
+
+    &-unit {
+      color: $white-60;
+    }
+  }
+}
