@@ -109,7 +109,7 @@ $form-field-icon-height: 24px;
     text-align: left;
     color: $white;
     @include font(13px, 18px);
-    margin-top: 8px;
+    margin-top: 4px;
     padding-left: 20px;
 
     &::after {
@@ -130,6 +130,7 @@ $form-field-icon-height: 24px;
     &--error {
       // color: $strokeNegative;
       display: none;
+      padding-left: 0;
 
       &::after {
         // background-color: $strokeNegative;
@@ -254,6 +255,7 @@ $form-field-icon-height: 24px;
     padding: 17px 16px;
     background-color: transparent;
     border: 1px solid $white-20;
+    border-radius: 0;
     color: $white;
     @include font(16px, 21px, 300);
     position: relative;

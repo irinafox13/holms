@@ -7,8 +7,9 @@
         class="form-field__input js-form-field-input"
         {{content.disabled}}
         value="{{content.value}}"
-        {{#if content.minlength}}minlength="{{content.minlength}}"{{/if}}
-        {{#if content.maxlength}}maxlength="{{content.maxlength}}"{{/if}}
+        autocomplete="off"
+        minlength="2"
+        maxlength="30"
     >
     <label class="form-field__label">
         {{content.title}}

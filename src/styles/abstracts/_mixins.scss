@@ -32,7 +32,7 @@
 }
 
 // Анимация по-умолчанию
-@mixin css_anim($time: 0.2s, $item: all, $style: ease) {
+@mixin css_anim($time: 0.25s, $item: all, $style: cubic-bezier(0.25, 0.46, 0.45, 0.94)) {
   transition: $item $style $time;
 
   &:hover {

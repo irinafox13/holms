@@ -19,6 +19,7 @@
     position: relative;
     padding: 0;
     border: none;
+    font-family: $baseFontFamily;
 
     input {
       background-color: transparent;
@@ -26,7 +27,7 @@
       width: 100%;
 
       &::placeholder {
-        color: $white;
+        color: $white-60;
       }
     }
 
@@ -68,6 +69,7 @@
     &.single {
       .ts-control {
         background-image: none;
+        background-color: $darkLight;
         box-shadow: none;
         border-color: $white-20;
 
@@ -76,8 +78,20 @@
         }
       }
 
-      &.input-active .ts-control {
-        z-index: 1090;
+      &.input-active,
+      &.focus {
+        .ts-control {
+          border-color: $white-20 !important;
+          z-index: 1090;
+        }
+        
+        & + .ts-chevron {
+          z-index: 1091;
+
+          & + .form-field__label {
+            z-index: 1091;
+          }
+        }
       }
     }
 
@@ -97,7 +111,7 @@
         &.single {
           .ts-control {
             cursor: pointer;
-            background: $white;
+            background: $darkLight;
           }
         }
       }
@@ -113,11 +127,6 @@
     width: 24px;
     height: 24px;
     color: $white;
-    z-index: 1091;
-
-    & + .form-field__label {
-      z-index: 1091;
-    }
   }
 
   &-dropdown {
@@ -126,12 +135,13 @@
     width: 100%;
     margin-top: 0;
     height: auto;
-    max-height: 160px;
+    max-height: 170px;
     border: none;
     border-radius: 0;
-    background: $white;
+    background: $darkLight;
+    border: 1px solid $white-05;
     box-shadow: none;
-    padding: 6px 0 6px 6px;
+    padding: 0;
     z-index: 1000;
     overflow: hidden;
 
@@ -144,22 +154,21 @@
     &-content {
       display: grid;
       gap: 1px;
-      max-height: 160px;
+      max-height: 170px;
       border: none;
       border-radius: 0;
-      background: $white;
-      padding-right: 6px;
-      padding-bottom: 12px;
+      background: $darkLight;
       overflow-y: auto;
       overflow-x: hidden;
       @include scrollbar(4px);
     }
 
     .option {
-      display: inline-block;
-      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 56px;
       padding: 12px 8px;
-      @include font(16px, 21px);
+      @include font(16px, 21px, 300);
       color: $white;
       background-color: transparent;
       box-sizing: border-box;
@@ -168,6 +177,7 @@
       overflow: hidden;
       width: 100%;
       border-radius: 0;
+      user-select: none;
       cursor: pointer;
 
       &.active {
@@ -177,6 +187,10 @@
       &.selected {
         color: $white;
         background-color: $white-30;
+      }
+
+      &.single {
+        border-color: $white-20;
       }
     }
   }

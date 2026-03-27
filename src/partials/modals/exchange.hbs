@@ -1,0 +1,53 @@
+<div data-modal-name="exchange" class="modal js-modal">
+  <button
+    type="button"
+    class="button button--action button--action--circle modal__close js-modal-close"
+    aria-label="Закрыть модальное окно"
+  >
+    <svg class="button__icon">
+      <use href="#close"></use>
+    </svg>
+    <span class="visually-hidden">Закрыть окно</span>
+  </button>
+  <div class="modal__wrap">
+    <div class="modal__dialog js-modal-dialog">
+      <div class="modal__content js-modal-content">
+        <svg class="modal__icon" width="112" height="112">
+          <use href="#exchange"></use>
+        </svg>
+        <h2 class="modal__title js-modal-title">Рассчитать обмен</h2>
+        <form class="form js-ajax-form" data-url="{{ routes.feedback }}" autocomplete="off">
+          <div class="form__wrap">
+            <div class="form__fields">
+              <div class="form__fields-group">
+                {{> forms/name content=exchangeForm.name }}
+                {{> forms/phone content=exchangeForm.phone }}
+                {{> forms/select content=exchangeForm.typeOfWork }}
+                {{> forms/select content=exchangeForm.condition }}
+                {{> forms/text content=exchangeForm.address }}
+                {{> forms/number content=exchangeForm.numberOfRooms }}
+                <div class="form__fields-row">
+                  {{> forms/number content=exchangeForm.numberOfFloors }}
+                  {{> forms/number content=exchangeForm.floor }}
+                </div>
+                <div class="form__fields-row">
+                  {{> forms/number content=exchangeForm.totalArea }}
+                  {{> forms/number content=exchangeForm.kitchenArea }}
+                </div>
+                {{> forms/textarea
+                    content=exchangeForm.comment }}
+                {{> forms/agreement content=exchangeForm.privacy }}
+              </div>
+              <button
+                type="submit"
+                class="form__button button button--primary button--size--normal form__button--submit"
+              >
+                отправить
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

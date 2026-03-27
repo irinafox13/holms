@@ -1,0 +1,41 @@
+<div data-modal-name="installment-plan" class="modal js-modal">
+  <button
+    type="button"
+    class="button button--action button--action--circle modal__close js-modal-close"
+    aria-label="Закрыть модальное окно"
+  >
+    <svg class="button__icon">
+      <use href="#close"></use>
+    </svg>
+    <span class="visually-hidden">Закрыть окно</span>
+  </button>
+  <div class="modal__wrap">
+    <div class="modal__dialog js-modal-dialog">
+      <div class="modal__content js-modal-content">
+        <svg class="modal__icon" width="112" height="112">
+          <use href="#installment-plan"></use>
+        </svg>
+        <h2 class="modal__title js-modal-title">Обсудить условия по&nbsp;рассрочке</h2>
+        <form class="form js-ajax-form" data-url="{{ routes.feedback }}" autocomplete="off">
+          <div class="form__wrap">
+            <div class="form__fields">
+              <div class="form__fields-group">
+                {{> forms/name content=installmentPlanForm.name }}
+                {{> forms/phone content=installmentPlanForm.phone }}
+                {{> forms/textarea
+                    content=installmentPlanForm.comment }}
+                {{> forms/agreement content=installmentPlanForm.privacy }}
+              </div>
+              <button
+                type="submit"
+                class="form__button button button--primary button--size--normal form__button--submit"
+              >
+                отправить
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

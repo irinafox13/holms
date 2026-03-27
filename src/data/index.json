@@ -37,8 +37,6 @@
       "name": "name",
       "title": "Ваше имя",
       "error": "Введите корректнное имя",
-      "minlength": 2,
-      "maxlength": 30,
       "required": true
     },
     "phone": {
@@ -358,7 +356,6 @@
       "shortDescription": "Разнообразные программы",
       "button": {
         "text": "Рассчитать",
-        "class": "",
         "modalName": "mortgage"
       }
     },
@@ -368,8 +365,7 @@
       "shortDescription": "Индивидуальные условия оплаты",
       "button": {
         "text": "Обсудить условия",
-        "class": "",
-        "modalName": ""
+        "modalName": "installment-plan"
       }
     },
     {
@@ -378,11 +374,138 @@
       "shortDescription": "Выгодные условия обмена",
       "button": {
         "text": "Рассчитать",
-        "class": "",
-        "modalName": ""
+        "modalName": "exchange"
       }
     }
   ],
+  "installmentPlanForm": {
+    "name": {
+      "name": "name",
+      "title": "Ваше имя",
+      "error": "Введите корректнное имя",
+      "required": true
+    },
+    "phone": {
+      "title": "Телефон",
+      "required": true
+    },
+    "comment": {
+      "name": "comment",
+      "title": "Комментарий (необязательно)",
+      "required": false
+    },
+    "privacy": {
+      "id": "installment_plan_privacy"
+    }
+  },
+  "exchangeForm": {
+    "name": {
+      "name": "name",
+      "title": "Ваше имя",
+      "error": "Введите корректнное имя",
+      "required": true
+    },
+    "phone": {
+      "title": "Телефон",
+      "required": true
+    },
+    "typeOfWork": {
+      "name": "type_of_house",
+      "title": "Тип дома",
+      "options": [
+        {
+          "value": "",
+          "label": "Тип дома"
+        },
+        {
+          "value": "panel",
+          "label": "Панельный"
+        },
+        {
+          "value": "block",
+          "label": "Блочный"
+        },
+        {
+          "value": "brick",
+          "label": "Кирпичный"
+        },
+        {
+          "value": "monolith",
+          "label": "Монолит"
+        }
+      ],
+      "required": true
+    },
+    "condition": {
+      "name": "condition",
+      "title": "Состояние квартиры",
+      "options": [
+        {
+          "value": "",
+          "label": "Состояние квартиры"
+        },
+        {
+          "value": "high_quality_repairs",
+          "label": "Качественный ремонт"
+        },
+        {
+          "value": "average_condition",
+          "label": "Среднее состояние"
+        },
+        {
+          "value": "unsatisfactory_condition",
+          "label": "Неудовлетворительное состояние"
+        },
+        {
+          "value": "finishing_from_eveloper",
+          "label": "Отделка от застройщика"
+        },
+        {
+          "value": "without_finishing",
+          "label": "Без отделки"
+        }
+      ],
+      "required": true
+    },
+    "address": {
+      "name": "address",
+      "title": "Адрес",
+      "required": false
+    },
+    "numberOfRooms": {
+      "name": "number_of_rooms",
+      "title": "Количество комнат",
+      "required": false
+    },
+    "numberOfFloors": {
+      "name": "number_of_floors",
+      "title": "Этажность дома",
+      "required": false
+    },
+    "floor": {
+      "name": "floor",
+      "title": "Этаж квартиры",
+      "required": false
+    },
+    "totalArea": {
+      "name": "total_area",
+      "title": "Общая площадь",
+      "required": false
+    },
+    "kitchenArea": {
+      "name": "kitchen_area",
+      "title": "Площадь кухни",
+      "required": false
+    },
+    "comment": {
+      "name": "comment",
+      "title": "Комментарий (необязательно)",
+      "required": false
+    },
+    "privacy": {
+      "id": "exchange_privacy"
+    }
+  },
   "commercialProperties": {
     "tabs": [
       {
@@ -513,8 +636,6 @@
       "name": "name",
       "title": "Ваше имя",
       "error": "Введите корректнное имя",
-      "minlength": 2,
-      "maxlength": 30,
       "required": true
     },
     "phone": {
@@ -534,8 +655,6 @@
       "name": "name",
       "title": "Ваше имя",
       "error": "Введите корректнное имя",
-      "minlength": 2,
-      "maxlength": 30,
       "required": true
     },
     "phone": {
@@ -560,27 +679,33 @@
       "name": "Школы и детские сады",
       "icon": "/images/infrastructure/school.svg",
       "type": "school"
-    },{
+    },
+    {
       "name": "Магазины и ТЦ",
       "icon": "/images/infrastructure/shop.svg",
       "type": "shop"
-    }, {
+    },
+    {
       "name": "Поликлиники и аптеки",
       "icon": "/images/infrastructure/medical.svg",
       "type": "medical"
-    }, {
+    },
+    {
       "name": "Спорт",
       "icon": "/images/infrastructure/sport.svg",
       "type": "sport"
-    }, {
+    },
+    {
       "name": "Транспорт",
       "icon": "/images/infrastructure/transport.svg",
       "type": "transport"
-    }, {
+    },
+    {
       "name": "Парки и зоны отдыха",
       "icon": "/images/infrastructure/park.svg",
       "type": "park"
-    }, {
+    },
+    {
       "name": "Рестораны и кафе",
       "icon": "/images/infrastructure/food.svg",
       "type": "food"
@@ -594,12 +719,14 @@
         {
           "name": "MAX",
           "url": ""
-        }, {
+        },
+        {
           "name": "Телеграм",
           "url": ""
         }
       ]
-    }, {
+    },
+    {
       "name": "Денис Соколов",
       "post": "арт-дирекшн, дизайн",
       "socials": [
@@ -612,7 +739,8 @@
           "url": ""
         }
       ]
-    }, {
+    },
+    {
       "name": "Марк Новак",
       "post": "дизайн",
       "socials": [
@@ -625,7 +753,8 @@
           "url": ""
         }
       ]
-    }, {
+    },
+    {
       "name": "Иван Коваленко",
       "post": "Шрифт NT Sakharov",
       "socials": [
@@ -638,7 +767,8 @@
           "url": ""
         }
       ]
-    }, {
+    },
+    {
       "name": "Ирина Пушкарева",
       "post": "Фронт",
       "socials": [
@@ -647,7 +777,8 @@
           "url": ""
         }
       ]
-    },{
+    },
+    {
       "name": "Дмитрий Шилов",
       "post": "бэк",
       "socials": [

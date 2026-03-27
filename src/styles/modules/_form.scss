@@ -46,8 +46,8 @@
 
   &__agreement {
     &-text {
-     color: $white-60;
-     font-weight: 300;
+      color: $white-60;
+      font-weight: 300;
     }
   }
 
@@ -107,6 +107,14 @@
         visibility: visible;
         z-index: 2;
         display: block;
+      }
+    }
+  }
+
+  @include media($lg) {
+    &__fields {
+      &-row {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   }

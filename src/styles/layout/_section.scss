@@ -6,7 +6,8 @@
   overflow: hidden;
   will-change: auto;
   transform: translateZ(0);
-  backface-visibility: hidden;scroll-margin-top: 72px;
+  backface-visibility: hidden;
+  scroll-margin-top: 72px;
 
   &--bottom-line {
     border-bottom: 1px solid $white-10;
