@@ -3,8 +3,8 @@ import Handlebars from 'handlebars';
 import {Modal} from '@main/components/modal/modal';
 import {OpenModal} from '@main/components/modal/open-modal';
 import {ApartmentSlider} from '@main/components/sliders/apartment-slider';
-import {mockHelper} from '@main/helpers/mock-helper';
-import {getApartmentData} from '@mocker/index';
+// import {mockHelper} from '@main/helpers/mock-helper';
+// import {getApartmentData} from '@mocker/index';
 import apartmentCardTemplate from '@partials/apartment-card.hbs?raw';
 import sliderNavigationTemplate from '@partials/slider-navigation.hbs?raw';
 import {OpenBookingRequest} from '@main/components/open-booking-request';
@@ -38,27 +38,21 @@ class OpenApartmentData {
 
   async requestPropertyData() {
     this.button.classList.add('waiting');
+    const {data} = await axios({
+      url: this.routeUrl,
+      method: 'GET',
+      params: {
+        id: this.apartmentId,
+      },
+    });
+    this.button.classList.remove('waiting');
+    if (data?.success) {
+      Modal.open(this.apartmentModal);
+      this.addApartmentData(data.data);
 
-    // Функция для загрузки данных
-    const loadData = async () => {
-      const {data} = await axios({
-        url: this.routeUrl,
-        method: 'GET',
-        params: {
-          id: this.apartmentId,
-        },
-      });
-      this.button.classList.remove('waiting');
-      if (data?.success) {
-        Modal.open(this.apartmentModal);
-        this.addApartmentData(data.data);
-
-        // Инициализируем компоненты после добавления DOM
-        this.refresh();
-      }
-    };
-
-    mockHelper(getApartmentData, loadData);
+      // Инициализируем компоненты после добавления DOM
+      this.refresh();
+    }
   }
 
   /**

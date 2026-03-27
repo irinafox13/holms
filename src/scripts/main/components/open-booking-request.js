@@ -1,8 +1,6 @@
 import axios from 'axios';
 import Handlebars from 'handlebars';
 import {Modal} from '@main/components/modal/modal';
-import {mockHelper} from '@main/helpers/mock-helper';
-import {getPropertyData} from '@mocker/index';
 import propertyInfoTemplate from '@partials/property-info.hbs?raw';
 const propertyInfo = Handlebars.compile(propertyInfoTemplate);
 
@@ -33,7 +31,6 @@ export class OpenBookingRequest {
     this.button.classList.add('waiting');
 
     // Функция для загрузки данных
-    const loadData = async () => {
       const {data} = await axios({
         url: this.routeUrl,
         method: 'GET',
@@ -50,9 +47,6 @@ export class OpenBookingRequest {
         Modal.open(this.bookingModal);
         this.addPropertyInfo(data.data);
       }
-    };
-
-    mockHelper(getPropertyData, loadData);
   }
 
   /**

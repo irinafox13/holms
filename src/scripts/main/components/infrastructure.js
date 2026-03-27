@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {MD_WIDTH, LG_WIDTH} from '@main/helpers/consts';
 import {Tooltip} from '@main/components/tooltip';
 const SHIFT_COORD_LG_FOR_DESKTOP = 0.0113;
@@ -5,150 +6,6 @@ const RESTRICT_MAP_AREA = [
   [79.27135, -35.51953],
   [-35.59522, -142.91016],
 ];
-
-// Данные объектов инфраструктуры
-const infrastructurePoints = {
-  school: [
-    // Школы и детские сады
-    {
-      id: 1,
-      name: 'Средняя школа №20',
-      address: 'ул. Ленина, 10',
-      lat: 58.586389,
-      lng: 49.675928,
-    },
-    {
-      id: 2,
-      name: 'Средняя школа №16',
-      address: 'ул. Мира, 25',
-      lat: 58.59364,
-      lng: 49.675955,
-    },
-    {
-      id: 3,
-      name: 'Частная школа "Среда"',
-      address: 'ул. Гагарина, 15',
-      lat: 58.589419,
-      lng: 49.68315,
-    },
-    {
-      id: 4,
-      name: 'Вятская гуманитарная гимназия',
-      address: 'ул. Советская, 8',
-      lat: 58.590418,
-      lng: 49.683797,
-    },
-  ],
-  shop: [
-    // Магазины и ТЦ
-    {
-      id: 5,
-      name: 'Супермаркет "Магнит"',
-      address: 'ул. Кирова, 12',
-      lat: 58.587759,
-      lng: 49.683519,
-    },
-    {
-      id: 6,
-      name: 'Супермаркет "Система Глобус"',
-      address: 'пр. Победы, 45',
-      lat: 58.592843,
-      lng: 49.682297,
-    },
-    {
-      id: 7,
-      name: 'Продуктовый магазин "Красное&Белое"',
-      address: 'ул. Ленина, 50',
-      lat: 58.588331,
-      lng: 49.688738,
-    },
-    {
-      id: 8,
-      name: 'Магазин у дома "Бристоль"',
-      address: 'ул. Октябрьская, 3',
-      lat: 58.589063,
-      lng: 49.685746,
-    },
-  ],
-  medical: [
-    // Поликлиники и аптеки
-    {
-      id: 9,
-      name: 'Поликлиника №6',
-      address: 'ул. Комсомольская, 22',
-      lat: 58.590695,
-      lng: 49.675218,
-    },
-    {
-      id: 10,
-      name: 'Аптека "Планета здоровья"',
-      address: 'ул. Свободы, 7',
-      lat: 58.592843,
-      lng: 49.682297,
-    },
-  ],
-  sport: [
-    // Спорт
-    {
-      id: 11,
-      name: 'Студии мягкого фитнеса "Softfitness"',
-      address: 'ул. Спортивная, 5',
-      lat: 58.592843,
-      lng: 49.682297,
-    },
-    {
-      id: 12,
-      name: 'Спортивный клуб "Гагарин"',
-      address: 'ул. Гагарина, 30',
-      lat: 58.59485,
-      lng: 49.68863,
-    },
-    {
-      id: 13,
-      name: 'Спортивные секции "Центр самбо"',
-      address: 'ул. Победы, 8',
-      lat: 58.590437,
-      lng: 49.685549,
-    },
-    {
-      id: 14,
-      name: 'Клуб экстремальных видов спорта "В движении"',
-      address: 'ул. Молодежная, 12',
-      lat: 58.591422,
-      lng: 49.688828,
-    },
-  ],
-  transport: [
-    // Транспорт
-    {
-      id: 15,
-      name: 'Остановка "Филармония"',
-      address: 'ул. Ленина',
-      lat: 58.594587,
-      lng: 49.681939,
-    },
-  ],
-  park: [
-    // Парки и зоны отдыха
-    {
-      id: 16,
-      name: 'Городской парк',
-      address: 'ул. Парковая',
-      lat: 58.5885,
-      lng: 49.68,
-    },
-  ],
-  food: [
-    // Рестораны и кафе
-    {
-      id: 17,
-      name: 'Кафе "Уют"',
-      address: 'ул. Ленина, 45',
-      lat: 58.5895,
-      lng: 49.6865,
-    },
-  ],
-};
 
 /**
  * Компонент карта.
@@ -160,6 +17,7 @@ class Infrastructure {
     this.lg = this.map.dataset.lg;
     this.lt = this.map.dataset.lt;
     this.zoom = this.map.dataset.zoom;
+    this.url = this.map.dataset.url;
     this.dropdownBtn = this.block.querySelector('.js-infrastructure-dropdown-btn');
     this.dropdownList = this.block.querySelector('.js-infrastructure-dropdown-list');
     this.filterItems = this.block.querySelectorAll('.map-nav__item');
@@ -172,7 +30,8 @@ class Infrastructure {
     this.mainPlacemark = null;
     this.activeFilters = ['all'];
     this.centerLat = Number(this.lt);
-    this.centerLng = Number(this.lg);
+    this.centerLng = Number(this.lg);   
+    this.infrastructurePoints;
 
     this.init();
     this.updateScreenSize();
@@ -180,7 +39,9 @@ class Infrastructure {
     this.bindEventListeners();
   }
 
-  init() {
+  init = async () => {
+    this.infrastructurePoints = await this.getMapData();
+    
     const checkYmaps = () => {
       if (window.ymaps && window.ymaps.Map) {
         this.createMap();
@@ -315,14 +176,30 @@ class Infrastructure {
     });
   }
 
+  /**
+   * Получение точек для карты
+   * @returns {Promise<*>}
+   */
+  async getMapData() {
+    try {
+      const {data} = await axios({
+        url: this.url,
+        method: 'GET',
+      });
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   createCollections() {
     // Создаем коллекции для каждой категории
     const categories = ['school', 'shop', 'medical', 'sport', 'transport', 'park', 'food'];
 
     categories.forEach((category) => {
       this.collections[category] = new window.ymaps.GeoObjectCollection();
-      if (infrastructurePoints[category]) {
-        infrastructurePoints[category].forEach((point) => {
+      if (this.infrastructurePoints[category]) {
+        this.infrastructurePoints[category].forEach((point) => {
           const distance = this.calculateDistance(this.centerLat, this.centerLng, point.lat, point.lng);
           const walkingTime = this.calculateWalkingTime(distance);
 
@@ -345,7 +222,7 @@ class Infrastructure {
     });
     // После создания коллекций обновляем тултипы фильтров
     this.updateFilterTooltips();
-  }
+  };
 
   addMainPlacemark() {
     this.mainPlacemark = new window.ymaps.Placemark(
@@ -357,8 +234,8 @@ class Infrastructure {
       {
         iconLayout: 'default#image',
         iconImageHref: '/images/svg/pin-holms.svg',
-        iconImageSize: [120, 135],
-        iconImageOffset: [-60, -75],
+        iconImageSize: [58, 65],
+        iconImageOffset: [-28, -65],
       },
     );
 
@@ -433,10 +310,6 @@ class Infrastructure {
   getCoordsCenterMap() {
     const lg = Number(this.lg);
     const lt = Number(this.lt);
-
-    if (isNaN(lg) || isNaN(lt)) {
-      return [58.594344, 49.677814];
-    }
 
     if (this.isDesktopScreen) {
       return [lt, lg - SHIFT_COORD_LG_FOR_DESKTOP];

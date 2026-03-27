@@ -163,7 +163,8 @@
 
     .ymaps-2-1-79-image {
       background-color: transparent;
-      background-size: 120px 129px !important;
+      // box-shadow: 0px 4px 32px 0px #F7C58899;
+      background-size:contain !important;
     }
   }
 
@@ -247,6 +248,7 @@
   padding: 0 !important;
   border: none !important;
 }
+
 @include media($lg) {
   [class*='ymaps-2'][class*='-hint']:not([class*='-hint__content']):not([class*='tail'])::before {
     content: '';
@@ -263,13 +265,11 @@
   }
 }
 
-/* Убираем треугольную "ножку" (хвостик), которая указывает на объект */
 [class*='ymaps-2'][class*='-hint'] [class*='hint-tail'],
 [class*='ymaps-2'][class*='-hint'] [class*='tail'] {
   display: none !important;
 }
 
-/* Если внутри все еще есть внутренний контейнер с отступами */
 [class*='ymaps-2'][class*='-hint'] .ymaps-2-1-79-hint__content,
 [class*='ymaps-2'][class*='-hint'] > div {
   padding: 0 !important;

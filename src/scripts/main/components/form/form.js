@@ -11,8 +11,6 @@ import {
   REDIRECT_TIMEOUT,
 } from '@main/helpers/consts';
 import {Modal} from '@main/components/modal/modal';
-import {mockHelper} from '@main/helpers/mock-helper';
-import {feedback, booking} from '@mocker/index';
 
 import * as Validation from './validation.js';
 import {startTimer} from './timer.js';
@@ -145,19 +143,15 @@ export class Form {
     this.el.classList.add('waiting');
 
     // Функция для загрузки данных
-    const loadData = async () => {
-      const response = await Form.fetchForm(this.el, this.url);
-      this.el.classList.remove('waiting');
+    const response = await Form.fetchForm(this.el, this.url);
+    this.el.classList.remove('waiting');
 
-      if (response?.success) {
-        this.handleSuccessResponse(response);
-      } else {
-        this.showErrorModal(response);
-      }
-    };
-
-    const worker = this.url.includes('/feedback') ? feedback : booking;
-    mockHelper(worker, loadData);
+    if (response?.success) {
+      this.handleSuccessResponse(response);
+      return response;
+    } else {
+      this.showErrorModal(response);
+    }
   }
 
   /**
