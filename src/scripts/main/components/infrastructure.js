@@ -1,4 +1,5 @@
 import {MD_WIDTH, LG_WIDTH} from '@main/helpers/consts';
+import {Tooltip} from '@main/components/tooltip';
 const SHIFT_COORD_LG_FOR_DESKTOP = 0.0113;
 const RESTRICT_MAP_AREA = [
   [79.27135, -35.51953],
@@ -121,10 +122,10 @@ const infrastructurePoints = {
     // Транспорт
     {
       id: 15,
-      name: 'Остановка "Центральная"',
+      name: 'Остановка "Филармония"',
       address: 'ул. Ленина',
-      lat: 58.590869,
-      lng: 49.688226,
+      lat: 58.594587,
+      lng: 49.681939,
     },
   ],
   park: [
@@ -342,13 +343,17 @@ class Infrastructure {
         });
       }
     });
+    // После создания коллекций обновляем тултипы фильтров
+    this.updateFilterTooltips();
   }
 
   addMainPlacemark() {
     this.mainPlacemark = new window.ymaps.Placemark(
       [Number(this.lt), Number(this.lg)],
-      {hintContent: `<div class="map-tooltip">
-        <h3 class="map-tooltip__name">Жилой квартал «Холмс»</h3></div>`},
+      {
+        hintContent: `<div class="map-tooltip">
+        <h3 class="map-tooltip__name">Жилой квартал «Холмс»</h3></div>`,
+      },
       {
         iconLayout: 'default#image',
         iconImageHref: '/images/svg/pin-holms.svg',
@@ -491,6 +496,67 @@ class Infrastructure {
     this.hideNoObjectsMessage();
   }
 
+  updateDropdownButtonText() {
+    const activeItem = Array.from(this.filterItems).find((item) => item.classList.contains('map-nav__item--active'));
+
+    if (activeItem) {
+      const type = activeItem.dataset.type;
+      let selectedText;
+
+      // Если выбран фильтр "all", выводим "Показать все"
+      if (type === 'all') {
+        selectedText = 'Показать все';
+      } else {
+        selectedText = activeItem.querySelector('.map-nav__item-name')?.textContent || activeItem.textContent;
+      }
+
+      this.dropdownBtn.textContent = selectedText;
+    }
+  }
+
+  /**
+   * Проверяет, есть ли объекты для указанной категории
+   * @param {string} category - категория фильтра
+   * @returns {boolean} - true если есть объекты, false если нет
+   */
+  hasObjectsInCategory(category) {
+    if (category === 'all') {
+      return Object.values(this.collections).some((collection) => collection.getLength() > 0);
+    }
+    return this.collections[category] && this.collections[category].getLength() > 0;
+  }
+
+  /**
+   * Обновляет состояние тултипов для элементов фильтра
+   */
+  updateFilterTooltips() {
+    this.filterItems.forEach((item) => {
+      const type = item.dataset.type;
+
+      // Проверяем, есть ли объекты для этой категории
+      const hasObjects = this.hasObjectsInCategory(type);
+      // Удаляем существующий тултип, если он есть
+      if (item._tooltip) {
+        item._tooltip.tippy.destroy();
+        item._tooltip = null;
+      }
+
+      // Удаляем класс js-tooltip, если он был добавлен
+      item.classList.remove('js-tooltip');
+
+      // Если объектов нет, добавляем тултип
+      if (!hasObjects && type !== 'all') {
+        item.classList.add('js-tooltip');
+        item.setAttribute('data-text', 'Нет объектов');
+        item.setAttribute('data-theme', 'dark');
+        item.setAttribute('data-placement', 'right');
+
+        // Инициализируем тултип
+        item._tooltip = new Tooltip(item);
+      }
+    });
+  }
+
   bindEventListeners() {
     this.dropdownBtn.addEventListener('click', this.toggleDropdown.bind(this));
 
@@ -505,8 +571,6 @@ class Infrastructure {
           this.filterItems.forEach((i) => i.classList.remove('map-nav__item--active'));
           item.classList.add('map-nav__item--active');
           this.showAllObjects();
-          // Закрываем dropdown после выбора
-          this.closeDropdown();
         } else {
           // Убираем 'all' из фильтров
           if (this.activeFilters.includes('all')) {
@@ -528,10 +592,13 @@ class Infrastructure {
           this.activeFilters = [type];
           item.classList.add('map-nav__item--active');
           this.showFilteredObjects();
-
-          // Закрываем dropdown после выбора
-          this.closeDropdown();
         }
+
+        // Обновляем текст кнопки
+        this.updateDropdownButtonText();
+
+        // Закрываем dropdown после выбора
+        this.closeDropdown();
       });
     });
   }

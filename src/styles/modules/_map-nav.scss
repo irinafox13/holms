@@ -20,6 +20,7 @@
     padding: 16px;
     background-color: transparent;
     cursor: pointer;
+    user-select: none;
     @include css_anim();
 
     &--active {

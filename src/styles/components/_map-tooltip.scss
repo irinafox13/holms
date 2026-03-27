@@ -10,8 +10,7 @@
   backdrop-filter: blur(64px);
   color: $white-60;
   @include font(14px, 24px, 300);
-  padding: 16px;
-  padding-bottom: 12px;
+  padding: 8px;
 
   &::before {
     content: '';
@@ -25,7 +24,7 @@
   }
 
   &__name {
-    @include font(24px, 32px, 300);
+    @include font(18px, 24px, 300);
     color: $white;
   }
 
@@ -36,5 +35,15 @@
   &__info {
     @include font(14px, 24px, 300);
     text-align: center;
+    margin-bottom: 0;
+  }
+
+  @include media($lg) {
+    padding: 16px;
+
+    &__name {
+      @include font(24px, 32px, 300);
+      color: $white;
+    }
   }
 }

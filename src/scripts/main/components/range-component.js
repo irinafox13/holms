@@ -1,12 +1,7 @@
 import noUiSlider from 'nouislider';
-/**
- * Универсальный компонент Range
- * Поддерживает различные типы данных: годы, проценты, суммы
- */
 
 /**
  * Универсальный компонент Range
- * Все настройки берутся из data-атрибутов
  */
 export class RangeComponent {
     constructor(element) {
@@ -74,7 +69,6 @@ export class RangeComponent {
      */
     initSlider() {
         if (this.sliderElement && noUiSlider) {
-            // Проверяем, не инициализирован ли уже слайдер
             if (this.sliderElement.noUiSlider) {
                 return;
             }
@@ -105,7 +99,6 @@ export class RangeComponent {
      */
     setValue(value) {
         if (this.sliderElement && this.sliderElement.noUiSlider) {
-            // Проверяем, что значение в допустимом диапазоне
             const clampedValue = Math.min(this.config.max, Math.max(this.config.min, value));
             this.sliderElement.noUiSlider.set(clampedValue);
         }
@@ -128,21 +121,8 @@ export class RangeComponent {
     init() {
         this.initSlider();
     }
-    
-    /**
-     * Уничтожение компонента
-     */
-    destroy() {
-        if (this.sliderElement && this.sliderElement.noUiSlider) {
-            this.sliderElement.noUiSlider.destroy();
-            delete this.sliderElement.noUiSlider;
-        }
-    }
 }
 
-/**
- * Фабрика для создания компонентов
- */
 export class RangeComponentFactory {
     /**
      * Создает компоненты для всех элементов с указанным селектором
@@ -173,9 +153,4 @@ export class RangeComponentFactory {
     }
 }
 
-const components = RangeComponentFactory.create('.range-component');
-const yearsComponent = components.find((c) => c.type === 'years');
-if (yearsComponent) {
-  yearsComponent.setValue(15);
-  console.log('Программно установлено значение 15 лет');
-}
+RangeComponentFactory.create('.range-component');
