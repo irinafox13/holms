@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "data": {
+    "id": 1,
+    "name": "1 этаж",
+    "number_of_apartments": 12,
+    "available": 8,
+    "apartments": [
+      {
+        "id": 1,
+        "number": 18,
+        "number_of_rooms": 2,
+        "total_area": "56.70",
+        "finishing": "Чистовая",
+        "floor": 4,
+        "price": "17450000",
+        "isSold": false
+      }
+    ]
+  }
+}

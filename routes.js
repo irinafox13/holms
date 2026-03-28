@@ -9,4 +9,6 @@ export const routes = {
   getApartmentData: '/api/getApartmentData.json',
   // Получения точек для карты с инфраструктурой
   getMapData: '/api/getMapData.json',
+  // Получения поэтажного плана
+  getFloorPlan: '/api/getFloorPlan.json',
 };

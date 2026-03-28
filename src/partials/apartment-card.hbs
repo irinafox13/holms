@@ -25,16 +25,32 @@
     <div class="apartment-card__info">
       <div class="apartment-card__headline headline">ЖК «Холмс»</div>
       <ul class="apartment-card__description">
-        {{#each content.info}}
         <li class="apartment-card__desc-col">
-          <span>{{ this.name }}</span>
-          <span>{{ this.value }}</span>
+          <span>Квартира</span>
+          <span>№ {{ content.number }}</span>
         </li>
-        {{/each}}
+        <li class="apartment-card__desc-col">
+          <span>Площадь</span>
+          <span>
+            {{ content.total_area }}
+            <span class="nowrap">
+              м
+              <sup>2</sup>
+            </span>
+          </span>
+        </li>
+        <li class="apartment-card__desc-col">
+          <span>Этаж</span>
+          <span>{{ content.floor }}</span>
+        </li>
+        <li class="apartment-card__desc-col">
+          <span>Отделка</span>
+          <span>{{ content.finishing }}</span>
+        </li>
       </ul>
       <div class="apartment-card__price-box">
         {{#if content.price}}
-        <div class="apartment-card__price">{{ content.price }}</div>
+        <div class="apartment-card__price">{{content.price }} ₽</div>
         {{else}}
         <span class="apartment-card__price-text">Стоимость</span>
         <div class="apartment-card__price">По запросу</div>
@@ -44,7 +60,8 @@
         <button
           type="button"
           class="button button--primary button--size--large js-open-booking-request"
-          data-id="{{ content.id }}" data-url="/api/getPropertyData"
+          data-id="{{ content.id }}"
+          data-url="/api/getPropertyData"
         >
           Забронировать
         </button>

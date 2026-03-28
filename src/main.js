@@ -121,11 +121,19 @@ class LazyComponentLoader {
         }
       }
 
-      if (section.querySelector('.js-open-apartment-data, .js-apartments-section')) {
+      if (section.querySelector('.js-open-apartment-data')) {
         if (!this.loadedComponents.has('apartment-data')) {
           console.log(`🏠 Loading apartment data component for section: ${sectionId}`);
           components.push(import('@main/components/open-apartment-data'));
           this.loadedComponents.add('apartment-data');
+        }
+      }
+
+      if (section.querySelector('.js-interactive-choice-block')) {
+        if (!this.loadedComponents.has('interactive-choice')) {
+          console.log(`🏠 Loading apartment data component for section: ${sectionId}`);
+          components.push(import('@main/components/floor-selection'));
+          this.loadedComponents.add('interactive-choice');
         }
       }
 

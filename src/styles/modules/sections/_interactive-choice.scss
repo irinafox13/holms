@@ -1,0 +1,31 @@
+@use './../../abstracts/variables' as *;
+@use './../../abstracts/mixins' as *;
+
+.interactive-choice {
+  display: none;
+  overflow: hidden;
+
+  @include media($lg) {
+    display: block;
+
+    &__wrapper {
+      position: relative;
+      width: 100%;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__floor {
+      opacity: 0;
+      cursor: pointer;
+      @include css_anim();
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

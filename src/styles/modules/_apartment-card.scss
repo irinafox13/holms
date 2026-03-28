@@ -57,8 +57,9 @@
   }
 
   &__desc-col {
-    span {
+    &>span {
       display: block;
+
       &:first-child {
         @include font(14px, 19px, 300);
       }

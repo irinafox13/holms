@@ -3,12 +3,9 @@ import Handlebars from 'handlebars';
 import {Modal} from '@main/components/modal/modal';
 import {OpenModal} from '@main/components/modal/open-modal';
 import {ApartmentSlider} from '@main/components/sliders/apartment-slider';
-// import {mockHelper} from '@main/helpers/mock-helper';
-// import {getApartmentData} from '@mocker/index';
 import apartmentCardTemplate from '@partials/apartment-card.hbs?raw';
 import sliderNavigationTemplate from '@partials/slider-navigation.hbs?raw';
 import {OpenBookingRequest} from '@main/components/open-booking-request';
-
 Handlebars.registerPartial('slider-navigation', sliderNavigationTemplate);
 const apartmentCard = Handlebars.compile(apartmentCardTemplate);
 
