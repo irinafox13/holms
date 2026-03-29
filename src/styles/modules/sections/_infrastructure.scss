@@ -27,6 +27,7 @@
       text-transform: uppercase;
       gap: 8px;
       padding: 16px;
+      @include letter-spacing(16px, 3);
       min-height: 56px;
       background-color: $white-15;
       color: $white;
@@ -79,6 +80,7 @@
 
   &__ymaps {
     height: 420px;
+    margin-inline: -16px;
   }
 
   &__no-objects {
@@ -168,6 +170,10 @@
       left: 0;
       top: 0;
     }
+
+    &__ymaps {
+      margin-inline: -24px;
+    }
   }
 
   @include media($lg) {
@@ -199,6 +205,7 @@
 
     &__ymaps {
       height: 600px;
+      margin: 0;
     }
   }
 }

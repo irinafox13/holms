@@ -4,6 +4,10 @@
 .contact-form {
   background-color: $darkLight-90;
 
+  &__agreement {
+      margin-top: 8px;
+    }
+
   @include media($lg) {
     &__grid {
       display: grid;
@@ -13,11 +17,14 @@
 
     &__group {
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      column-gap: 16px;
+      row-gap: 24px;
+      margin-bottom: 0;
     }
 
     &__agreement {
       grid-column: span 3;
+      margin-top: 0;
     }
   }
 }

@@ -15,6 +15,7 @@
   cursor: pointer;
   user-select: none;
   @include font(16px, 21px, 400);
+  @include letter-spacing(16px, 3);
   @include css_anim();
   overflow: hidden;
   z-index: 2;

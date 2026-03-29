@@ -51,4 +51,8 @@
       padding-top: 12px;
     }
   }
+
+  @include media($lg) {
+    min-height: 460px;
+  }
 }

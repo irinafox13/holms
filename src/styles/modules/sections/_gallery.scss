@@ -29,9 +29,10 @@
     width: 298px;
   }
 
-  @include media($md) {
+  @include media($lg) {
     &__slider {
       height: 600px;
+
       &:not(.swiper-initialized) {
         .swiper-slide {
           width: 100%;

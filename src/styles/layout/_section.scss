@@ -32,7 +32,8 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 64px;
+      column-gap: 64px;
+      row-gap: 16px;
       margin-bottom: 64px;
     }
   }

@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 import {Navigation} from 'swiper/modules';
-import {MD_WIDTH} from '@main/helpers/consts';
+import {LG_WIDTH} from '@main/helpers/consts';
 
 /**
  * Класс для создания галереи фотографий.
@@ -29,7 +29,7 @@ class GallerySlider {
         prevEl: this.prevButton,
       },
       breakpoints: {
-        [MD_WIDTH]: {
+        [LG_WIDTH]: {
           slidesPerView: 1,
           spaceBetween: 16,
           speed: 1000,

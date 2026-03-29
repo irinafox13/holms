@@ -25,10 +25,6 @@
     &__description {
       max-width: 758px;
     }
-
-    &__list {
-      
-    }
   }
 
   @include media($lg) {
@@ -39,6 +35,10 @@
     &__list {
       grid-template-columns: repeat(3, 1fr);
       gap: 40px;
+    }
+
+    &__description {
+      @include font(20px, 28px, 300);
     }
   }
 

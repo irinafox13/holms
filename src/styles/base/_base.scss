@@ -53,6 +53,7 @@ body {
   color: $white;
   background-color: $dark;
   overflow-x: hidden;
+  font-feature-settings: "ss04" 1;
   @include scrollbar(4px);
 }
 
@@ -103,6 +104,11 @@ svg {
   display: inline-block;
   width: auto;
   height: auto;
+}
+
+sup {
+  top: -12px;
+  font-size: 50%;
 }
 
 *::-webkit-media-controls-start-playback-button {
