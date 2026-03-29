@@ -10,6 +10,14 @@ $form-field-icon-height: 24px;
   position: relative;
   $container: &;
 
+  &:has(.ts-wrapper) {
+    z-index: 1092;
+
+    & + .form-field:has(.ts-wrapper) {
+      z-index: 1091;
+    }
+  }
+
   @mixin filled-label-styles() {
     color: $white;
     top: 9px;

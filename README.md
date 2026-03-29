@@ -94,7 +94,7 @@ yarn install
 - **Axios** — HTTP клиент для запросов
 - **Tippy.js** — тултипы
 - **Tom Select** — улучшенные селекты
-- **Keen Slider** — слайдеры
+- **Swiper** — слайдеры
 
 ## Конфигурация
 

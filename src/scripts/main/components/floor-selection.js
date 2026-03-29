@@ -19,7 +19,7 @@ export class FloorSelection {
      * @type {HTMLElement}
      */
     this.element = element;
-    this.floorId = this.element.getAttribute('id');
+    this.floorId = this.element.dataset.id;
     this.interactiveChoiceBlock = this.element.closest('.js-interactive-choice-block');
     this.routeUrl = this.interactiveChoiceBlock.dataset.url;
 

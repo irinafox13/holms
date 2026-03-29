@@ -116,10 +116,6 @@
   "apartments": {
     "tabs": [
       {
-        "id": "one-room",
-        "name": "1 комната"
-      },
-      {
         "id": "two-room",
         "name": "2 комнаты"
       },
@@ -133,53 +129,6 @@
       }
     ],
     "panes": [
-      {
-        "id": "one-room",
-        "objects": [
-          {
-            "id": "1",
-            "type": "apartment",
-            "numberOfRooms": "1",
-            "area": "42",
-            "layout": "/images/apartment.png"
-          },
-          {
-            "id": "1",
-            "type": "apartment",
-            "numberOfRooms": "1",
-            "area": "32",
-            "layout": "/images/apartment.png"
-          },
-          {
-            "id": "1",
-            "type": "apartment",
-            "numberOfRooms": "1",
-            "area": "37",
-            "layout": "/images/apartment.png"
-          },
-          {
-            "id": "1",
-            "type": "apartment",
-            "numberOfRooms": "1",
-            "area": "42",
-            "layout": "/images/apartment.png"
-          },
-          {
-            "id": "1",
-            "type": "apartment",
-            "numberOfRooms": "1",
-            "area": "32",
-            "layout": "/images/apartment.png"
-          },
-          {
-            "id": "1",
-            "type": "apartment",
-            "numberOfRooms": "1",
-            "area": "35",
-            "layout": "/images/apartment.png"
-          }
-        ]
-      },
       {
         "id": "two-room",
         "objects": [

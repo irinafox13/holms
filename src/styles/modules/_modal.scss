@@ -31,7 +31,7 @@
     position: fixed;
     inset: 0;
     background-color: $darkLight-90;
-    backdrop-filter: blur(32px);
+    backdrop-filter: blur(16px);
     transition:
       opacity 0.3s ease-out,
       background-color 0.3s ease-out;
@@ -127,7 +127,8 @@
     }
   }
 
-  &--apartment {
+  &--apartment,
+  &--floor {
     #{$modal} {
       &__content {
         max-width: none;

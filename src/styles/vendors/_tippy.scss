@@ -24,10 +24,6 @@
       &-svg-arrow {
         backdrop-filter: blur(32px);
         background-color: transparent;
-
-        svg {
-          left: -50%;
-        }
       }
     }
   }
@@ -41,7 +37,7 @@
 
     h5 {
       @include font(24px, 24px, 300);
-      text-transform: none;
+      text-transform: uppercase;
       margin: 0;
 
       & + p {
@@ -56,4 +52,13 @@
       margin: 0;
     }
   }
+}
+
+.tippy-box[data-placement^='bottom'] > .tippy-svg-arrow > svg,
+.tippy-box[data-placement^='top'] > .tippy-svg-arrow > svg {
+  left: -16px;
+}
+
+.tippy-box[data-placement^='right'] > .tippy-svg-arrow > svg {
+  right: -4px;
 }

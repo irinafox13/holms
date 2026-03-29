@@ -420,8 +420,8 @@ class Infrastructure {
       // Если объектов нет, добавляем тултип
       if (!hasObjects && type !== 'all') {
         item.classList.add('js-tooltip');
-        item.setAttribute('data-text', 'Нет объектов');
-        item.setAttribute('data-theme', 'dark');
+        item.setAttribute('data-title', 'Нет объектов');
+        item.setAttribute('data-text', 'Выберите другой фильтр');
         item.setAttribute('data-placement', 'right');
 
         // Инициализируем тултип

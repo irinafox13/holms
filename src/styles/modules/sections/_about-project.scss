@@ -2,6 +2,7 @@
 @use './../../abstracts/mixins' as *;
 
 .about-project {
+  background-color: $dark;
   &__wrapper {
     display: grid;
     gap: 40px;

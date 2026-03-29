@@ -1,4 +1,4 @@
-<div data-modal-name="floor" class="modal js-modal">
+<div data-modal-name="floor" class="modal modal--floor js-modal">
   <button
     type="button"
     class="button button--action button--action--circle modal__close js-modal-close"
@@ -9,10 +9,38 @@
     </svg>
     <span class="visually-hidden">Закрыть окно</span>
   </button>
-  <div class="modal__wrap">
+  <div class="modal__wrap js-apartments-section" data-url="{{ routes.getApartmentData }}">
     <div class="modal__dialog js-modal-dialog">
       <div class="modal__content js-modal-content">
         <h2 class="modal__title js-modal-title">3 этаж</h2>
+
+        <div class="floor">
+          <div class="floor__wrap-picture">
+            {{>floors-plan/first}}
+          </div>
+          {{!-- <div class="slider-navigation">
+            <button
+              type="button"
+              class="button button--action button--action--circle slider-navigation__button slider-navigation__button--prev js-floor-selection"
+              aria-label="Предыдущий этаж"
+              data-id=""
+            >
+              <svg width="24" height="24">
+                <use href="#slider-arrow" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="button button--action button--action--circle slider-navigation__button slider-navigation__button--next js-floor-selection"
+              aria-label="Следующий этаж"
+              data-id=""
+            >
+              <svg width="24" height="24">
+                <use href="#slider-arrow" />
+              </svg>
+            </button>
+          </div> --}}
+        </div>
       </div>
     </div>
   </div>

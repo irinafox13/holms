@@ -84,13 +84,13 @@
           border-color: $white-20 !important;
           z-index: 1090;
         }
-        
-        & + .ts-chevron {
-          z-index: 1091;
+      }
 
-          & + .form-field__label {
-            z-index: 1091;
-          }
+      & + .ts-chevron {
+        z-index: 1091;
+
+        & + .form-field__label {
+          z-index: 1091;
         }
       }
     }
@@ -192,6 +192,11 @@
       &.single {
         border-color: $white-20;
       }
+    }
+
+    &.single {
+      border-color: $white-20;
+      margin-top: -1px;
     }
   }
 

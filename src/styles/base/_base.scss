@@ -130,6 +130,9 @@ svg {
 
 .nowrap {
   white-space: nowrap;
+  sup {
+    margin-left: -0.2em;
+  }
 }
 
 .flex {

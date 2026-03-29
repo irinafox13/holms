@@ -163,8 +163,20 @@
 
     .ymaps-2-1-79-image {
       background-color: transparent;
-      // box-shadow: 0px 4px 32px 0px #F7C58899;
       background-size:contain !important;
+
+      &::after {
+        content: '';
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0px 4px 32px 0px #F7C58899;
+        pointer-events: none;
+      }
     }
   }
 
