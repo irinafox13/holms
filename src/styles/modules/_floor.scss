@@ -3,6 +3,7 @@
 
 
 .floor {
+  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -27,5 +28,10 @@
         opacity: 1;
       }
     }
+  }
+
+  &__nav {
+    left: 16px;
+    right: 16px;
   }
 }

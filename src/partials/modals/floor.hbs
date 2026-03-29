@@ -1,4 +1,4 @@
-<div data-modal-name="floor" class="modal modal--floor js-modal">
+<div data-modal-name="floor" class="modal modal--floor js-modal js-floor-modal">
   <button
     type="button"
     class="button button--action button--action--circle modal__close js-modal-close"
@@ -7,23 +7,22 @@
     <svg class="button__icon">
       <use href="#close"></use>
     </svg>
-    <span class="visually-hidden">Закрыть окно</span>
   </button>
-  <div class="modal__wrap js-apartments-section" data-url="{{ routes.getApartmentData }}">
+  <div class="modal__wrap js-interactive-choice-block" data-url="{{ routes.getFloorPlan }}">
     <div class="modal__dialog js-modal-dialog">
       <div class="modal__content js-modal-content">
         <h2 class="modal__title js-modal-title">3 этаж</h2>
 
         <div class="floor">
           <div class="floor__wrap-picture">
-            {{>floors-plan/first}}
+            {{>floors-plan/five}}
           </div>
-          {{!-- <div class="slider-navigation">
+          <div class="floor__nav slider-navigation">
             <button
               type="button"
-              class="button button--action button--action--circle slider-navigation__button slider-navigation__button--prev js-floor-selection"
+              class="button button--action button--action--circle slider-navigation__button slider-navigation__button--prev js-floor-selection js-floor-selection-prev"
               aria-label="Предыдущий этаж"
-              data-id=""
+              data-id="1"
             >
               <svg width="24" height="24">
                 <use href="#slider-arrow" />
@@ -31,15 +30,15 @@
             </button>
             <button
               type="button"
-              class="button button--action button--action--circle slider-navigation__button slider-navigation__button--next js-floor-selection"
+              class="button button--action button--action--circle slider-navigation__button slider-navigation__button--next js-floor-selection js-floor-selection-next"
               aria-label="Следующий этаж"
-              data-id=""
+              data-id="2"
             >
               <svg width="24" height="24">
                 <use href="#slider-arrow" />
               </svg>
             </button>
-          </div> --}}
+          </div>
         </div>
       </div>
     </div>
