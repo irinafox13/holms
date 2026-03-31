@@ -12,7 +12,7 @@
         maxlength="30"
     >
     <label class="form-field__label">
-        {{content.title}}
+        {{content.title}}{{#if content.required}}*{{/if}}
     </label>
     <div class="form-field__caption form-field__caption--error">
         {{content.error}}

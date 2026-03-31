@@ -34,14 +34,13 @@ class LazyComponentLoader {
           });
         },
         {
-          rootMargin: '100px', // Начинаем загрузку за 100px до появления секции
+          rootMargin: '300px',
           threshold: 0.1,
         },
       );
 
       this.observeSections();
     } else {
-      // Fallback для старых браузеров - загрузка при прокрутке
       this.initScrollLoader();
     }
   }
@@ -83,39 +82,48 @@ class LazyComponentLoader {
       // Проверяем какие компоненты нужны в этой секции
       if (section.querySelector('.js-form, .js-form-field, .js-ajax-form')) {
         if (!this.loadedComponents.has('forms')) {
-          console.log(`📝 Loading form components for section: ${sectionId}`);
           components.push(import('@main/components/form/form-field/'), import('@main/components/form/ajax-form'));
           this.loadedComponents.add('forms');
         }
       }
 
-      if (section.querySelector('.js-slider, .js-carousel')) {
-        if (!this.loadedComponents.has('sliders')) {
-          console.log(`🎠 Loading slider components for section: ${sectionId}`);
-          components.push(import('@main/components/sliders/'));
-          this.loadedComponents.add('sliders');
+      if (section.querySelector('.js-swiper-tabs')) {
+        if (!this.loadedComponents.has('tabs-slider')) {
+          components.push(import('@main/components/sliders/tabs-slider'));
+          this.loadedComponents.add('tabs-slider');
+        }
+      }
+
+      if (section.querySelector('.js-advantages-slider')) {
+        if (!this.loadedComponents.has('advantages-slider')) {
+          components.push(import('@main/components/sliders/advantages-slider'));
+          this.loadedComponents.add('advantages-slider');
+        }
+      }
+
+      if (section.querySelector('.js-gallery-slider-block')) {
+        if (!this.loadedComponents.has('gallery')) {
+          components.push(import('@main/components/sliders/gallery-slider'));
+          this.loadedComponents.add('gallery');
+        }
+      }
+
+      if (section.querySelector('.js-property-block-slider')) {
+        if (!this.loadedComponents.has('property')) {
+          components.push(import('@main/components/sliders/property-slider'));
+          this.loadedComponents.add('property');
         }
       }
 
       if (section.querySelector('.js-modal, .js-open-modal, [data-modal]')) {
         if (!this.loadedComponents.has('modals')) {
-          console.log(`🪟 Loading modal components for section: ${sectionId}`);
           components.push(import('@main/components/modal/open-modal'));
           this.loadedComponents.add('modals');
         }
       }
 
-      if (section.querySelector('.js-accordion, .js-accordion-item')) {
-        if (!this.loadedComponents.has('accordions')) {
-          console.log(`📁 Loading accordion component for section: ${sectionId}`);
-          components.push(import('@main/components/accordion'));
-          this.loadedComponents.add('accordions');
-        }
-      }
-
       if (section.querySelector('.js-tabs, .js-tab, [data-tabs]')) {
         if (!this.loadedComponents.has('tabs')) {
-          console.log(`📑 Loading tabs component for section: ${sectionId}`);
           components.push(import('@main/components/tabs'));
           this.loadedComponents.add('tabs');
         }
@@ -123,7 +131,6 @@ class LazyComponentLoader {
 
       if (section.querySelector('.js-open-apartment-data')) {
         if (!this.loadedComponents.has('apartment-data')) {
-          console.log(`🏠 Loading apartment data component for section: ${sectionId}`);
           components.push(import('@main/components/open-apartment-data'));
           this.loadedComponents.add('apartment-data');
         }
@@ -131,7 +138,6 @@ class LazyComponentLoader {
 
       if (section.querySelector('.js-interactive-choice-block')) {
         if (!this.loadedComponents.has('interactive-choice')) {
-          console.log(`🏠 Loading apartment data component for section: ${sectionId}`);
           components.push(import('@main/components/floor-selection'));
           this.loadedComponents.add('interactive-choice');
         }
@@ -139,7 +145,6 @@ class LazyComponentLoader {
 
       if (section.querySelector('.js-open-booking-request')) {
         if (!this.loadedComponents.has('booking-request')) {
-          console.log(`📅 Loading booking request component for section: ${sectionId}`);
           components.push(import('@main/components/open-booking-request'));
           this.loadedComponents.add('booking-request');
         }
@@ -147,7 +152,6 @@ class LazyComponentLoader {
 
       if (section.querySelector('.js-contacts-map')) {
         if (!this.loadedComponents.has('contacts-map')) {
-          console.log(`🗺️ Loading contacts map component for section: ${sectionId}`);
           components.push(import('@main/components/contacts-map'));
           this.loadedComponents.add('contacts-map');
         }
@@ -155,7 +159,6 @@ class LazyComponentLoader {
 
       if (section.querySelector('.js-infrastructure-map')) {
         if (!this.loadedComponents.has('infrastructure')) {
-          console.log(`🗺️ Loading infrastructure map component for section: ${sectionId}`);
           components.push(import('@main/components/infrastructure'));
           this.loadedComponents.add('infrastructure');
         }
@@ -163,7 +166,6 @@ class LazyComponentLoader {
 
       if (section.querySelector('[data-tooltip], .js-tooltip')) {
         if (!this.loadedComponents.has('tooltips')) {
-          console.log(`💡 Loading tooltip component for section: ${sectionId}`);
           components.push(import('@main/components/tooltip'));
           this.loadedComponents.add('tooltips');
         }

@@ -36,7 +36,7 @@
     "name": {
       "name": "name",
       "title": "Ваше имя",
-      "error": "Введите корректнное имя",
+      "error": "Введите корректное имя",
       "required": true
     },
     "phone": {
@@ -331,7 +331,7 @@
     "name": {
       "name": "name",
       "title": "Ваше имя",
-      "error": "Введите корректнное имя",
+      "error": "Введите корректное имя",
       "required": true
     },
     "phone": {
@@ -340,7 +340,7 @@
     },
     "comment": {
       "name": "comment",
-      "title": "Комментарий (необязательно)",
+      "title": "Комментарий",
       "required": false
     },
     "privacy": {
@@ -351,7 +351,7 @@
     "name": {
       "name": "name",
       "title": "Ваше имя",
-      "error": "Введите корректнное имя",
+      "error": "Введите корректное имя",
       "required": true
     },
     "phone": {
@@ -448,7 +448,7 @@
     },
     "comment": {
       "name": "comment",
-      "title": "Комментарий (необязательно)",
+      "title": "Комментарий",
       "required": false
     },
     "privacy": {
@@ -627,7 +627,7 @@
     "name": {
       "name": "name",
       "title": "Ваше имя",
-      "error": "Введите корректнное имя",
+      "error": "Введите корректное имя",
       "required": true
     },
     "phone": {
@@ -646,7 +646,7 @@
     "name": {
       "name": "name",
       "title": "Ваше имя",
-      "error": "Введите корректнное имя",
+      "error": "Введите корректное имя",
       "required": true
     },
     "phone": {
@@ -659,7 +659,7 @@
     },
     "comment": {
       "name": "comment",
-      "title": "Комментарий (необязательно)",
+      "title": "Комментарий",
       "required": false
     },
     "privacy": {

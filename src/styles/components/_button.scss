@@ -50,6 +50,7 @@
   &--primary {
     background-color: $white;
     color: $dark;
+    border-color: $white;
 
     #{$button}__badge {
       background-color: $dark;
@@ -57,14 +58,7 @@
     }
 
     &:hover {
-      //   background-color: $backgroundAccentHover;
-    }
-
-    &:focus,
-    &:active,
-    &.focus,
-    &.active {
-      //   background-color: $backgroundAccent;
+      background-color: $gray;
     }
   }
 
@@ -79,22 +73,8 @@
     }
 
     &:hover {
-      //   background-color: $backgroundTertiary;
-
-      #{$button}__badge {
-        // background-color: $backgroundPrimary;
-      }
-    }
-
-    &:focus,
-    &:active,
-    &.focus,
-    &.active {
-      //   background-color: $backgroundSecondary;
-
-      #{$button}__badge {
-        // background-color: $backgroundTertiary;
-      }
+      background-color: $white-10;
+      color: $white;
     }
   }
 

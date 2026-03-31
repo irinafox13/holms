@@ -9,6 +9,6 @@
         class="form-field__input js-form-field-input js-form-field-input-number {{content.dopClass}}"
         value="{{content.value}}"
     >
-    <label class="form-field__label">{{ content.title }}</label>
+    <label class="form-field__label">{{ content.title }}{{#if content.required}}*{{/if}}</label>
     <div class="form-field__caption form-field__caption--error js-validation-error">Введите число</div>
 </div>

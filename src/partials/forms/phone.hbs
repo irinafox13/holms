@@ -11,9 +11,9 @@
         maxlength="18"
     >
     <label class="form-field__label">
-        {{content.title}}
+        {{content.title}}{{#if content.required}}*{{/if}}
     </label>
     <div class="form-field__caption form-field__caption--error">
-        Введите корректнный номер
+        Введите корректный номер
     </div>
 </div>

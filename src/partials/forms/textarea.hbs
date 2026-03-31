@@ -8,5 +8,5 @@
         {{content.disabled}}
         value="{{content.value}}"
     ></textarea>
-    <label class="form-field__label">{{content.title}}</label>
+    <label class="form-field__label">{{content.title}}{{#if content.required}}*{{/if}}</label>
 </div>

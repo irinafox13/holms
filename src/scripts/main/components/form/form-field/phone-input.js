@@ -37,7 +37,7 @@ export class PhoneMask {
   /**
    * Обработка события ввода текста в поле.
    * Форматирует введенный номер и поддерживает позицию курсора.
-   * @param {InputEvent} [e] - Событие ввода (необязательно).
+   * @param {InputEvent} [e] - Событие ввода.
    */
   onPhoneInput = () => {
     const input = this.el;

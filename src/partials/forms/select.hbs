@@ -8,5 +8,5 @@
     <svg class="ts-chevron">
         <use href="#chevron"></use>
     </svg>
-    <label class="form-field__label">{{ content.title }}</label>
+    <label class="form-field__label">{{ content.title }}{{#if content.required}}*{{/if}}</label>
 </div>
