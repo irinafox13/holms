@@ -138,7 +138,7 @@ class LazyComponentLoader {
 
       if (section.querySelector('.js-interactive-choice-block')) {
         if (!this.loadedComponents.has('interactive-choice')) {
-          components.push(import('@main/components/floor-selection'));
+          components.push(import('@main/components/floor-modal-manager'));
           this.loadedComponents.add('interactive-choice');
         }
       }

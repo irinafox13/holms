@@ -475,7 +475,8 @@
         "default": "500000",
         "min": "100000",
         "max": "10000000"
-      }
+      },
+      "percent": "10%"
     },{
       "title": "Ставка",
       "type": "interest_rate",

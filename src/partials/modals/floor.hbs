@@ -14,15 +14,13 @@
         <h2 class="modal__title js-modal-title">3 этаж</h2>
 
         <div class="floor">
-          <div class="floor__wrap-picture">
-            {{>floors-plan/five}}
-          </div>
+          <div class="floor__wrap-picture js-floor-plan-container"></div>
           <div class="floor__nav slider-navigation">
             <button
               type="button"
               class="button button--action button--action--circle slider-navigation__button slider-navigation__button--prev js-floor-selection js-floor-selection-prev"
               aria-label="Предыдущий этаж"
-              data-id="1"
+              data-id=""
             >
               <svg width="24" height="24">
                 <use href="#slider-arrow" />
@@ -32,7 +30,7 @@
               type="button"
               class="button button--action button--action--circle slider-navigation__button slider-navigation__button--next js-floor-selection js-floor-selection-next"
               aria-label="Следующий этаж"
-              data-id="2"
+              data-id=""
             >
               <svg width="24" height="24">
                 <use href="#slider-arrow" />

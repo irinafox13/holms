@@ -34,8 +34,9 @@
 
   &__holms {
     display: none;
-    position: absolute;
+    position: fixed;
     inset: 0;
+    max-height: 100dvh;
 
     &-dark {
       opacity: 0;

@@ -3,6 +3,9 @@
   <div class="range-component__wrapper">
     <div class="range-component__value">
       <span class="range-component__value-number" data-range-value>{{formatNumber content.value.default }}</span>
+      {{#if content.percent}}
+      <span class="range-component__value-percent">{{ content.percent }}</span>
+      {{/if}}
       <span class="range-component__value-unit">{{ content.unit }}</span>
     </div>
     <div

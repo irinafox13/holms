@@ -125,7 +125,7 @@ class IntroAnimations {
   setIntroStyles() {
     if (this.DOM.intro) {
       gsap.set(this.DOM.intro, {
-        height: '840px',
+        height: this.isXlDesktopScreen ? '1360px' : '1280px',
         minHeight: '100dvh',
         overflow: 'hidden',
       });
@@ -306,7 +306,7 @@ class IntroAnimations {
         // Сохраняем финальное состояние и отключаем ScrollTrigger
         if (this.DOM.intro) {
           gsap.set(this.DOM.intro, {
-            height: '840px',
+            height: this.isXlDesktopScreen ? '1360px' : '1280px',
             maxHeight: 'none',
             overflow: 'visible',
           });
@@ -408,7 +408,7 @@ class IntroAnimations {
 
       if (this.DOM.intro) {
         gsap.set(this.DOM.intro, {
-          height: '840px',
+          height: this.isXlDesktopScreen ? '1360px' : '1280px',
           maxHeight: 'none',
           overflow: 'visible',
         });

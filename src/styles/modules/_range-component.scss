@@ -29,8 +29,13 @@
     font-weight: 300;
     user-select: none;
 
-    &-unit {
+    &-unit,
+    &-percent {
       color: $white-60;
+    }
+
+    &-percent  {
+      margin-left: auto;
     }
   }
 }
