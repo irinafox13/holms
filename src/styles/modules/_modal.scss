@@ -21,7 +21,7 @@
     opacity 0.3s ease-out,
     background-color 0.3s ease-out;
   $modal: &;
-  @include scrollbar(4px);
+  @include scrollbar(6px);
 
   &::after {
     opacity: 0;

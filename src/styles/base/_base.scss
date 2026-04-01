@@ -57,7 +57,7 @@ body {
   color: $white;
   background-color: $dark;
   overflow-x: hidden;
-  font-feature-settings: "ss04" 1;
+  font-feature-settings: 'ss04' 1;
   font-synthesis: none;
   @include scrollbar(6px);
 }

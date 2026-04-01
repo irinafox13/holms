@@ -10,6 +10,7 @@ class ScrollHeader {
     this.header = document.querySelector(this.options.headerSelector);
     this.isFixed = false;
     this.throttleTimer = null;
+    this.isScrollingPrevented = false;
     this.handleScroll = this.handleScroll.bind(this);
 
     this.init();
@@ -23,16 +24,29 @@ class ScrollHeader {
       return;
     }
 
+    // Получаем реальную высоту хедера для корректного padding
+    this.updateHeaderHeight();
+    
     // Проверяем начальное положение страницы
     this.checkScroll();
 
     // Добавляем слушатель скролла с throttle
     window.addEventListener('scroll', this.handleScroll);
 
-    // Опционально: слушатель для resize (пересчет offset)
+    // Опционально: слушатель для resize (пересчет offset и высоты)
     window.addEventListener('resize', () => {
+      this.updateHeaderHeight();
       this.checkScroll();
     });
+  }
+
+  /**
+   * Получает актуальную высоту хедера
+   */
+  updateHeaderHeight() {
+    if (this.header) {
+      this.headerHeight = this.header.offsetHeight;
+    }
   }
 
   /**
@@ -53,28 +67,35 @@ class ScrollHeader {
    * Добавляет класс фиксации
    */
   addFixedClass() {
-    document.body.style.paddingTop = "73px"
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     this.header.classList.add(this.options.fixedClass);
-    this.isFixed = true;
+    document.body.style.paddingTop = `${this.headerHeight}px`;
     
-    // Вызываем колбэк, если передан
-    if (this.options.onFixed) {
-      this.options.onFixed(this.header);
+    // Компенсируем скачок скролла
+    if (document.documentElement.scrollTop !== scrollPosition) {
+      document.documentElement.scrollTop = scrollPosition;
+      document.body.scrollTop = scrollPosition; 
     }
+    
+    this.isFixed = true;
   }
 
   /**
    * Удаляет класс фиксации
    */
   removeFixedClass() {
+    // Сохраняем текущую позицию скролла
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     document.body.style.paddingTop = '0';
     this.header.classList.remove(this.options.fixedClass);
-    this.isFixed = false;
-
-    // Вызываем колбэк, если передан
-    if (this.options.onUnfixed) {
-      this.options.onUnfixed(this.header);
+    
+    if (scrollPosition > 0) {
+      const newScrollPosition = Math.max(0, scrollPosition - this.headerHeight);
+      document.documentElement.scrollTop = newScrollPosition;
+      document.body.scrollTop = newScrollPosition;
     }
+    
+    this.isFixed = false;
   }
 
   /**

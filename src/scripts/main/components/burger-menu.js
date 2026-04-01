@@ -47,10 +47,8 @@ class BurgerMenu {
       document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
       document.documentElement.classList.add('prevent-scroll');
     } else {
-      setTimeout(() => {
-        document.documentElement.classList.remove('prevent-scroll');
-        document.documentElement.style.removeProperty('--scrollbar-width');
-      }, 550);
+      document.documentElement.classList.remove('prevent-scroll');
+      document.documentElement.style.removeProperty('--scrollbar-width');
     }
   }
 
