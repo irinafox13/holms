@@ -27,7 +27,6 @@ class IntroAnimations {
   }
 
   init() {
-    // Check screen width before initializing
     if (!this.isScreenLargeEnough()) {
       this.setMobileStyles();
       return;
@@ -35,17 +34,9 @@ class IntroAnimations {
 
     this.isInitialized = true;
     gsap.registerPlugin(ScrollTrigger);
-
-    // Set initial styles for intro block
     this.setIntroStyles();
-
-    // Set initial animation state
     this.setInitialState();
-
-    // Create animation timeline
     this.createTimeline();
-
-    // Setup auto-play timer
     this.setupAutoPlay();
   }
 
@@ -62,7 +53,6 @@ class IntroAnimations {
   }
 
   setMobileStyles() {
-    // Set styles for mobile/small screens without animations
     if (this.DOM.intro) {
       gsap.set(this.DOM.intro, {
         height: '840px',

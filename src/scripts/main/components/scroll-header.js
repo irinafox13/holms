@@ -68,33 +68,23 @@ class ScrollHeader {
    */
   addFixedClass() {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    this.header.classList.add(this.options.fixedClass);
-    document.body.style.paddingTop = `${this.headerHeight}px`;
 
-    // Компенсируем скачок скролла
-    if (document.documentElement.scrollTop !== scrollPosition) {
-      document.documentElement.scrollTop = scrollPosition;
-      document.body.scrollTop = scrollPosition;
-    }
+    // Используем requestAnimationFrame для плавности
+    requestAnimationFrame(() => {
+      this.header.classList.add(this.options.fixedClass);
+      document.body.style.paddingTop = `${this.headerHeight}px`;
+
+      // Восстанавливаем позицию после следующего кадра
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollPosition);
+      });
+    });
 
     this.isFixed = true;
   }
 
-  /**
-   * Удаляет класс фиксации
-   */
   removeFixedClass() {
-    // Сохраняем текущую позицию скролла
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    document.body.style.paddingTop = '0';
     this.header.classList.remove(this.options.fixedClass);
-
-    if (scrollPosition > 0) {
-      const newScrollPosition = Math.max(0, scrollPosition - this.headerHeight);
-      document.documentElement.scrollTop = newScrollPosition;
-      document.body.scrollTop = newScrollPosition;
-    }
-
     this.isFixed = false;
   }
 

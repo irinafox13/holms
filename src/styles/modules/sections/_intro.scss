@@ -37,6 +37,7 @@
     position: fixed;
     inset: 0;
     max-height: 100dvh;
+    z-index: 3;
 
     &-dark {
       opacity: 0;
@@ -45,12 +46,12 @@
     img {
       aspect-ratio: 1 / 1;
       width: 50vw;
-      max-height: 70vh;
+      max-height: 72vh;
       position: absolute;
       bottom: 0;
       left: calc(50% - 25vw);
       object-fit: contain;
-      object-position: center center;
+      object-position: center bottom;
     }
   }
 
@@ -134,13 +135,11 @@
   @include media($lg) {
     aspect-ratio: 1080 / 1280;
     max-height: 1520px;
-    // transform: none !important;
-    // top: 0 !important;
-    // left: 0 !important;
 
     &__header {
       top: 193px;
       gap: 0;
+      // transform: translateY(24px);
     }
 
     &__bottom {
