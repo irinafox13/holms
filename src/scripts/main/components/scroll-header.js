@@ -3,7 +3,7 @@ class ScrollHeader {
     this.options = {
       headerSelector: '.js-header',
       fixedClass: 'is-fixed',
-      offset: 0, 
+      offset: 0,
       throttleDelay: 10,
     };
 
@@ -26,7 +26,7 @@ class ScrollHeader {
 
     // Получаем реальную высоту хедера для корректного padding
     this.updateHeaderHeight();
-    
+
     // Проверяем начальное положение страницы
     this.checkScroll();
 
@@ -70,13 +70,13 @@ class ScrollHeader {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     this.header.classList.add(this.options.fixedClass);
     document.body.style.paddingTop = `${this.headerHeight}px`;
-    
+
     // Компенсируем скачок скролла
     if (document.documentElement.scrollTop !== scrollPosition) {
       document.documentElement.scrollTop = scrollPosition;
-      document.body.scrollTop = scrollPosition; 
+      document.body.scrollTop = scrollPosition;
     }
-    
+
     this.isFixed = true;
   }
 
@@ -88,13 +88,13 @@ class ScrollHeader {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     document.body.style.paddingTop = '0';
     this.header.classList.remove(this.options.fixedClass);
-    
+
     if (scrollPosition > 0) {
       const newScrollPosition = Math.max(0, scrollPosition - this.headerHeight);
       document.documentElement.scrollTop = newScrollPosition;
       document.body.scrollTop = newScrollPosition;
     }
-    
+
     this.isFixed = false;
   }
 

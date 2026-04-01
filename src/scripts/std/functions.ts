@@ -1,4 +1,3 @@
-export function foo(): string
-{
-    return foo.name;
+export function foo(): string {
+  return foo.name;
 }

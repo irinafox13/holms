@@ -1,10 +1,8 @@
 export default {
   plugins: {
-    'autoprefixer': {},
-    'cssnano': {
-      preset: [
-        'default', { discardComments: false }
-      ]
-    }
-  }
-}
+    autoprefixer: {},
+    cssnano: {
+      preset: ['default', {discardComments: false}],
+    },
+  },
+};

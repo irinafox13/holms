@@ -31,22 +31,22 @@ export class OpenBookingRequest {
     this.button.classList.add('waiting');
 
     // Функция для загрузки данных
-      const {data} = await axios({
-        url: this.routeUrl,
-        method: 'GET',
-        params: {
-          id: this.propertyId,
-        },
+    const {data} = await axios({
+      url: this.routeUrl,
+      method: 'GET',
+      params: {
+        id: this.propertyId,
+      },
+    });
+    this.button.classList.remove('waiting');
+    if (data?.success) {
+      const openModals = document.querySelectorAll('.js-modal.visible');
+      openModals.forEach((modal) => {
+        Modal.close(modal);
       });
-      this.button.classList.remove('waiting');
-      if (data?.success) {
-        const openModals = document.querySelectorAll('.js-modal.visible');
-        openModals.forEach((modal) => {
-          Modal.close(modal);
-        });
-        Modal.open(this.bookingModal);
-        this.addPropertyInfo(data.data);
-      }
+      Modal.open(this.bookingModal);
+      this.addPropertyInfo(data.data);
+    }
   }
 
   /**

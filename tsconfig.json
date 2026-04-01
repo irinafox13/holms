@@ -1,9 +1,5 @@
 {
-  "include": [
-    "src/scripts/std/**/*.ts",
-    "src/**/*.js",
-    "vite.config.js"
-  ],
+  "include": ["src/scripts/std/**/*.ts", "src/**/*.js", "vite.config.js"],
   "compilerOptions": {
     "allowJs": true,
     "strict": true,

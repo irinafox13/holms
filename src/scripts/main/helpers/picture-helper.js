@@ -8,7 +8,6 @@ const defaultSizes = '(max-width: 768px) 100vw, (max-width: 1400px) 1200px, 90vw
  * @returns {string} HTML код picture элемента
  */
 export function generateResponsivePicture(imageBase, ext, alt = '', sizes = defaultSizes) {
-
   // WebP srcset
   const webpSrcset = [
     `${imageBase}-400.webp 400w`,

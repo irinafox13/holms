@@ -8,6 +8,7 @@
 
 {{!-- Или вручную в HTML --}}
 <picture>
+
   <source 
     type="image/webp" 
     srcset="images/advantages/1-400.webp 400w, images/advantages/1-800.webp 800w, images/advantages/1-1600.webp 1600w, images/advantages/1-4000.webp 4000w"

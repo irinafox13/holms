@@ -7,11 +7,11 @@
  * @returns {HTMLElement || null} btn Вернуть кнопку или ничего, если цель не та.
  */
 export const getBtnFromTarget = (target, className) => {
-  let btn = null
+  let btn = null;
   if (target.classList.contains(className)) {
-    btn = target
+    btn = target;
   } else {
-    btn = target.closest('.' + className)
+    btn = target.closest('.' + className);
   }
-  return btn
-}
+  return btn;
+};

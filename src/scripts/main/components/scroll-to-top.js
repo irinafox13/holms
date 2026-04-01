@@ -55,7 +55,7 @@ class ScrollToTop {
     const scrollPosition = window.scrollY;
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
-    const isAtBottom = scrollPosition + windowHeight >= documentHeight - 1; 
+    const isAtBottom = scrollPosition + windowHeight >= documentHeight - 1;
 
     // Показываем кнопку только если прокрутка > 200px И не в конце страницы
     if (scrollPosition > 200 && !isAtBottom) {

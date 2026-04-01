@@ -7,11 +7,11 @@ export class Input {
    * @param {HTMLElement} props.container Родительский элемент.
    * @param {HTMLInputElement} props.input Элемент ввода.
    */
-  constructor({ container, input }) {
-    this.el = container
-    this.input = input
-    this.updateIsFilledStatus()
-    this.bindEventListeners()
+  constructor({container, input}) {
+    this.el = container;
+    this.input = input;
+    this.updateIsFilledStatus();
+    this.bindEventListeners();
   }
 
   /**
@@ -20,10 +20,10 @@ export class Input {
    * @returns {void}
    */
   bindEventListeners() {
-    this.input.addEventListener('input', this.onInput.bind(this))
-    this.input.addEventListener('keyup', this.onInput.bind(this))
-    this.input.addEventListener('beforeinput', this.onBeforeInput.bind(this))
-    window.addEventListener('load', this.updateIsFilledStatus.bind(this))
+    this.input.addEventListener('input', this.onInput.bind(this));
+    this.input.addEventListener('keyup', this.onInput.bind(this));
+    this.input.addEventListener('beforeinput', this.onBeforeInput.bind(this));
+    window.addEventListener('load', this.updateIsFilledStatus.bind(this));
   }
 
   /**
@@ -32,8 +32,8 @@ export class Input {
    * @returns {void}
    */
   updateClass() {
-    const isFilled = this.input.value && this.hasLabel()
-    this.el.classList.toggle('filled', isFilled)
+    const isFilled = this.input.value && this.hasLabel();
+    this.el.classList.toggle('filled', isFilled);
   }
 
   /**
@@ -42,7 +42,7 @@ export class Input {
    * @returns {string} Введенное значение.
    */
   getValue() {
-    return this.input.value
+    return this.input.value;
   }
 
   /**
@@ -51,7 +51,7 @@ export class Input {
    * @returns {boolean} true, если лейбл существует, иначе false.
    */
   hasLabel() {
-    return !!this.el.querySelector('.form-field__label')
+    return !!this.el.querySelector('.form-field__label');
   }
 
   /**
@@ -60,7 +60,7 @@ export class Input {
    * @returns {void}
    */
   updateIsFilledStatus() {
-    this.updateClass()
+    this.updateClass();
   }
 
   /**
@@ -69,8 +69,8 @@ export class Input {
    * @returns {void}
    */
   onInput() {
-    this.updateIsFilledStatus()
-    this.enforceMaxLength()
+    this.updateIsFilledStatus();
+    this.enforceMaxLength();
   }
 
   /**
@@ -80,7 +80,7 @@ export class Input {
    */
   enforceMaxLength() {
     if (this.input.maxLength > 0 && this.input.value.length > this.input.maxLength) {
-      this.input.value = this.input.value.slice(0, this.input.maxLength)
+      this.input.value = this.input.value.slice(0, this.input.maxLength);
     }
   }
 
@@ -91,11 +91,11 @@ export class Input {
    * @returns {void}
    */
   onBeforeInput(event) {
-    const patternData = this.input.pattern || this.input.dataset.pattern
+    const patternData = this.input.pattern || this.input.dataset.pattern;
     if (patternData && event.data) {
-      const pattern = new RegExp(patternData)
+      const pattern = new RegExp(patternData);
       if (!pattern.test(event.data)) {
-        event.preventDefault()
+        event.preventDefault();
       }
     }
   }
@@ -107,9 +107,9 @@ export class Input {
    * @returns {string} Результат.
    */
   replaceBadCharacters(str) {
-    const patternData = this.input.pattern || this.input.dataset.pattern
-    const pattern = new RegExp(patternData)
-    const match = str.match(pattern)
-    return match ? match[0] : ''
+    const patternData = this.input.pattern || this.input.dataset.pattern;
+    const pattern = new RegExp(patternData);
+    const match = str.match(pattern);
+    return match ? match[0] : '';
   }
 }

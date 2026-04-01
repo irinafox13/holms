@@ -1,3 +1,3 @@
-export const getInputNumberValues = input => {
-  return input.value.replace(/\D/g, '')
-}
+export const getInputNumberValues = (input) => {
+  return input.value.replace(/\D/g, '');
+};

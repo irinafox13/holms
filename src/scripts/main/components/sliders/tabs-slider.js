@@ -16,7 +16,7 @@ export class TabsSlider {
       freeMode: {
         enabled: true,
         minimumVelocity: 0.15,
-        momentumBounce: false
+        momentumBounce: false,
       },
     });
   }

@@ -5,8 +5,8 @@
   background-color: $darkLight-90;
 
   &__agreement {
-      margin-top: 8px;
-    }
+    margin-top: 8px;
+  }
 
   @include media($lg) {
     &__grid {

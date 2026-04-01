@@ -51,7 +51,7 @@ class ContactsMap {
     this.isTabletScreen = window.innerWidth >= MD_WIDTH && window.innerWidth < LG_WIDTH;
     this.isDesktopScreen = window.innerWidth >= LG_WIDTH;
   }
-  
+
   async createMap() {
     return new Promise((resolve) => {
       window.ymaps.ready(() => {

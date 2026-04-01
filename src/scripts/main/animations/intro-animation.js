@@ -365,7 +365,7 @@ class IntroAnimations {
     if (this.DOM.holmsContainer) {
       gsap.set(this.DOM.holmsContainer, {
         y: '100%',
-        opacity: 0
+        opacity: 0,
       });
     }
 

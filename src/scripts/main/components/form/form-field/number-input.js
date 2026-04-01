@@ -1,5 +1,5 @@
-import { Input } from '@main/components/form/form-field/input'
-import { replaceBadInNumber } from '@main/helpers/number-format'
+import {Input} from '@main/components/form/form-field/input';
+import {replaceBadInNumber} from '@main/helpers/number-format';
 
 /** Класс для поля ввода числа. */
 export class NumberInput extends Input {
@@ -10,7 +10,7 @@ export class NumberInput extends Input {
    * @param {array} props.productsIds Список ИД товаров в списке.
    */
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   /**
@@ -19,8 +19,8 @@ export class NumberInput extends Input {
    * @returns {void}
    */
   bindEventListeners() {
-    super.bindEventListeners()
-    this.el.addEventListener('paste', this.onPaste)
+    super.bindEventListeners();
+    this.el.addEventListener('paste', this.onPaste);
   }
 
   /**
@@ -30,10 +30,10 @@ export class NumberInput extends Input {
    * @returns {void}
    */
   onInput = (e) => {
-    super.onInput(e)
-    const input = e.target
-    this.applyMask(input)
-  }
+    super.onInput(e);
+    const input = e.target;
+    this.applyMask(input);
+  };
 
   /**
    * Применение маски к числу.
@@ -43,7 +43,7 @@ export class NumberInput extends Input {
    */
   applyMask(input) {
     if (input.value) {
-      input.value = replaceBadInNumber(input.value)
+      input.value = replaceBadInNumber(input.value);
     }
   }
 
@@ -54,7 +54,7 @@ export class NumberInput extends Input {
    * @returns {void}
    */
   onPaste = (e) => {
-    const input = e.target
-    this.applyMask(input)
-  }
+    const input = e.target;
+    this.applyMask(input);
+  };
 }

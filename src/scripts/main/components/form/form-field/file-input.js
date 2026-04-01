@@ -1,5 +1,5 @@
-import { Input } from '@main/components/form/form-field/input'
-import { getFormattedFileSize } from '@main/helpers/get-formatted-file-size'
+import {Input} from '@main/components/form/form-field/input';
+import {getFormattedFileSize} from '@main/helpers/get-formatted-file-size';
 
 /** Компонент выбора файла. */
 export class FileInput extends Input {
@@ -11,8 +11,8 @@ export class FileInput extends Input {
    * @param {HTMLInputElement} props.input Элемент ввода.
    */
   constructor(props) {
-    super(props)
-    this.findElements()
+    super(props);
+    this.findElements();
   }
 
   /**
@@ -21,8 +21,8 @@ export class FileInput extends Input {
    * @returns {void}
    */
   findElements() {
-    this.fileNameCaptionNode = this.el.querySelector('.js-form-field-file-caption')
-    this.deleteInput = this.el.querySelector('.js-form-field-delete')
+    this.fileNameCaptionNode = this.el.querySelector('.js-form-field-file-caption');
+    this.deleteInput = this.el.querySelector('.js-form-field-delete');
   }
 
   /**
@@ -31,27 +31,27 @@ export class FileInput extends Input {
    * @returns {void}
    */
   bindEventListeners() {
-    super.bindEventListeners()
-    this.handleChange = this.onChange.bind(this)
-    this.handleDelete = this.deleteFile.bind(this)
-    
-    this.input.addEventListener('change', this.handleChange)
+    super.bindEventListeners();
+    this.handleChange = this.onChange.bind(this);
+    this.handleDelete = this.deleteFile.bind(this);
+
+    this.input.addEventListener('change', this.handleChange);
 
     // Устанавливаем обработчик клика только на родительский элемент
     this.el.addEventListener('click', (e) => {
       const deleteButton = e.target.classList.contains('js-file-delete')
         ? e.target
-        : e.target.closest('.js-file-delete')
-      
+        : e.target.closest('.js-file-delete');
+
       if (deleteButton) {
-        this.handleDelete(e)
+        this.handleDelete(e);
       }
-    })
+    });
 
     this.input.addEventListener('setFileValue', (e) => {
-      this.setCaption(e.detail.name, e.detail.size)
-      this.el.classList.add('filled')
-    })
+      this.setCaption(e.detail.name, e.detail.size);
+      this.el.classList.add('filled');
+    });
   }
 
   /**
@@ -60,18 +60,18 @@ export class FileInput extends Input {
    * @returns {void}
    */
   onChange() {
-    const files = this.input.files
-    
+    const files = this.input.files;
+
     if (files.length > 0) {
       // Выбран новый файл
-      const file = files[0]
-      this.currentFile = file
-      this.setCaption(file.name, getFormattedFileSize(file.size))
-      this.updateDeleteInput('')
-      this.el.classList.add('filled')
+      const file = files[0];
+      this.currentFile = file;
+      this.setCaption(file.name, getFormattedFileSize(file.size));
+      this.updateDeleteInput('');
+      this.el.classList.add('filled');
     } else {
       // input.files пуст - скорее всего нажата "отмена"
-      this.handleFileCancel()
+      this.handleFileCancel();
     }
   }
 
@@ -82,14 +82,14 @@ export class FileInput extends Input {
   handleFileCancel() {
     if (this.currentFile) {
       // Восстанавливаем предыдущее состояние
-      this.setCaption(this.currentFile.name, getFormattedFileSize(this.currentFile.size))
-      this.el.classList.add('filled')
-      this.updateDeleteInput('')
+      this.setCaption(this.currentFile.name, getFormattedFileSize(this.currentFile.size));
+      this.el.classList.add('filled');
+      this.updateDeleteInput('');
     } else {
       // Нет текущего файла — чистим
-      this.setCaption('', '')
-      this.el.classList.remove('filled')
-      this.updateDeleteInput('Y')
+      this.setCaption('', '');
+      this.el.classList.remove('filled');
+      this.updateDeleteInput('Y');
     }
   }
 
@@ -100,7 +100,7 @@ export class FileInput extends Input {
    */
   updateDeleteInput(value) {
     if (this.deleteInput) {
-      this.deleteInput.value = value
+      this.deleteInput.value = value;
     }
   }
 
@@ -112,7 +112,7 @@ export class FileInput extends Input {
    * @returns {void}
    */
   setCaption(name, size) {
-    this.fileNameCaptionNode.innerHTML = name ? `${name} <span>${size}</span>` : ''
+    this.fileNameCaptionNode.innerHTML = name ? `${name} <span>${size}</span>` : '';
   }
 
   /**
@@ -121,7 +121,7 @@ export class FileInput extends Input {
    * @returns {File|null} Файл или null, если файл не выбран.
    */
   getValue() {
-    return this.input.files[0] || null
+    return this.input.files[0] || null;
   }
 
   /**
@@ -131,14 +131,14 @@ export class FileInput extends Input {
    * @returns {void}
    */
   deleteFile(e) {
-    e.stopPropagation()
+    e.stopPropagation();
     const fileClearButton = e.target.classList.contains('js-file-delete')
       ? e.target
-      : e.target.closest('.js-file-delete')
-    const field = fileClearButton.closest('.js-form-field')
-    const fileInput = field.querySelector('.js-form-field-input')
+      : e.target.closest('.js-file-delete');
+    const field = fileClearButton.closest('.js-form-field');
+    const fileInput = field.querySelector('.js-form-field-input');
 
-    this.updateFileState(field, fileInput)
+    this.updateFileState(field, fileInput);
   }
 
   /**
@@ -149,11 +149,11 @@ export class FileInput extends Input {
    * @returns {void}
    */
   updateFileState(field, fileInput) {
-    field.classList.remove('filled')
-    this.fileNameCaptionNode.innerText = ''
-    fileInput.value = ''
+    field.classList.remove('filled');
+    this.fileNameCaptionNode.innerText = '';
+    fileInput.value = '';
     if (this.deleteInput) {
-      this.deleteInput.value = 'Y'
+      this.deleteInput.value = 'Y';
     }
   }
 }

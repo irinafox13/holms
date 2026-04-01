@@ -26,7 +26,7 @@ export class ApartmentSlider {
       speed: 700,
       easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
       modules: [Navigation, EffectFade],
-      effect: "fade",
+      effect: 'fade',
       navigation: {
         nextEl: this.nextButton,
         prevEl: this.prevButton,

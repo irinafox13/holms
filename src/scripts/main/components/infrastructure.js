@@ -30,7 +30,7 @@ class Infrastructure {
     this.mainPlacemark = null;
     this.activeFilters = ['all'];
     this.centerLat = Number(this.lt);
-    this.centerLng = Number(this.lg);   
+    this.centerLng = Number(this.lg);
     this.infrastructurePoints;
 
     this.init();
@@ -41,7 +41,7 @@ class Infrastructure {
 
   init = async () => {
     this.infrastructurePoints = await this.getMapData();
-    
+
     const checkYmaps = () => {
       if (window.ymaps && window.ymaps.Map) {
         this.createMap();
@@ -55,7 +55,7 @@ class Infrastructure {
     } else {
       checkYmaps();
     }
-  }
+  };
 
   updateScreenSize() {
     this.isDesktopScreen = window.innerWidth >= LG_WIDTH;
@@ -222,7 +222,7 @@ class Infrastructure {
     });
     // После создания коллекций обновляем тултипы фильтров
     this.updateFilterTooltips();
-  };
+  }
 
   addMainPlacemark() {
     this.mainPlacemark = new window.ymaps.Placemark(

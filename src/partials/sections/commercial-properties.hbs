@@ -6,16 +6,19 @@
     </header>
     <div class="tabs__content">
       {{#each commercialProperties.panes }}
-      <div class="tabs__pane {{#if @first}}tabs__pane--active{{/if}} js-tabs-pane property-block__wrap js-property-block-slider" data-tab-content="{{ this.id }}">
-        <div class="property-block__slider swiper ">
+      <div
+        class="tabs__pane {{#if @first}}tabs__pane--active{{/if}} js-tabs-pane property-block__wrap js-property-block-slider"
+        data-tab-content="{{ this.id }}"
+      >
+        <div class="property-block__slider swiper">
           <div class="swiper-wrapper">
             {{#each this.objects }}
-              {{>property-card content=this routes=@root.routes}}
+            {{>property-card content=this routes=@root.routes}}
             {{/each}}
           </div>
         </div>
         {{>slider-navigation}}
-      </div>      
+      </div>
       {{/each}}
     </div>
   </div>
