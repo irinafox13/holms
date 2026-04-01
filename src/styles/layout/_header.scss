@@ -5,16 +5,13 @@
   position: relative;
   padding-top: 32px;
   color: $white;
-  z-index: 1000;
+  z-index: 1000;    
   border-bottom: 1px solid transparent;
   transition:
     background-color 0.8s cubic-bezier(0.2, 0.85, 0.4, 1),
     border-color 1s cubic-bezier(0.2, 0.85, 0.4, 1),
     padding 0.6s cubic-bezier(0.2, 0.85, 0.4, 1);
   $header: &;
-  
-  right: var(--scrollbar-width);
-  transition: right 0.2s ease-out;
 
   &::after {
     opacity: 0;
@@ -32,7 +29,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    right: var(--scrollbar-width);
     border-color: $white-20;
     padding-block: 16px;
     transition:
