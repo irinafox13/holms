@@ -43,20 +43,38 @@ class Preloader {
   }
 
   startCountingAnimation() {
-    // Анимация счета от 0 до 99
+    // Анимация счета от 0 до 99 с плавным ускорением
     let count = 0;
+    let lastUpdateTime = Date.now();
+
     this.animationInterval = setInterval(() => {
       if (this.isComplete) return;
 
+      const now = Date.now();
+      const deltaTime = now - lastUpdateTime;
+
+      let step = 1;
+
+      if (count < 20) {
+        step = 1;
+      } else if (count < 50) {
+        step = 2;
+      } else if (count < 80) {
+        step = 3;
+      } else {
+        step = 4;
+      }
+
       // Увеличиваем счет, но не больше 99 и не больше текущего реального прогресса
       if (count < 99 && count < this.currentPercent) {
-        count++;
+        count = Math.min(count + step, 99, this.currentPercent);
         this.displayPercent = count;
         this.updateDisplay(this.displayPercent);
+        lastUpdateTime = now;
       } else if (count >= this.currentPercent) {
         return;
       }
-    }, 30);
+    }, 20);
   }
 
   startTracking() {
@@ -139,16 +157,28 @@ class Preloader {
 
     this.currentPercent = 100;
 
-    // Продолжаем анимацию до 100
+    // Продолжаем анимацию до 100 с таким же ускорением
     const finishAnimation = setInterval(() => {
       if (this.displayPercent < 100) {
-        this.displayPercent++;
+        let step = 1;
+
+        if (this.displayPercent < 20) {
+          step = 1;
+        } else if (this.displayPercent < 50) {
+          step = 2;
+        } else if (this.displayPercent < 80) {
+          step = 3;
+        } else {
+          step = 4;
+        }
+
+        this.displayPercent = Math.min(this.displayPercent + step, 100);
         this.updateDisplay(this.displayPercent);
       } else {
         clearInterval(finishAnimation);
         this.checkComplete();
       }
-    }, 0);
+    }, 15);
   }
 
   checkComplete() {
