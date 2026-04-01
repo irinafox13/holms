@@ -25,12 +25,12 @@
     height: 4px;
 
     .noUi-handle {
-      height: 4px;
+      height: 16px;
       width: 16px;
       top: 0;
       right: -8px;
       border-radius: 0;
-      background: $white;
+      background: transparent;
       cursor: pointer;
       border: none;
       box-shadow: none;
@@ -40,6 +40,11 @@
         display: none;
       }
     }
+  }
+
+  &-touch-area {
+    height: 4px;
+    background: $white;
   }
 
   &-connects {

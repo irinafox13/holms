@@ -57,8 +57,10 @@
       color: $white;
     }
 
-    &:hover {
-      background-color: $gray;
+    @include media($lg) {
+      &:hover {
+        background-color: $gray;
+      }
     }
   }
 
@@ -72,9 +74,11 @@
       color: $dark;
     }
 
-    &:hover {
-      background-color: $white-10;
-      color: $white;
+    @include media($lg) {
+      &:hover {
+        background-color: $white-10;
+        color: $white;
+      }
     }
   }
 
@@ -110,15 +114,17 @@
       border-radius: 50%;
     }
 
-    &:hover {
-      background-color: $white-30;
-    }
+    @include media($lg) {
+      &:hover {
+        background-color: $white-30;
+      }
 
-    &:focus,
-    &:active,
-    &.focus,
-    &.active {
-      background-color: $white-40;
+      &:focus,
+      &:active,
+      &.focus,
+      &.active {
+        background-color: $white-40;
+      }
     }
   }
 
@@ -141,8 +147,10 @@
       height: 24px;
     }
 
-    &:hover {
-      text-decoration-color: $white-60;
+    @include media($lg) {
+      &:hover {
+        text-decoration-color: $white-60;
+      }
     }
   }
 }

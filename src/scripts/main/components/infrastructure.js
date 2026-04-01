@@ -277,15 +277,6 @@ class Infrastructure {
       });
     }
 
-    // Проверяем, есть ли объекты на карте
-    const hasObjects = this.mapInstance.geoObjects.getLength() > 1; // >1 потому что основная метка всегда есть
-
-    if (!hasObjects) {
-      this.showNoObjectsMessage();
-    } else {
-      this.hideNoObjectsMessage();
-      // НЕ масштабируем карту при фильтрации
-    }
   }
 
   fitToBounds() {
@@ -329,25 +320,6 @@ class Infrastructure {
         </div>
       `;
     }
-  }
-
-  showNoObjectsMessage() {
-    let messageDiv = this.block.querySelector('.infrastructure__no-objects');
-    if (!messageDiv) {
-      messageDiv = document.createElement('div');
-      messageDiv.className = 'infrastructure__no-objects';
-      this.map.parentNode.insertBefore(messageDiv, this.map.nextSibling);
-    }
-    messageDiv.innerHTML = `
-      <div class="infrastructure__no-objects-content">
-        <p>Нет объектов по выбранным параметрам</p>
-        <button class="infrastructure__reset-filters">Сбросить фильтры</button>
-      </div>
-    `;
-    messageDiv.style.display = 'block';
-
-    const resetBtn = messageDiv.querySelector('.infrastructure__reset-filters');
-    resetBtn.addEventListener('click', () => this.resetFilters());
   }
 
   hideNoObjectsMessage() {
