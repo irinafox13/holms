@@ -29,6 +29,40 @@
         opacity: 1;
       }
     }
+
+    &:has(.floor__sold-out) svg {
+      opacity: 0.1;
+    }
+  }
+
+  &__sold-out {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-info {
+      color: $white;
+      box-shadow: 0px 18px 64px -10px #6e757e3d;
+      backdrop-filter: blur(32px);
+      background-color: #85858566;
+      padding: 16px;
+      text-align: center;
+      pointer-events: none;
+
+      .h4 {
+        @include font(24px, 24px, 300);
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+
+      span {
+        color: $white-60;
+        @include font(14px, 24px, 300);
+      }
+    }
   }
 
   &__nav {

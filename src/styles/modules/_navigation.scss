@@ -13,6 +13,10 @@
 
   &__link {
     display: block;
+
+    &:hover {
+      color: $white-60;
+    }
   }
 
   @include media($md) {

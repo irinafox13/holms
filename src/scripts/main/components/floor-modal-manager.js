@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Handlebars from 'handlebars';
 import {Modal} from '@main/components/modal/modal';
+import {Tooltip} from '@main/components/tooltip';
 
 // Импортируем все шаблоны этажей
 import floorPlanOne from '@partials/floors-plan/one.hbs?raw';
@@ -13,7 +14,7 @@ class FloorModalManager {
   constructor() {
     this.currentFloor = null;
     this.totalFloors = 5;
-    this.isLoading = false; // Флаг блокировки повторных вызовов
+    this.isLoading = false;
     this.modal = document.querySelector('.js-modal[data-modal-name="floor"]');
     this.modalTitle = this.modal?.querySelector('.js-modal-title');
     this.floorPlanContainer = this.modal?.querySelector('.js-floor-plan-container');
@@ -36,21 +37,31 @@ class FloorModalManager {
   }
 
   init() {
+    // Привязываем методы к контексту
+    this.handleFloorSelectionClick = this.handleFloorSelectionClick.bind(this);
+    this.handlePrevClick = this.handlePrevClick.bind(this);
+    this.handleNextClick = this.handleNextClick.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
+
     // Слушаем клики на кнопки выбора этажа
     document.querySelectorAll('.js-floor-selection').forEach((button) => {
-      // Удаляем старые обработчики, чтобы избежать дублирования
       button.removeEventListener('click', this.handleFloorSelectionClick);
-      button.addEventListener('click', this.handleFloorSelectionClick.bind(this));
+      button.addEventListener('click', this.handleFloorSelectionClick);
     });
 
     // Слушаем кнопки навигации в модальном окне
     if (this.prevButton) {
       this.prevButton.removeEventListener('click', this.handlePrevClick);
-      this.prevButton.addEventListener('click', this.handlePrevClick.bind(this));
+      this.prevButton.addEventListener('click', this.handlePrevClick);
     }
     if (this.nextButton) {
       this.nextButton.removeEventListener('click', this.handleNextClick);
-      this.nextButton.addEventListener('click', this.handleNextClick.bind(this));
+      this.nextButton.addEventListener('click', this.handleNextClick);
+    }
+
+    // Слушаем закрытие модального окна
+    if (this.modal) {
+      this.modal.addEventListener('modal:close', this.handleModalClose);
     }
   }
 
@@ -60,11 +71,6 @@ class FloorModalManager {
 
     const button = e.currentTarget;
     const floorNumber = parseInt(button.dataset.id);
-
-    // Проверяем, что это не текущий этаж
-    if (this.currentFloor === floorNumber) {
-      return;
-    }
 
     this.openModal(floorNumber);
   }
@@ -81,6 +87,12 @@ class FloorModalManager {
     this.navigateFloor(1);
   }
 
+  handleModalClose() {
+    // При закрытии модального окна не сбрасываем currentFloor,
+    // но сбрасываем флаг загрузки
+    this.isLoading = false;
+  }
+
   async openModal(floorNumber) {
     // Проверяем блокировку
     if (this.isLoading) {
@@ -89,17 +101,18 @@ class FloorModalManager {
 
     if (floorNumber < 1 || floorNumber > this.totalFloors) return;
 
-    // Если уже на этом этаже, не перезагружаем
-    if (this.currentFloor === floorNumber && this.floorPlanContainer?.innerHTML) {
+    // Если уже на этом этаже и контент загружен, просто открываем модальное окно
+    if (
+      this.currentFloor === floorNumber &&
+      this.floorPlanContainer?.innerHTML &&
+      this.floorPlanContainer.innerHTML !== '<div class="loading">Загрузка...</div>'
+    ) {
       this.openModalWindow();
       return;
     }
 
     this.isLoading = true;
     this.currentFloor = floorNumber;
-
-    // Показываем загрузку
-    // this.showLoading();
 
     try {
       await this.loadFloorPlan(floorNumber);
@@ -142,11 +155,11 @@ class FloorModalManager {
           method: 'GET',
           params: {
             id: floorNumber,
-          }
+          },
         });
 
         if (data?.success) {
-          this.renderFloorPlanFromTemplate(floorNumber, data);
+          this.renderFloorPlanFromTemplate(floorNumber, data.data);
         } else {
           this.renderFloorPlanFromTemplate(floorNumber);
         }
@@ -156,6 +169,8 @@ class FloorModalManager {
     } catch (error) {
       if (!axios.isCancel(error)) {
         console.error(error);
+        // В случае ошибки показываем сообщение
+        this.floorPlanContainer.innerHTML = '<div class="error">Ошибка загрузки плана этажа</div>';
       }
     }
   }
@@ -172,10 +187,13 @@ class FloorModalManager {
     this.floorPlanContainer.innerHTML = templateHtml;
     this.modalTitle.textContent = `${floorNumber} этаж`;
 
-    // Обновляем data-id для кнопок навигации
+    this.checkSoldOut(additionalData);
+    this.addApartmentTooltips(additionalData);
+
     if (this.prevButton) {
       this.prevButton.dataset.id = floorNumber > 1 ? floorNumber - 1 : '';
     }
+
     if (this.nextButton) {
       this.nextButton.dataset.id = floorNumber < this.totalFloors ? floorNumber + 1 : '';
     }
@@ -184,6 +202,29 @@ class FloorModalManager {
   showLoading() {
     if (this.floorPlanContainer) {
       this.floorPlanContainer.innerHTML = '<div class="loading">Загрузка...</div>';
+    }
+  }
+
+  checkSoldOut(additionalData) {
+    if (!additionalData || !additionalData.apartments) return;
+
+    const soldOutHtml = `
+    <div class="floor__sold-out">
+      <div class="floor__sold-out-info">
+        <div class="h4">Свободных квартир нет</div>
+        <span>Изучите другой этаж</span>
+      </div>
+    </div>
+    `;
+
+    // Удаляем существующий блок sold-out, если есть
+    const existingSoldOut = this.floorPlanContainer.querySelector('.floor__sold-out');
+    if (existingSoldOut) {
+      existingSoldOut.remove();
+    }
+
+    if (additionalData.apartments.length === 0) {
+      this.floorPlanContainer.insertAdjacentHTML('beforeend', soldOutHtml);
     }
   }
 
@@ -208,17 +249,61 @@ class FloorModalManager {
     }
   }
 
+  addApartmentTooltips(additionalData) {
+    if (!additionalData || !additionalData.apartments || additionalData.apartments.length === 0) return;
+
+    const apartments = additionalData.apartments;
+
+    apartments.forEach((apartment) => {
+      const planOfApartment = this.floorPlanContainer.querySelector(
+        `.js-open-apartment-data[data-id='${apartment.id}']`,
+      );
+
+      if (!planOfApartment) return;
+
+      // Удаляем существующий тултип, если он есть
+      if (planOfApartment._tooltip) {
+        planOfApartment._tooltip.tippy.destroy();
+        planOfApartment._tooltip = null;
+      }
+
+      // Удаляем класс js-tooltip, если он был добавлен
+      planOfApartment.classList.remove('js-tooltip');
+
+      // Добавляем тултип
+      planOfApartment.classList.add('js-tooltip');
+      planOfApartment.setAttribute('data-title', `${apartment.number_of_rooms} комнаты`);
+      planOfApartment.setAttribute('data-text', `Общая площадь ${apartment.total_area} м<sup>2</sup>`);
+      planOfApartment.setAttribute('data-placement', 'bottom');
+
+      // Инициализируем тултип
+      planOfApartment._tooltip = new Tooltip(planOfApartment);
+    });
+  }
+
   openModalWindow() {
     if (!this.modal) return;
 
-    const openModals = document.querySelectorAll('.js-modal.visible');
-    openModals.forEach((modal) => {
-      Modal.close(modal);
-    });
-    Modal.open(this.modal);
+    // Проверяем, что модальное окно не открыто
+    const isModalOpen = this.modal.classList.contains('visible');
+
+    if (!isModalOpen) {
+      // Закрываем другие модальные окна
+      const openModals = document.querySelectorAll('.js-modal.visible');
+      openModals.forEach((modal) => {
+        Modal.close(modal);
+      });
+
+      // Открываем модальное окно
+      Modal.open(this.modal);
+    } else {
+      // Если модальное окно уже открыто, но нужно обновить контент
+      // Обновляем контент без переоткрытия
+      // Modal.open обновит контент
+      Modal.open(this.modal);
+    }
   }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   new FloorModalManager();
