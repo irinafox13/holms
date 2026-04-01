@@ -3,6 +3,10 @@
 @use './../abstracts/variables' as *;
 @use './../abstracts/mixins' as *;
 
+:root {
+  --scrollbar-width: 0px;
+}
+
 *,
 *:before,
 *:after {
@@ -55,7 +59,7 @@ body {
   overflow-x: hidden;
   font-feature-settings: "ss04" 1;
   font-synthesis: none;
-  @include scrollbar(4px);
+  @include scrollbar(6px);
 }
 
 html {

@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import {Navigation} from 'swiper/modules';
+import {Navigation, EffectFade} from 'swiper/modules';
 
 /**
  * Класс для создания слайдера с планировкой и рендерами квартир.
@@ -21,11 +21,12 @@ export class ApartmentSlider {
       spaceBetween: 16,
       slidesPerGroup: 1,
       simulateTouch: false,
-      touchRatio: 0, 
+      touchRatio: 0,
       allowTouchMove: false,
       speed: 700,
       easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
-      modules: [Navigation],
+      modules: [Navigation, EffectFade],
+      effect: "fade",
       navigation: {
         nextEl: this.nextButton,
         prevEl: this.prevButton,

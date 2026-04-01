@@ -9,6 +9,7 @@ class BurgerMenu {
     this.menuElement = menuElement;
     this.header = this.menuElement.previousElementSibling;
     this.burgerButtons = this.header.querySelectorAll('.js-burger-button-menu');
+    this.scrollbarWidth = 0;
 
     this.bindEventListeners();
   }
@@ -29,6 +30,13 @@ class BurgerMenu {
       link.addEventListener('click', () => {
         this.closeMenu();
       });
+    });
+
+    // Закрываем меню при нажатии ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.header.classList.contains('is-menu-open')) {
+        this.closeMenu();
+      }
     });
   }
 

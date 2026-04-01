@@ -24,6 +24,12 @@
 
   &__slider {
     overflow: hidden;
+
+    &.swiper-initialized {
+      .swiper-slide:not(.swiper-slide-active) {
+        opacity: 0 !important;
+      }
+    }
   }
 
   &__slide {
