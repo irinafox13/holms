@@ -247,7 +247,7 @@ class IntroAnimations {
       .to(
         this.DOM.holmsContainer,
         {
-          y: '100vh',
+          y: '150vh',
           duration: 1.5,
           ease: 'power2.inOut',
         },

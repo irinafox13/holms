@@ -259,6 +259,13 @@ class FloorModalManager {
         `.js-open-apartment-data[data-id='${apartment.id}']`,
       );
 
+      if (apartment.isSold) {
+        planOfApartment?.classList.add('is-sold');
+        if (planOfApartment) {
+          this.addSoldLabel(planOfApartment);
+        }
+      }
+
       if (!planOfApartment) return;
 
       // Удаляем существующий тултип, если он есть
@@ -279,6 +286,48 @@ class FloorModalManager {
       // Инициализируем тултип
       planOfApartment._tooltip = new Tooltip(planOfApartment);
     });
+  }
+
+  addSoldLabel(groupElement) {
+    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    text.textContent = 'Продано';
+
+    const bbox = groupElement.getBBox();
+    text.setAttribute('x', bbox.x + bbox.width / 2);
+    text.setAttribute('y', bbox.y + bbox.height / 2);
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('dominant-baseline', 'middle');
+
+    // Добавляем фильтр для создания эффекта фона
+    const filterId = `shadow-${Date.now()}`;
+    const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+    filter.setAttribute('id', filterId);
+    filter.setAttribute('x', '-0.2');
+    filter.setAttribute('y', '-0.2');
+    filter.setAttribute('width', '1.4');
+    filter.setAttribute('height', '1.4');
+
+    const feFlood = document.createElementNS('http://www.w3.org/2000/svg', 'feFlood');
+    feFlood.setAttribute('flood-color', '#858585');
+    feFlood.setAttribute('flood-opacity', '0.8');
+
+    const feComposite = document.createElementNS('http://www.w3.org/2000/svg', 'feComposite');
+    feComposite.setAttribute('in', 'SourceGraphic');
+    feComposite.setAttribute('operator', 'over');
+
+    filter.appendChild(feFlood);
+    filter.appendChild(feComposite);
+
+    // Добавляем фильтр в defs
+    let defs = groupElement.querySelector('defs');
+    if (!defs) {
+      defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+      groupElement.appendChild(defs);
+    }
+    defs.appendChild(filter);
+
+    text.setAttribute('filter', `url(#${filterId})`);
+    groupElement.appendChild(text);
   }
 
   openModalWindow() {

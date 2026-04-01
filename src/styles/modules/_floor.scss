@@ -25,6 +25,25 @@
       cursor: pointer;
       @include css_anim();
 
+      &.is-sold {
+        position: relative;
+        opacity: 1;
+        pointer-events: none;
+
+        path {
+          fill: $darkLight;          
+        }
+
+        text {
+          font-size: 14px;
+          line-height: 24px;
+          font-weight: 300;
+          font-family: inherit;
+          fill: $white-60;
+          
+        }
+      }
+
       &:hover {
         opacity: 1;
       }
