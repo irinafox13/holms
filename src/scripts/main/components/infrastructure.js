@@ -210,7 +210,7 @@ class Infrastructure {
             },
             {
               iconLayout: 'default#image',
-              iconImageHref: `/images/infrastructure/${category}.svg`,
+              iconImageHref: `./images/infrastructure/${category}.svg`,
               iconImageSize: [40, 40],
               iconImageOffset: [-20, -30],
             },
@@ -233,7 +233,7 @@ class Infrastructure {
       },
       {
         iconLayout: 'default#image',
-        iconImageHref: '/images/svg/pin-holms.svg',
+        iconImageHref: './images/svg/pin-holms.svg',
         iconImageSize: [58, 65],
         iconImageOffset: [-28, -65],
       },
@@ -276,7 +276,6 @@ class Infrastructure {
         }
       });
     }
-
   }
 
   fitToBounds() {

@@ -50,64 +50,64 @@
   "advantages": [
     {
       "images": {
-        "1x": "/images/advantages/1.png",
-        "2x": "/images/advantages/1@2x.png"
+        "1x": "./images/advantages/1.png",
+        "2x": "./images/advantages/1@2x.png"
       },
       "name": "Приватная территория",
       "text": "Закрытое и спокойное пространство для жителей без лишнего городского шума"
     },
     {
       "images": {
-        "1x": "/images/advantages/2.png",
-        "2x": "/images/advantages/2@2x.png"
+        "1x": "./images/advantages/2.png",
+        "2x": "./images/advantages/2@2x.png"
       },
       "name": "Подземный паркинг",
       "text": "Машина всегда в безопасности, без перегруженного двора и поиска места"
     },
     {
       "images": {
-        "1x": "/images/advantages/3.png",
-        "2x": "/images/advantages/3@2x.png"
+        "1x": "./images/advantages/3.png",
+        "2x": "./images/advantages/3@2x.png"
       },
       "name": "Авторская архитектура",
       "text": "Выразительный современный фасад и продуманный визуальный образ ЖК"
     },
     {
       "images": {
-        "1x": "/images/advantages/4.png",
-        "2x": "/images/advantages/4@2x.png"
+        "1x": "./images/advantages/4.png",
+        "2x": "./images/advantages/4@2x.png"
       },
       "name": "Исторический тихий центр",
       "text": "Удобное расположение в развитом районе рядом с городской инфраструктурой."
     },
     {
       "images": {
-        "1x": "/images/advantages/1.png",
-        "2x": "/images/advantages/1@2x.png"
+        "1x": "./images/advantages/1.png",
+        "2x": "./images/advantages/1@2x.png"
       },
       "name": "Приватная территория",
       "text": "Закрытое и спокойное пространство для жителей без лишнего городского шума"
     },
     {
       "images": {
-        "1x": "/images/advantages/2.png",
-        "2x": "/images/advantages/2@2x.png"
+        "1x": "./images/advantages/2.png",
+        "2x": "./images/advantages/2@2x.png"
       },
       "name": "Подземный паркинг",
       "text": "Машина всегда в безопасности, без перегруженного двора и поиска места"
     },
     {
       "images": {
-        "1x": "/images/advantages/3.png",
-        "2x": "/images/advantages/3@2x.png"
+        "1x": "./images/advantages/3.png",
+        "2x": "./images/advantages/3@2x.png"
       },
       "name": "Авторская архитектура",
       "text": "Выразительный современный фасад и продуманный визуальный образ ЖК"
     },
     {
       "images": {
-        "1x": "/images/advantages/4.png",
-        "2x": "/images/advantages/4@2x.png"
+        "1x": "./images/advantages/4.png",
+        "2x": "./images/advantages/4@2x.png"
       },
       "name": "Исторический тихий центр",
       "text": "Удобное расположение в развитом районе рядом с городской инфраструктурой."
@@ -137,42 +137,42 @@
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "45",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "46",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "50",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "46",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "42",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "2",
             "area": "42",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           }
         ]
       },
@@ -184,42 +184,42 @@
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "62",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "60",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "64",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "56",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "58",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "3",
             "area": "62",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           }
         ]
       },
@@ -231,14 +231,14 @@
             "type": "apartment",
             "numberOfRooms": "4",
             "area": "72",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           },
           {
             "id": "1",
             "type": "apartment",
             "numberOfRooms": "4",
             "area": "68",
-            "layout": "/images/apartment.png"
+            "layout": "./images/apartment.png"
           }
         ]
       }
@@ -300,7 +300,7 @@
   },
   "purchaseOptions": [
     {
-      "icon": "/images/purchase/discount-percent-square.svg",
+      "icon": "./images/purchase/discount-percent-square.svg",
       "name": "Ипотека",
       "shortDescription": "Разнообразные программы",
       "button": {
@@ -309,7 +309,7 @@
       }
     },
     {
-      "icon": "/images/purchase/installment-plan.svg",
+      "icon": "./images/purchase/installment-plan.svg",
       "name": "Рассрочка",
       "shortDescription": "Индивидуальные условия оплаты",
       "button": {
@@ -318,7 +318,7 @@
       }
     },
     {
-      "icon": "/images/purchase/home-house-change.svg",
+      "icon": "./images/purchase/home-house-change.svg",
       "name": "Старую на&nbsp;новую",
       "shortDescription": "Выгодные условия обмена",
       "button": {
@@ -594,7 +594,7 @@
             "number": "985",
             "area": "190",
             "price": "15 690 000",
-            "layout": "/images/office.png"
+            "layout": "./images/office.png"
           },
           {
             "id": "1",
@@ -603,7 +603,7 @@
             "number": "985",
             "area": "191",
             "price": "",
-            "layout": "/images/office.png"
+            "layout": "./images/office.png"
           },
           {
             "id": "1",
@@ -612,7 +612,7 @@
             "number": "985",
             "area": "192",
             "price": "15 690 000",
-            "layout": "/images/office.png"
+            "layout": "./images/office.png"
           },
           {
             "id": "1",
@@ -621,7 +621,7 @@
             "number": "985",
             "area": "194",
             "price": "15 690 000",
-            "layout": "/images/office.png"
+            "layout": "./images/office.png"
           }
         ]
       }
@@ -673,37 +673,37 @@
   "infrastructure": [
     {
       "name": "Школы и детские сады",
-      "icon": "/images/infrastructure/school.svg",
+      "icon": "./images/infrastructure/school.svg",
       "type": "school"
     },
     {
       "name": "Магазины и ТЦ",
-      "icon": "/images/infrastructure/shop.svg",
+      "icon": "./images/infrastructure/shop.svg",
       "type": "shop"
     },
     {
       "name": "Поликлиники и аптеки",
-      "icon": "/images/infrastructure/medical.svg",
+      "icon": "./images/infrastructure/medical.svg",
       "type": "medical"
     },
     {
       "name": "Спорт",
-      "icon": "/images/infrastructure/sport.svg",
+      "icon": "./images/infrastructure/sport.svg",
       "type": "sport"
     },
     {
       "name": "Транспорт",
-      "icon": "/images/infrastructure/transport.svg",
+      "icon": "./images/infrastructure/transport.svg",
       "type": "transport"
     },
     {
       "name": "Парки и зоны отдыха",
-      "icon": "/images/infrastructure/park.svg",
+      "icon": "./images/infrastructure/park.svg",
       "type": "park"
     },
     {
       "name": "Рестораны и кафе",
-      "icon": "/images/infrastructure/food.svg",
+      "icon": "./images/infrastructure/food.svg",
       "type": "food"
     }
   ],

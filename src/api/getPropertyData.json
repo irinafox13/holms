@@ -7,6 +7,6 @@
     "number": "130",
     "area": "42",
     "price": "390 000",
-    "layout": "/images/office.pdf"
+    "layout": "./images/office.pdf"
   }
 }

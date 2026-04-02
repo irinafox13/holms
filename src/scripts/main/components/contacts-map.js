@@ -13,7 +13,7 @@ import {MD_WIDTH, LG_WIDTH} from '@main/helpers/consts';
 class ContactsMap {
   defaultOptionPlacemark = {
     iconLayout: 'default#image',
-    iconImageHref: '/images/svg/pin.svg',
+    iconImageHref: './images/svg/pin.svg',
     iconImageSize: [120, 129],
     iconImageOffset: [-60, -85],
   };
