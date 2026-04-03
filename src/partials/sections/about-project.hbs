@@ -2,9 +2,6 @@
   <div class="container">
     <div class="about-project__wrapper">
       <a href="./images/about/home-1600.webp" class="about-project__image-wrap" data-fslightbox="about">
-        {{!-- {{{responsivePicture "./images/about/home" "png" "ЖК Холмс" "(max-width: 768px) 100vw, 
-                  (max-width: 1080px) 415px, 
-                  523px"}}} --}}
         <picture>
           <source type="image/webp" srcset="./images/about/home-400.webp 400w, ./images/about/home-800.webp 800w, ./images/about/home-1600.webp 1600w, ./images/about/home-4000.webp 4000w" sizes="(max-width: 768px) 100vw, 
                   (max-width: 1080px) 415px, 
@@ -21,6 +18,9 @@
             <span class="visually-hidden">Открыть изображение в полном размере</span>
         </div>
       </a>
+      {{!-- Если будет нескольк картинок --}}
+      <a href="./images/advantages/1@2x.png" class="visually-hidden" data-fslightbox="about"></a>
+      
       <div class="about-project__body">
         <h2 class="about-project__title">О проекте</h2>
         <div class="about-project__content">

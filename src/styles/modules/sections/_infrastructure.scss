@@ -81,6 +81,11 @@
   &__ymaps {
     height: 420px;
     margin-inline: -16px;
+
+    [class*='ymaps-2'][class*='-places-pane'] .ymaps-2-1-79-placemark-overlay:first-child {
+      z-index: 1000 !important;
+
+    }
   }
 
   &__no-objects {

@@ -40,10 +40,6 @@ export class OpenBookingRequest {
     });
     this.button.classList.remove('waiting');
     if (data?.success) {
-      const openModals = document.querySelectorAll('.js-modal.visible');
-      openModals.forEach((modal) => {
-        Modal.close(modal);
-      });
       Modal.open(this.bookingModal);
       this.addPropertyInfo(data.data);
     }

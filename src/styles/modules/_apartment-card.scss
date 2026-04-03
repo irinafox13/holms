@@ -6,6 +6,10 @@
   overflow: hidden;
   padding-block: 64px;
 
+  &__container {
+    padding: 0;
+  }
+
   &__slider-block {
     position: relative;
     background-color: $white-05;
@@ -34,7 +38,7 @@
 
   &__slide {
     width: 100%;
-    height: 100%;
+    height: auto !important;
     max-height: 400px;
     display: flex;
     align-items: center;
@@ -70,13 +74,13 @@
         @include font(14px, 19px, 300);
       }
       &:last-child {
-        @include font(40px, 48px, 300);
+        @include font(32px, 40px, 300);
       }
     }
   }
 
   &__price {
-    @include font(64px, 73px, 300);
+    @include font(46px, 48px, 300);
 
     &-box {
       display: grid;
@@ -114,6 +118,12 @@
         left: 16px;
         right: 16px;
       }
+
+      &:hover {
+        .apartment-card__open-gallery-btn {
+          opacity: 1;
+        }
+      }
     }
 
     &__slider,
@@ -125,8 +135,24 @@
       max-height: 580px;
     }
 
+    &__open-gallery-btn {
+      opacity: 0;
+    }
+
     &__info {
       gap: 32px;
+    }
+
+    &__price {
+      @include font(64px, 73px, 300);
+    }
+
+    &__desc-col {
+      & > span {
+        &:last-child {
+          @include font(40px, 48px, 300);
+        }
+      }
     }
   }
 

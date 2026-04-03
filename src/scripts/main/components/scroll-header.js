@@ -24,9 +24,6 @@ class ScrollHeader {
       return;
     }
 
-    // Получаем реальную высоту хедера для корректного padding
-    this.updateHeaderHeight();
-
     // Проверяем начальное положение страницы
     this.checkScroll();
 
@@ -35,18 +32,8 @@ class ScrollHeader {
 
     // Опционально: слушатель для resize (пересчет offset и высоты)
     window.addEventListener('resize', () => {
-      this.updateHeaderHeight();
       this.checkScroll();
     });
-  }
-
-  /**
-   * Получает актуальную высоту хедера
-   */
-  updateHeaderHeight() {
-    if (this.header) {
-      this.headerHeight = this.header.offsetHeight;
-    }
   }
 
   /**
@@ -67,17 +54,9 @@ class ScrollHeader {
    * Добавляет класс фиксации
    */
   addFixedClass() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-
     // Используем requestAnimationFrame для плавности
     requestAnimationFrame(() => {
       this.header.classList.add(this.options.fixedClass);
-      document.body.style.paddingTop = `${this.headerHeight}px`;
-
-      // Восстанавливаем позицию после следующего кадра
-      requestAnimationFrame(() => {
-        window.scrollTo(0, scrollPosition);
-      });
     });
 
     this.isFixed = true;

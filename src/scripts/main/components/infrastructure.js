@@ -96,7 +96,7 @@ class Infrastructure {
     return `${hours} ч ${mins} мин`;
   }
 
-  getHintContent(item, distance, walkingTime) {
+  getBalloonContent(item, distance, walkingTime) {
     const distanceKm = (distance / 1000).toFixed(1);
     return `
       <div class="map-tooltip">
@@ -192,6 +192,22 @@ class Infrastructure {
     }
   }
 
+  // addHoverEffect(placemark) {
+  //   placemark.events
+  //     .add('mouseenter', () => {
+  //       placemark.options.set({
+  //         iconImageSize: [56, 56],
+  //         iconImageOffset: [-28, -28],
+  //       });
+  //     })
+  //     .add('mouseleave', () => {
+  //       placemark.options.set({
+  //         iconImageSize: [40, 40],
+  //         iconImageOffset: [-20, -30],
+  //       });
+  //     });
+  // }
+
   createCollections() {
     // Создаем коллекции для каждой категории
     const categories = ['school', 'shop', 'medical', 'sport', 'transport', 'park', 'food'];
@@ -206,7 +222,7 @@ class Infrastructure {
           const placemark = new window.ymaps.Placemark(
             [point.lat, point.lng],
             {
-              hintContent: this.getHintContent(point, distance, walkingTime),
+              balloonContent: this.getBalloonContent(point, distance, walkingTime),
             },
             {
               iconLayout: 'default#image',
@@ -216,6 +232,7 @@ class Infrastructure {
             },
           );
 
+          // this.addHoverEffect(placemark);
           this.collections[category].add(placemark);
         });
       }
@@ -228,7 +245,7 @@ class Infrastructure {
     this.mainPlacemark = new window.ymaps.Placemark(
       [Number(this.lt), Number(this.lg)],
       {
-        hintContent: `<div class="map-tooltip">
+        balloonContent: `<div class="map-tooltip">
         <h3 class="map-tooltip__name">Жилой квартал «Холмс»</h3></div>`,
       },
       {
@@ -344,17 +361,9 @@ class Infrastructure {
     const activeItem = Array.from(this.filterItems).find((item) => item.classList.contains('map-nav__item--active'));
 
     if (activeItem) {
-      const type = activeItem.dataset.type;
-      let selectedText;
+      const selectedText = activeItem.querySelector('.map-nav__item-name')?.textContent || activeItem.textContent;
 
-      // Если выбран фильтр "all", выводим "Показать все"
-      if (type === 'all') {
-        selectedText = 'Показать все';
-      } else {
-        selectedText = activeItem.querySelector('.map-nav__item-name')?.textContent || activeItem.textContent;
-      }
-
-      this.dropdownBtn.textContent = selectedText;
+      this.dropdownBtn.querySelector('span').textContent = selectedText;
     }
   }
 

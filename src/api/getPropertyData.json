@@ -6,6 +6,8 @@
     "name": "Офис № 1",
     "number": "130",
     "area": "42",
+    "floor": "4",
+    "finishing": "Чистовая",
     "price": "390 000",
     "layout": "./images/office.pdf"
   }

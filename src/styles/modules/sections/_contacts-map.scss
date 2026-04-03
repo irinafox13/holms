@@ -108,6 +108,29 @@
     filter: grayscale(1) invert(85%) hue-rotate(120deg);
   }
 
+  &[class*='-balloon'] {
+    box-shadow: none;
+  }
+
+  &[class*='-balloon__layout'] {
+    background-color: transparent;
+  }
+
+  &[class*='-balloon__close'] {
+    display: none;
+  }
+
+  &[class*='-balloon__content'] {
+    max-width: 320px;
+    background-color: transparent;
+    padding: 0;
+    margin: 0 !important;
+  }
+
+  &[class*='-balloon__tail'] {
+    display: none;
+  }
+
   &[class*='-zoom'] {
     height: 104px !important;
     width: 48px;
@@ -158,24 +181,13 @@
     }
   }
 
-  &[class*='-places-pane'] .ymaps-2-1-79-placemark-overlay:first-child {
-    z-index: 1000 !important;
+  &[class*='-places-pane'] .ymaps-2-1-79-placemark-overlay {
+    &:first-child {
+      z-index: 1000 !important;
 
-    .ymaps-2-1-79-image {
-      background-color: transparent;
-      background-size: contain !important;
-
-      &::after {
-        content: '';
-        width: 52px;
-        height: 52px;
-        border-radius: 50%;
-        position: absolute;
-        top: 43%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0px 4px 32px 0px #f7c58899;
-        pointer-events: none;
+      .ymaps-2-1-79-image {
+        background-color: transparent;
+        background-size: contain !important;
       }
     }
   }
@@ -187,24 +199,10 @@
     background-size: 24px 24px !important;
     background-repeat: no-repeat;
     background-position: center center !important;
-
-    &::after {
-      content: '';
-      display: block;
-      width: 56px;
-      height: 56px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      border: 1px solid transparent;
-      @include css_anim();
-    }
-
-    &:hover::after {
-      border-color: $white;
-    }
+    // border: 9px solid transparent;
+    // background-clip: padding-box;
+    // box-shadow: 0 0 0 1px $white-60;
+    @include css_anim();
   }
 
   &[class*='-controls__control'] {

@@ -34,6 +34,7 @@
 
   &__body {
     display: grid;
+    align-items: flex-start;
     gap: 8px;
     flex: 1;
     flex-basis: 71px;
@@ -41,6 +42,12 @@
 
   &__title {
     text-transform: uppercase;
+    cursor: pointer;
+    @include css_anim();
+
+    &:hover {
+      color: $white-60;
+    }
   }
 
   &__list {

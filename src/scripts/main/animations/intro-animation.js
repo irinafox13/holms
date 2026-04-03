@@ -115,9 +115,9 @@ class IntroAnimations {
   setIntroStyles() {
     if (this.DOM.intro) {
       gsap.set(this.DOM.intro, {
-        height: this.isXlDesktopScreen ? '1360px' : '1280px',
+        height: this.isXlDesktopScreen ? '1860px' : '1280px',
         minHeight: '100dvh',
-        overflow: 'hidden',
+        // overflow: 'hidden',
       });
     }
   }
@@ -187,11 +187,10 @@ class IntroAnimations {
         trigger: this.DOM.intro,
         start: 'top top',
         end: 'bottom top',
-        scrub: 1.5,
-        pin: true,
-        pinSpacing: true,
+        scrub: 0.5,
+        pin: false,
         markers: false,
-        once: true, // Анимация срабатывает только один раз
+        once: true,
         onEnter: () => {
           this.hasAnimated = true;
           if (!this.animationPlayed) {
@@ -199,7 +198,6 @@ class IntroAnimations {
           }
         },
         onLeaveBack: () => {
-          // При скролле вверх выше триггера - ничего не делаем, оставляем финальное состояние
           return false;
         },
         onUpdate: (self) => {
@@ -243,7 +241,7 @@ class IntroAnimations {
         0,
       )
 
-      // Step 3: Holms image moves down, headline reduces size, title grows, house and bottom appear
+      // Step 3: Holms image moves down, headline reduces size, title grows
       .to(
         this.DOM.holmsContainer,
         {
@@ -272,6 +270,7 @@ class IntroAnimations {
         },
         '<',
       )
+      // Step 4: House and bottom appear AFTER title animation completes
       .to(
         this.DOM.houseBg,
         {
@@ -280,7 +279,7 @@ class IntroAnimations {
           duration: 1.2,
           ease: 'power2.out',
         },
-        '<',
+        '+=0.1',
       )
       .to(
         this.DOM.bottom,
@@ -290,18 +289,9 @@ class IntroAnimations {
           duration: 1,
           ease: 'power2.out',
         },
-        '-=0.5',
+        '<',
       )
       .call(() => {
-        // Сохраняем финальное состояние и отключаем ScrollTrigger
-        if (this.DOM.intro) {
-          gsap.set(this.DOM.intro, {
-            height: this.isXlDesktopScreen ? '1360px' : '1280px',
-            maxHeight: 'none',
-            overflow: 'visible',
-          });
-        }
-
         if (this.completionCallback) {
           this.completionCallback();
         }
@@ -310,13 +300,6 @@ class IntroAnimations {
         this.animationPlayed = true;
 
         this.clearAutoPlayTimer();
-
-        // Отключаем ScrollTrigger, чтобы он больше не влиял на анимацию
-        if (this.scrollTrigger) {
-          this.scrollTrigger.disable();
-        }
-
-        // Убеждаемся, что все элементы остаются в финальном состоянии
         this.ensureFinalState();
       });
 
@@ -396,19 +379,15 @@ class IntroAnimations {
       this.animationCompleted = true;
       this.animationPlayed = true;
 
-      if (this.DOM.intro) {
-        gsap.set(this.DOM.intro, {
-          height: this.isXlDesktopScreen ? '1360px' : '1280px',
-          maxHeight: 'none',
-          overflow: 'visible',
-        });
-      }
+      // if (this.DOM.intro) {
+      //   gsap.set(this.DOM.intro, {
+      //     height: this.isXlDesktopScreen ? '1360px' : '1280px',
+      //     maxHeight: 'none',
+      //     overflow: 'visible',
+      //   });
+      // }
 
       this.clearAutoPlayTimer();
-
-      if (this.scrollTrigger) {
-        this.scrollTrigger.disable();
-      }
     }
   }
 
@@ -469,6 +448,24 @@ class IntroAnimations {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Сбрасываем позицию скролла при загрузке страницы
+  if ('scrollRestoration' in history) {
+    window.history.scrollRestoration = 'manual';
+  }
+
+  // Мгновенный сброс скролла
+  window.scrollTo(0, 0);
+
+  // Дополнительный сброс после рендера
+  requestAnimationFrame(() => {
+    window.scrollTo(0, 0);
+  });
+
+  // Финальный сброс через небольшую задержку
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 300);
+
   let introAnimations = null;
 
   const initOrDestroyAnimations = () => {

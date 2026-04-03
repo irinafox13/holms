@@ -82,11 +82,6 @@ $form-field-icon-height: 24px;
     position: relative;
 
     #{$container} {
-      &__caption {
-        display: block;
-        color: $error;
-      }
-
       &__input {
         border-color: $error;
       }

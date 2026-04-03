@@ -168,5 +168,14 @@
     &__feedback-btn {
       display: flex;
     }
+
+    &__burger {
+      &:hover {
+        &::after,
+        &::before {
+          background-color: $white-60;
+        }
+      }
+    }
   }
 }

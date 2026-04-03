@@ -83,11 +83,6 @@
     .button {
       width: 48px;
       height: 48px;
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: scale(1.1);
-      }
     }
   }
 
@@ -103,6 +98,10 @@
 
   &__bottom {
     padding-top: 0 !important;
+
+    &::before {
+      display: none;
+    }
 
     .info-plash__developer {
       display: none;
@@ -142,6 +141,12 @@
 
     &__list {
       gap: 16px;
+
+      a {
+        &:hover {
+          color: $gold;
+        }
+      }
     }
 
     &__separator {

@@ -27,7 +27,7 @@ export class OpenModal {
     const modal = this.getModalElement();
     if (modal) {
       // Закрываем все открытые модальные окна перед открытием нового
-      this.closeAllModals();
+      // this.closeAllModals();
 
       Modal.open(modal);
     }

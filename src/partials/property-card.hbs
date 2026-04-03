@@ -5,7 +5,7 @@
   </picture>
   {{/if}}
   <div class="property-card__body">
-    <div class="h4 property-card__title">
+    <div class="h4 property-card__title js-open-apartment-data" data-id="{{ content.id }}">
       {{#ifCond content.type "==" "apartment"}}
       <div>
         {{ ../content.numberOfRooms }}-комнатная

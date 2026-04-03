@@ -337,12 +337,6 @@ class FloorModalManager {
     const isModalOpen = this.modal.classList.contains('visible');
 
     if (!isModalOpen) {
-      // Закрываем другие модальные окна
-      const openModals = document.querySelectorAll('.js-modal.visible');
-      openModals.forEach((modal) => {
-        Modal.close(modal);
-      });
-
       // Открываем модальное окно
       Modal.open(this.modal);
     } else {

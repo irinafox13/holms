@@ -2,27 +2,22 @@
 @use './../abstracts/mixins' as *;
 
 .button-up {
-  display: none;
   opacity: 0;
   visibility: hidden;
+  display: flex;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  color: $white;
+  z-index: 100;
   @include css_anim();
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 
-  @include media($lg) {
-    display: flex;
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-    color: $white;
-    z-index: 100;
-
-    svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    &.show {
-      opacity: 1;
-      visibility: visible;
-    }
+  &.show {
+    opacity: 1;
+    visibility: visible;
   }
 }

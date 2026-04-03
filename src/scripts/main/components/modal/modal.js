@@ -26,7 +26,6 @@ export class Modal {
   bindEventListeners() {
     this.el.addEventListener('mousedown', (e) => {
       if (
-        // !e.target.closest('.js-modal-dialog') ||
         e.target.classList.contains('js-modal-close') ||
         e.target.closest('.js-modal-close')
       ) {
@@ -53,7 +52,16 @@ export class Modal {
    */
   static close(modal) {
     modal.classList.remove('visible');
-    ToggleScroll.enable(modal);
+
+    // Проверяем, есть ли другие открытые модальные окна
+    const otherModals = document.querySelectorAll('.js-modal.visible');
+    const hasOtherModals = otherModals.length > 0;
+
+    // Включаем scroll только если нет других открытых модалок
+    if (!hasOtherModals) {
+      ToggleScroll.enable(modal);
+    }
+
     this.isClose = true;
   }
 
@@ -64,8 +72,16 @@ export class Modal {
    * @returns {void}
    */
   static open(modal) {
+    // Проверяем, есть ли другие открытые модальные окна
+    const otherModals = document.querySelectorAll('.js-modal.visible');
+    const hasOtherModals = otherModals.length > 0;
+
     modal.classList.add('visible');
-    ToggleScroll.disable(modal);
+
+    // Включаем prevent scroll только если нет других открытых модалок
+    if (!hasOtherModals) {
+      ToggleScroll.disable(modal);
+    }
 
     // Устанавливаем фокус на первое поле ввода
     const input = modal.querySelector('input');

@@ -2,20 +2,17 @@
 <html lang="ru">
   {{>layout/head}}
   <body>
-    {{>layout/sprite}} {{>layout/header}}
-
+    {{>layout/sprite}} {{>layout/header}} {{>sections/intro}}
     <main>
-      {{>sections/intro}} {{>sections/about-project}} {{>sections/advantages}}
+      {{>sections/about-project}} {{>sections/advantages}}
       <div id="apartments" style="scroll-margin-top: 72px"></div>
       {{>sections/interactive-choice}} {{>sections/apartments}} {{>sections/infrastructure}} {{>sections/gallery}}
       {{>sections/purchase-options}} {{>sections/commercial-properties}} {{>sections/contacts-map}}
       {{>sections/contact-form}}
     </main>
 
-    {{>layout/footer}} 
-    {{>preloader}} 
-    {{>button-up}} {{>modals/feedback}} {{>modals/apartment}} {{>modals/floor}}
-    {{>modals/booking}} {{>modals/installment-plan}} {{>modals/exchange}} {{>modals/mortgage}} {{>modals/success}}
+    {{>layout/footer}} {{>preloader}} {{>button-up}}  {{>modals/floor}} {{>modals/apartment}} 
+    {{>modals/booking}} {{>modals/feedback}} {{>modals/installment-plan}} {{>modals/exchange}} {{>modals/mortgage}} {{>modals/success}}
     {{>modals/error}} {{>modals/team}} {{>layout/scripts}}
   </body>
 </html>

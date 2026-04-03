@@ -32,21 +32,16 @@
 
     &__card {
       width: auto;
-      // max-height: 393px;
-      transition:
-        opacity 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1),
-        max-height 0.7s cubic-bezier(0.2, 0.85, 0.4, 1),
-        margin 0.7s cubic-bezier(0.2, 0.85, 0.4, 1);
+      clip-path: inset(0 0 0 0);
+      will-change: clip-path, opacity;
+      transition: all 0.45s cubic-bezier(0.645, 0.045, 0.355, 1);
+      user-select: none;
 
-      &:not(.swiper-slide-visible) {
-        max-height: 313px;
+      &:has(.property-card__layout):not(.swiper-slide-visible) {
+        clip-path: inset(0 0 80px 0);
+        transform: translateY(40px);
         opacity: 0.6;
-        margin-block: auto;
         pointer-events: none;
-        transition:
-          opacity 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1),
-          max-height 1.3s cubic-bezier(0.2, 0.85, 0.4, 1),
-          margin 0.7s cubic-bezier(0.2, 0.85, 0.4, 1);
       }
     }
   }

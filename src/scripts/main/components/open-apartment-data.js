@@ -105,10 +105,6 @@ class OpenApartmentData {
       });
 
       if (data?.success) {
-        const openModals = document.querySelectorAll('.js-modal.visible');
-        openModals.forEach((modal) => {
-          Modal.close(modal);
-        });
         Modal.open(this.apartmentModal);
         this.addApartmentData(data.data);
         this.refreshComponents();

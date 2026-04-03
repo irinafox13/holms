@@ -67,9 +67,12 @@ html {
 }
 
 main {
+  position: relative;
   display: grid;
   min-width: 100%;
   flex: 1;
+  background-color: $dark;
+  z-index: 5;
 }
 
 ul {
