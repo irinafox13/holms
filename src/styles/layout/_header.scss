@@ -2,7 +2,6 @@
 @use './../abstracts/mixins' as *;
 
 .header {
-  position: relative;
   padding-top: 32px;
   color: $white;
   right: var(--scrollbar-width);

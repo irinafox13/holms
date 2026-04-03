@@ -5,7 +5,7 @@
   position: relative;
   min-height: 840px;
   max-width: 100vw;
-  height: 100dvh;
+  aspect-ratio: 390 / 840;
   width: 100%;
   background-color: $darkLight;
 
@@ -21,7 +21,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: center center;
     }
   }
 
@@ -119,6 +119,7 @@
   }
 
   @include media($md) {
+    min-height: 731px;
     aspect-ratio: 768 / 731;
     height: auto;
 
@@ -134,11 +135,11 @@
   @include media($lg) {
     aspect-ratio: 1080 / 1280;
     max-height: 1520px;
+    min-height: 1297px;
 
     &__header {
       top: 193px;
       gap: 0;
-      // transform: translateY(24px);
     }
 
     &__bottom {
@@ -151,6 +152,7 @@
   @include media($xl) {
     aspect-ratio: 1440 / 1360;
     max-height: none;
+    min-height: 1360px;
 
     &__bottom {
       &::after {

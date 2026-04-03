@@ -38,6 +38,7 @@ class IntroAnimations {
     this.setInitialState();
     this.createTimeline();
     this.setupAutoPlay();
+    this.checkInitialScrollPosition();
   }
 
   isScreenLargeEnough() {
@@ -52,10 +53,64 @@ class IntroAnimations {
     }
   }
 
+  // метод для проверки начальной позиции скролла
+  checkInitialScrollPosition() {
+    if (!this.DOM.intro) return;
+
+    const introRect = this.DOM.intro.getBoundingClientRect();
+    const scrollPosition = window.scrollY;
+    const introTop = introRect.top + scrollPosition;
+
+    // Если пользователь уже проскроллил начало intro или находится ниже
+    if (scrollPosition > introTop + 100) {
+      // Немедленно завершаем анимацию без скачка
+      this.completeAnimationImmediately();
+    }
+  }
+
+  // Новый метод для мгновенного завершения анимации
+  completeAnimationImmediately() {
+    if (this.animationCompleted) return;
+
+    // Отключаем авто-плей таймер
+    this.clearAutoPlayTimer();
+
+    // Устанавливаем финальные стили для intro контейнера
+    if (this.DOM.intro) {
+      gsap.set(this.DOM.intro, {
+        maxHeight: 'none',
+        overflow: 'visible',
+      });
+    }
+
+    // Устанавливаем финальное состояние всех элементов
+    this.ensureFinalState();
+
+    // Обновляем флаги
+    this.hasAnimated = true;
+    this.animationCompleted = true;
+    this.animationPlayed = true;
+
+    // Если есть ScrollTrigger, отключаем его
+    if (this.scrollTrigger) {
+      this.scrollTrigger.disable();
+    }
+
+    // Если есть таймлайн, устанавливаем его прогресс в 1
+    if (this.timeline) {
+      this.timeline.progress(1);
+      this.timeline.kill(); // Убиваем таймлайн, чтобы он больше не влиял
+    }
+
+    // Вызываем колбэк если есть
+    if (this.completionCallback) {
+      this.completionCallback();
+    }
+  }
+
   setMobileStyles() {
     if (this.DOM.intro) {
       gsap.set(this.DOM.intro, {
-        height: '840px',
         maxHeight: 'none',
         overflow: 'visible',
       });
@@ -115,9 +170,7 @@ class IntroAnimations {
   setIntroStyles() {
     if (this.DOM.intro) {
       gsap.set(this.DOM.intro, {
-        height: this.isXlDesktopScreen ? '1860px' : '1280px',
-        minHeight: '100dvh',
-        // overflow: 'hidden',
+        overflow: 'hidden',
       });
     }
   }
@@ -163,8 +216,8 @@ class IntroAnimations {
 
     if (this.DOM.houseBg) {
       gsap.set(this.DOM.houseBg, {
-        // opacity: 0,
-        y: '65%',
+        opacity: 0,
+        y: '100%',
       });
     }
 
@@ -172,12 +225,13 @@ class IntroAnimations {
       gsap.set(this.DOM.bottom, {
         opacity: 0,
         y: '100%',
+        position: 'absolute',
+        bottom: 'auto',
       });
     }
   }
 
   createTimeline() {
-    // Kill existing ScrollTrigger if it exists
     if (this.scrollTrigger) {
       this.scrollTrigger.kill();
     }
@@ -187,10 +241,9 @@ class IntroAnimations {
         trigger: this.DOM.intro,
         start: 'top top',
         end: 'bottom top',
-        scrub: 2,
-        pin: false,
+        pin: true,
+        pinSpacing: true,
         markers: false,
-        invalidateOnRefresh: true,
         once: true,
         onEnter: () => {
           this.hasAnimated = true;
@@ -218,7 +271,7 @@ class IntroAnimations {
         this.DOM.headline,
         {
           color: '#C5A267',
-          duration: 0.8,
+          duration: 1.2, 
           ease: 'power2.inOut',
         },
         0,
@@ -227,7 +280,7 @@ class IntroAnimations {
         this.DOM.holmsLight,
         {
           opacity: 0,
-          duration: 1,
+          duration: 1, 
           ease: 'power2.inOut',
         },
         0,
@@ -236,27 +289,27 @@ class IntroAnimations {
         this.DOM.holmsDark,
         {
           opacity: 1,
-          duration: 0.8,
+          duration: 1.2, 
           ease: 'power2.inOut',
         },
         0,
       )
 
-      // Step 3: Holms image moves down, headline reduces size, title grows
+      // Step 3: Holms image moves down, headline reduces size, title grows, house and bottom appear
       .to(
         this.DOM.holmsContainer,
         {
           y: '100vh',
-          duration: 1.5,
+          duration: 2, 
           ease: 'power2.inOut',
         },
-        '+=0.1',
+        '+=0.2',
       )
       .to(
         this.DOM.headline,
         {
           fontSize: '20px',
-          duration: 1,
+          duration: 1.5,
           ease: 'power2.inOut',
         },
         '<',
@@ -266,33 +319,40 @@ class IntroAnimations {
         {
           scale: 1,
           opacity: 1,
-          duration: 1,
+          duration: 1.5,
           ease: 'backOut',
         },
         '<',
       )
-      // Step 4: House and bottom appear AFTER title animation completes
       .to(
         this.DOM.houseBg,
         {
           opacity: 1,
           y: '0%',
-          duration: 3,
+          duration: 1.8,
           ease: 'power2.out',
         },
-        '+=0.01',
+        '<',
       )
       .to(
         this.DOM.bottom,
         {
           opacity: 1,
           y: '0%',
-          duration: 1,
+          duration: 1.5, 
           ease: 'power2.out',
         },
         '<',
       )
       .call(() => {
+        // Сохраняем финальное состояние и отключаем ScrollTrigger
+        if (this.DOM.intro) {
+          gsap.set(this.DOM.intro, {
+            maxHeight: 'none',
+            overflow: 'visible',
+          });
+        }
+
         if (this.completionCallback) {
           this.completionCallback();
         }
@@ -301,6 +361,12 @@ class IntroAnimations {
         this.animationPlayed = true;
 
         this.clearAutoPlayTimer();
+
+        if (this.scrollTrigger) {
+          this.scrollTrigger.disable();
+        }
+
+        // Убеждаемся, что все элементы остаются в финальном состоянии
         this.ensureFinalState();
       });
 
@@ -354,6 +420,8 @@ class IntroAnimations {
       gsap.set(this.DOM.bottom, {
         opacity: 1,
         y: '0%',
+        position: 'sticky', 
+        bottom: '0',
       });
     }
   }
@@ -380,15 +448,18 @@ class IntroAnimations {
       this.animationCompleted = true;
       this.animationPlayed = true;
 
-      // if (this.DOM.intro) {
-      //   gsap.set(this.DOM.intro, {
-      //     height: this.isXlDesktopScreen ? '1360px' : '1280px',
-      //     maxHeight: 'none',
-      //     overflow: 'visible',
-      //   });
-      // }
+      if (this.DOM.intro) {
+        gsap.set(this.DOM.intro, {
+          maxHeight: 'none',
+          overflow: 'visible',
+        });
+      }
 
       this.clearAutoPlayTimer();
+
+      if (this.scrollTrigger) {
+        this.scrollTrigger.disable();
+      }
     }
   }
 

@@ -209,4 +209,6 @@ class Preloader {
     }
   }
 }
-new Preloader();
+if (document.querySelector('.preloader')) {
+  new Preloader();
+} 
