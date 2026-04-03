@@ -306,7 +306,8 @@
       "button": {
         "text": "Рассчитать",
         "modalName": "mortgage"
-      }
+      },
+      "dopClass": "js-open-mortgage-modal"
     },
     {
       "icon": "./images/purchase/installment-plan.svg",
@@ -315,7 +316,8 @@
       "button": {
         "text": "Обсудить условия",
         "modalName": "installment-plan"
-      }
+      }, 
+      "dopClass": "js-modal-open-button"
     },
     {
       "icon": "./images/purchase/home-house-change.svg",
@@ -324,7 +326,8 @@
       "button": {
         "text": "Рассчитать",
         "modalName": "exchange"
-      }
+      },
+      "dopClass": "js-modal-open-button"
     }
   ],
   "installmentPlanForm": {

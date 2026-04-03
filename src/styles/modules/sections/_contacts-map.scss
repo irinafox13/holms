@@ -31,11 +31,16 @@
   &__info {
     display: grid;
     gap: 4px;
+    justify-items: flex-start;
   }
 
   &__phone {
     color: $white;
     @include font(24px, 31px, 300);
+
+    &:hover {
+      color: $gold;
+    }
   }
 
   &__schedule {
@@ -51,6 +56,12 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+
+      a {
+        &:hover {
+          color: $gold;
+        }
+      }
     }
 
     svg {

@@ -1,14 +1,14 @@
 export const routes = {
   // Форма обратной связи
-  feedback: '/api/feedback.json',
+  feedback: './api/feedback.json',
   // Форма бронирования коммерческого объекта
-  booking: '/api/booking.json',
+  booking: './api/booking.json',
   // Получения данных об объекте для оформления бронирования
-  getPropertyData: '/api/getPropertyData.json',
+  getPropertyData: './api/getPropertyData.json',
   // Получения данных о квартире
-  getApartmentData: '/api/getApartmentData.json',
+  getApartmentData: './api/getApartmentData.json',
   // Получения точек для карты с инфраструктурой
-  getMapData: '/api/getMapData.json',
+  getMapData: './api/getMapData.json',
   // Получения поэтажного плана
-  getFloorPlan: '/api/getFloorPlan.json',
+  getFloorPlan: './api/getFloorPlan.json',
 };

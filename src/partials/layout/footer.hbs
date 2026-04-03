@@ -8,7 +8,10 @@
       <div class="footer__separator"></div>
       {{>navigation dopClass="footer__navigation" ariaLabel="Навигация в подвале сайта"}}
       <div class="footer__logo-block">
-        {{>logo dopClass="footer__logo"}}
+        <a class="logo footer__logo" href="#top" aria-label="Вернуться наверх">
+          <img src="./images/svg/footer-logo.svg" alt="" />
+          <span class="visually-hidden">Логотип ЖК "Холмс"</span>
+        </a>
       </div>
       <div class="footer__bottom">
         <div class="footer__bottom-links">
