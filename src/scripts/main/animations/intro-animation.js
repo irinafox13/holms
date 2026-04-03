@@ -163,8 +163,8 @@ class IntroAnimations {
 
     if (this.DOM.houseBg) {
       gsap.set(this.DOM.houseBg, {
-        opacity: 0,
-        y: '100%',
+        // opacity: 0,
+        y: '65%',
       });
     }
 
@@ -187,9 +187,10 @@ class IntroAnimations {
         trigger: this.DOM.intro,
         start: 'top top',
         end: 'bottom top',
-        scrub: 0.5,
+        scrub: 2,
         pin: false,
         markers: false,
+        invalidateOnRefresh: true,
         once: true,
         onEnter: () => {
           this.hasAnimated = true;
@@ -226,7 +227,7 @@ class IntroAnimations {
         this.DOM.holmsLight,
         {
           opacity: 0,
-          duration: 0.5,
+          duration: 1,
           ease: 'power2.inOut',
         },
         0,
@@ -245,11 +246,11 @@ class IntroAnimations {
       .to(
         this.DOM.holmsContainer,
         {
-          y: '150vh',
+          y: '100vh',
           duration: 1.5,
           ease: 'power2.inOut',
         },
-        '+=0.2',
+        '+=0.1',
       )
       .to(
         this.DOM.headline,
@@ -276,10 +277,10 @@ class IntroAnimations {
         {
           opacity: 1,
           y: '0%',
-          duration: 1.2,
+          duration: 3,
           ease: 'power2.out',
         },
-        '+=0.1',
+        '+=0.01',
       )
       .to(
         this.DOM.bottom,
@@ -448,24 +449,6 @@ class IntroAnimations {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Сбрасываем позицию скролла при загрузке страницы
-  if ('scrollRestoration' in window.history) {
-    window.history.scrollRestoration = 'manual';
-  }
-
-  // Мгновенный сброс скролла
-  window.scrollTo(0, 0);
-
-  // Дополнительный сброс после рендера
-  requestAnimationFrame(() => {
-    window.scrollTo(0, 0);
-  });
-
-  // Финальный сброс через небольшую задержку
-  setTimeout(() => {
-    window.scrollTo(0, 0);
-  }, 300);
-
   let introAnimations = null;
 
   const initOrDestroyAnimations = () => {
