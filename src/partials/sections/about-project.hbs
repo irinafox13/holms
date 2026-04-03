@@ -3,30 +3,51 @@
     <div class="about-project__wrapper">
       <a href="./images/about/home-1600.webp" class="about-project__image-wrap" data-fslightbox="about">
         <picture>
-          <source type="image/webp" srcset="./images/about/home-400.webp 400w, ./images/about/home-800.webp 800w, ./images/about/home-1600.webp 1600w, ./images/about/home-4000.webp 4000w" sizes="(max-width: 768px) 100vw, 
+          <source
+            type="image/webp"
+            srcset="
+              ./images/about/home-400.webp   400w,
+              ./images/about/home-800.webp   800w,
+              ./images/about/home-1600.webp 1600w,
+              ./images/about/home-4000.webp 4000w
+            "
+            sizes="(max-width: 768px) 100vw, 
                   (max-width: 1080px) 415px, 
-                  523px">
-          <source type="image/png" srcset="./images/about/home-400.png 400w, ./images/about/home-800.png 800w, ./images/about/home-1600.png 1600w, ./images/about/home-4000.png 4000w" sizes="(max-width: 768px) 100vw, 
+                  523px"
+          />
+          <source
+            type="image/png"
+            srcset="
+              ./images/about/home-400.png   400w,
+              ./images/about/home-800.png   800w,
+              ./images/about/home-1600.png 1600w,
+              ./images/about/home-4000.png 4000w
+            "
+            sizes="(max-width: 768px) 100vw, 
                   (max-width: 1080px) 415px, 
-                  523px">
-          <img src="./images/about/home-400.png" alt="ЖК Холмс" loading="lazy">
+                  523px"
+          />
+          <img src="./images/about/home-400.png" alt="ЖК Холмс" loading="lazy" />
         </picture>
         <div class="about-project__open-gallery-btn button button--action button--action--small button--action--circle">
           <svg width="48" height="48">
-              <use href="#full-screen"></use>
-            </svg>
-            <span class="visually-hidden">Открыть изображение в полном размере</span>
+            <use href="#full-screen"></use>
+          </svg>
+          <span class="visually-hidden">Открыть изображение в полном размере</span>
         </div>
       </a>
       {{!-- Если будет нескольк картинок --}}
-      <a href="./images/advantages/1@2x.png" class="visually-hidden" data-fslightbox="about"></a>
-      
+      <a href="./images/advantages/1@2x.png" class="visually-hidden" data-fslightbox="about" aria-label="Двор"></a>
+
       <div class="about-project__body">
         <h2 class="about-project__title">О проекте</h2>
         <div class="about-project__content">
           <ul class="about-project__brief-info">
             <li class="about-project__brief-info-col">
-              <span class="h3 about-project__brief-info-title">30 м<sup>2</sup></span>
+              <span class="h3 about-project__brief-info-title">
+                30 м
+                <sup>2</sup>
+              </span>
               <span class="about-project__brief-info-text">Квартиры от</span>
             </li>
             <li class="about-project__brief-info-col">
@@ -64,7 +85,7 @@
             сайт проекта
           </a>
         </div>
-      </div>        
+      </div>
     </div>
   </div>
 </section>

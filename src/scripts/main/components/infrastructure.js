@@ -226,9 +226,11 @@ class Infrastructure {
             },
             {
               iconLayout: 'default#image',
-              iconImageHref: `./images/infrastructure/${category}.svg`,
+              iconImageHref: `./images/infrastructure/pin-${category}.svg`,
               iconImageSize: [40, 40],
               iconImageOffset: [-20, -30],
+              hideIconOnBalloonOpen: false,
+              balloonOffset: [85, 60],
             },
           );
 

@@ -164,6 +164,13 @@ class LazyComponentLoader {
         }
       }
 
+      if (section.querySelector('.js-modal-mortgage')) {
+        if (!this.loadedComponents.has('mortgage')) {
+          components.push(import('@main/components/mortgage-modal'));
+          this.loadedComponents.add('mortgage');
+        }
+      }
+
       if (section.querySelector('[data-tooltip], .js-tooltip')) {
         if (!this.loadedComponents.has('tooltips')) {
           components.push(import('@main/components/tooltip'));

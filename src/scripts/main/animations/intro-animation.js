@@ -449,7 +449,7 @@ class IntroAnimations {
 
 document.addEventListener('DOMContentLoaded', () => {
   // Сбрасываем позицию скролла при загрузке страницы
-  if ('scrollRestoration' in history) {
+  if ('scrollRestoration' in window.history) {
     window.history.scrollRestoration = 'manual';
   }
 

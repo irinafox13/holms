@@ -21,13 +21,24 @@
   }
 
   &__value {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 16px;
     padding: 16px;
     font-weight: 300;
     user-select: none;
+
+    &-number {
+      position: absolute;
+      inset: 0;
+      padding: 16px;
+      padding-right: 48px;
+      background-color: transparent;
+      color: $white;
+      border: none;
+    }
 
     &-unit,
     &-percent {

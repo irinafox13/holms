@@ -25,10 +25,7 @@ export class Modal {
    */
   bindEventListeners() {
     this.el.addEventListener('mousedown', (e) => {
-      if (
-        e.target.classList.contains('js-modal-close') ||
-        e.target.closest('.js-modal-close')
-      ) {
+      if (e.target.classList.contains('js-modal-close') || e.target.closest('.js-modal-close')) {
         Modal.close(this.el);
       }
     });

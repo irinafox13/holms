@@ -5,8 +5,12 @@ export const XL_WIDTH = 1440
 export const WITHOUT_DIGITS_REGEX = /\D/g
 export const DIGITS_WITH_POINT_REGEX = /\d*\.?\d*/
 export const DIGITS_SPACE_ONLY_REVERT = /[^\d\s]/g
-/* eslint-disable-next-line max-len */
-export const EMAIL_REGEX = /^(([^<>(){|}[\]\\.,;:`~'!?№&%?*+=#\s@"]+(\.[^<>(){|}[\]\\.,;:`~'!?№&%?*+=#\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+ 
+export const EMAIL_REGEX =
+  '^(([^<>(){|}[\\]\\\\.,;:`~\'!?№&%?*+=#\\s@"]+' +
+  '(\\.[^<>(){|}[\\]\\\\.,;:`~\'!?№&%?*+=#\\s@"]+)*)|(".+"))' +
+  '@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|' +
+  '(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$';
 export const NUMBER_REGEX = /^\d+$/
 export const FORMAT_NUMBER_REGEX = /\B(?=(\d{3})+(?!\d))/g
 export const FORMAT_DATE_REGEX = /[^0-9.]+/g

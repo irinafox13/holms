@@ -388,7 +388,7 @@ export class Form {
   static async fetchForm(formNode, url) {
     const data = new FormData(formNode);
     // ЗАМЕНИТЬ ОБРАТНО НА POST
-    const {data: response} = await axios.get(url, data);
+    const {data: response} = await axios.post(url, data);
     return response;
   }
 

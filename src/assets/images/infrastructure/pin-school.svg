@@ -1,0 +1,31 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject x="-32" y="-32" width="104" height="104">
+    <div xmlns="http://www.w3.org/1999/xhtml"
+      style="backdrop-filter:blur(16px);clip-path:url(#bgblur_0_46_2351_clip_path);height:100%;width:100%"></div>
+  </foreignObject>
+  <g data-figma-bg-blur-radius="32">
+    <rect width="40" height="40" rx="20" fill="white" />
+    <path
+      d="M23.8906 19.9941C23.6113 20.3581 23.1818 20.5756 22.7231 20.5854C22.2654 20.5728 21.8374 20.3559 21.5566 19.9941"
+      stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round" />
+    <path
+      d="M18.4433 19.9941C18.1642 20.3578 17.7352 20.5753 17.2769 20.5854C16.8188 20.573 16.3904 20.356 16.1094 19.9941"
+      stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round" />
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M20 29.4779C23.7557 29.4759 27.0459 26.9617 28.0343 23.3383C29.1541 23.214 30.0012 22.2676 30.0012 21.1409C30.0012 20.0143 29.1541 19.0679 28.0343 18.9435C27.048 15.3187 23.7566 12.8032 20 12.8032C16.2434 12.8032 12.952 15.3187 11.9656 18.9435C10.8459 19.0679 9.99872 20.0143 9.99872 21.1409C9.99872 22.2676 10.8459 23.214 11.9656 23.3383C12.9541 26.9617 16.2443 29.4759 20 29.4779Z"
+      stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M22.223 24.149C20.9493 25.2601 19.0508 25.2601 17.7771 24.149" stroke="#0C0B0A"
+      stroke-linecap="round" stroke-linejoin="round" />
+    <path
+      d="M17.718 10.522C18.3232 10.522 18.9037 10.7624 19.3316 11.1903C19.7595 11.6183 20 12.1987 20 12.8039"
+      stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round" />
+    <path
+      d="M20 12.8039C20 12.1987 20.2404 11.6183 20.6684 11.1903C21.0963 10.7624 21.6767 10.522 22.282 10.522"
+      stroke="#0C0B0A" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <defs>
+    <clipPath id="bgblur_0_46_2351_clip_path" transform="translate(32 32)">
+      <rect width="40" height="40" rx="20" />
+    </clipPath>
+  </defs>
+</svg>

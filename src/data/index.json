@@ -502,6 +502,21 @@
       }
     }
   ],
+  "mortgageForm": {
+    "name": {
+      "name": "name",
+      "title": "Ваше имя",
+      "error": "Введите корректное имя",
+      "required": true
+    },
+    "phone": {
+      "title": "Телефон",
+      "required": true
+    },
+    "privacy": {
+      "id": "mortgage_privacy"
+    }
+  },
   "commercialProperties": {
     "tabs": [
       {

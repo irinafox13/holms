@@ -24,6 +24,9 @@ class Preloader {
   }
 
   init() {
+    // Добавляем класс prevent-scroll к body при инициализации прелоадера
+    document.body.classList.add('prevent-scroll');
+
     this.startCountingAnimation();
 
     // Таймер минимального показа
@@ -45,13 +48,10 @@ class Preloader {
   startCountingAnimation() {
     // Анимация счета от 0 до 99 с плавным ускорением
     let count = 0;
-    let lastUpdateTime = Date.now();
 
     this.animationInterval = setInterval(() => {
       if (this.isComplete) return;
 
-      const now = Date.now();
-      const deltaTime = now - lastUpdateTime;
 
       let step = 1;
 
@@ -70,7 +70,6 @@ class Preloader {
         count = Math.min(count + step, 99, this.currentPercent);
         this.displayPercent = count;
         this.updateDisplay(this.displayPercent);
-        lastUpdateTime = now;
       } else if (count >= this.currentPercent) {
         return;
       }
@@ -203,6 +202,8 @@ class Preloader {
       this.preloader.style.opacity = '0';
       setTimeout(() => {
         this.preloader.style.display = 'none';
+        // Удаляем класс prevent-scroll с body после скрытия прелоадера
+        document.body.classList.remove('prevent-scroll');
         if (this.onComplete) this.onComplete();
       }, 500);
     }

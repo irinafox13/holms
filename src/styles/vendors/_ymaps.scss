@@ -1,0 +1,179 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+[class*='ymaps-2'] {
+  &[class*='-ground-pane'] {
+    filter: grayscale(1) invert(85%) hue-rotate(120deg);
+  }
+
+  &[class*='-balloon'] {
+    box-shadow: none;
+  }
+
+  &[class*='-balloon__layout'] {
+    background-color: transparent;
+  }
+
+  &[class*='-balloon__close'] {
+    display: none;
+  }
+
+  &[class*='-balloon__content'] {
+    max-width: 335px;
+    background-color: transparent;
+    padding: 0;
+    margin: 0 !important;
+  }
+
+  &[class*='-balloon__tail'] {
+    display: none;
+  }
+
+  &[class*='-zoom'] {
+    height: 104px !important;
+    width: 48px;
+    padding: 0;
+  }
+
+  &[class*='-copyrights-pane'] {
+    display: none !important;
+  }
+
+  &[class*='-zoom__button'] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px !important;
+    background: $white-10;
+    backdrop-filter: blur(32px);
+    border-radius: 50%;
+    border: none;
+
+    &:hover {
+      background: $white-30;
+    }
+  }
+
+  &[class*='-zoom__plus'] {
+    [class*='ymaps-2'][class*='-zoom__icon'] {
+      background-image: url('#{$imgPath}svg/plus.svg');
+      background-size: 32px;
+      width: 32px !important;
+      height: 32px !important;
+      border: 0;
+      padding: 8px;
+      box-shadow: none;
+    }
+  }
+
+  &[class*='-zoom__minus'] {
+    [class*='ymaps-2'][class*='-zoom__icon'] {
+      background-image: url('#{$imgPath}svg/minus.svg');
+      background-size: 32px;
+      width: 32px !important;
+      height: 32px !important;
+      border: 0;
+      padding: 8px;
+      box-shadow: none;
+    }
+  }
+
+  &[class*='-places-pane'] .ymaps-2-1-79-placemark-overlay {
+    &:first-child {
+      z-index: 1000 !important;
+
+      .ymaps-2-1-79-image {
+        background-color: transparent;
+        background-size: contain !important;
+      }
+    }
+  }
+
+  &[class*='-image'] {
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-position: center center !important;
+  }
+
+  &[class*='-controls__control'] {
+    &[class*='-user-selection-none'] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px !important;
+
+      .ymaps-2-1-79-float-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: none !important;
+        width: 48px !important;
+        height: 48px !important;
+        background: $white-10;
+        backdrop-filter: blur(32px);
+        border-radius: 50%;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        &:hover {
+          background: $white-30;
+        }
+
+        &-icon {
+          background-size: 48px;
+          width: 48px !important;
+          height: 48px !important;
+          border: 0;
+          padding: 0;
+
+          &_icon_expand {
+            background-image: url('#{$imgPath}svg/full-screen.svg');
+          }
+
+          &_icon_collapse {
+            background-image: url('#{$imgPath}svg/collapse-screen.svg');
+            background-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+[class*='ymaps-2'][class*='-hint'] {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+@include media($lg) {
+  [class*='ymaps-2'][class*='-hint']:not([class*='-hint__content']):not([class*='tail'])::before {
+    content: '';
+    display: none;
+    width: 8px;
+    height: 24px;
+    position: absolute;
+    left: -8px;
+    top: 0;
+    background-image: url('/images/svg/tooltip-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 8px 24px;
+    pointer-events: none;
+  }
+}
+
+[class*='ymaps-2'][class*='-hint'] [class*='hint-tail'],
+[class*='ymaps-2'][class*='-hint'] [class*='tail'] {
+  display: none !important;
+}
+
+[class*='ymaps-2'][class*='-hint'] .ymaps-2-1-79-hint__content,
+[class*='ymaps-2'][class*='-hint'] > div {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+}

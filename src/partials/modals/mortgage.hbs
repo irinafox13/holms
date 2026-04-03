@@ -1,4 +1,4 @@
-<div data-modal-name="mortgage" class="modal modal--mortgage js-modal">
+<div data-modal-name="mortgage" class="modal modal--mortgage js-modal-mortgage js-modal">
   <button
     type="button"
     class="button button--action button--action--circle modal__close js-modal-close"
@@ -15,25 +15,37 @@
           <use href="#mortgage"></use>
         </svg>
         <h2 class="modal__title js-modal-title">Рассчитать ипотеку</h2>
-        <div class="mortgage">
-          <div class="mortgage__group">
-            {{#each mortgage}}
-            {{> range-component content=this}}
-            {{/each}}
-            <div class="mortgage__result">
-              <span class="mortgage__result-text">Ежемесячный платеж</span>
-              <span class="mortgage__payment-amount">130 865 ₽</span>
+        <form class="mortgage form" data-url="{{ routes.feedback }}" autocomplete="off">
+          <div class="mortgage__calculation js-mortgage-calculation">
+            <div class="mortgage__group">
+              {{#each mortgage}}
+              {{> range-component content=this}}
+              {{/each}}
+              <div class="mortgage__result">
+                <span class="mortgage__result-text">Ежемесячный платеж</span>
+                <span class="mortgage__payment-amount">130 865 ₽</span>
+              </div>
             </div>
+            <button
+              type="button"
+              class="mortgage__btn button button--primary button--size--large js-open-mortgage-application"
+            >
+              Оставить заявку
+            </button>
+            <footer class="mortgage__note">Расчет приблизительный и носит информационный характер</footer>
           </div>
-          <button
-            type="button"
-            class="mortgage__btn button button--primary button--size--large js-modal-open-button"
-            data-modal="feedback"
-          >
-            Оставить заявку
-          </button>
-          <footer class="mortgage__note">Расчет приблизительный и носит информационный характер</footer>
-        </div>
+          <div class="mortgage__application visually-hidden form__fields js-form-mortgage-application">
+            <div class="form__fields-group">
+              <input type="hidden" name="monthly_payment" value="130865" />
+              {{> forms/name content=mortgageForm.name }}
+              {{> forms/phone content=mortgageForm.phone }}
+              {{> forms/agreement content=mortgageForm.privacy }}
+            </div>
+            <button type="submit" class="form__button button button--primary button--size--normal form__button--submit">
+              Свяжитесь со мной
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

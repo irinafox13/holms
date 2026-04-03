@@ -2,7 +2,15 @@
   <h3 class="range-component__title">{{ content.title }}</h3>
   <div class="range-component__wrapper">
     <div class="range-component__value">
-      <span class="range-component__value-number" data-range-value>{{formatNumber content.value.default }}</span>
+      <input
+        type="text"
+        class="range-component__value-number"
+        data-range-value
+        value="{{ formatNumber content.value.default }}"
+        data-min="{{ content.value.min }}"
+        data-max="{{ content.value.max }}"
+        name="{{ content.type }}"
+      />
       {{#if content.percent}}
       <span class="range-component__value-percent">{{ content.percent }}</span>
       {{/if}}
