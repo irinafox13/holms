@@ -74,9 +74,19 @@
     text-align: center;
   }
 
-  &__bottom {
-    position: sticky !important;
+  &__bottom-wrap {
+    position: sticky;
+    margin-top: auto ;
     bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    @include css_anim();
+
+    .info-plash {
+      margin-top: 0;
+    }
 
     &::after {
       content: '';
@@ -123,7 +133,7 @@
     aspect-ratio: 768 / 731;
     height: auto;
 
-    &__bottom {
+    &__bottom-wrap {
       &::after {
         height: 130px;
         left: -24px;
@@ -142,7 +152,7 @@
       gap: 0;
     }
 
-    &__bottom {
+    &__bottom-wrap {
       &::after {
         left: -48px;
       }
@@ -154,7 +164,7 @@
     max-height: none;
     min-height: 1360px;
 
-    &__bottom {
+    &__bottom-wrap {
       &::after {
         left: calc((100vw - 1312px) / 2 * -1);
       }

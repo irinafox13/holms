@@ -1,4 +1,6 @@
-class Preloader {
+import {IntroAnimations} from '@main/animations/intro-animation';
+
+export class Preloader {
   constructor(options = {}) {
     this.preloader = document.querySelector('.preloader');
     this.numberEl = document.querySelector('.js-preloader-number');
@@ -51,7 +53,6 @@ class Preloader {
 
     this.animationInterval = setInterval(() => {
       if (this.isComplete) return;
-
 
       let step = 1;
 
@@ -206,9 +207,42 @@ class Preloader {
         document.body.classList.remove('prevent-scroll');
         if (this.onComplete) this.onComplete();
       }, 500);
+
+      let introAnimations = null;
+
+      const initOrDestroyAnimations = () => {
+        const isLargeScreen = window.innerWidth >= 1080;
+
+        if (isLargeScreen && !introAnimations) {
+          introAnimations = new IntroAnimations();
+        } else if (!isLargeScreen && introAnimations) {
+          introAnimations.destroy();
+          introAnimations = null;
+        }
+      };
+
+      initOrDestroyAnimations();
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          initOrDestroyAnimations();
+
+          if (introAnimations && introAnimations.isInitialized && !introAnimations.animationPlayed) {
+            introAnimations.refresh();
+          }
+        }, 250);
+      });
+
+      window.addEventListener('beforeunload', () => {
+        if (introAnimations) {
+          introAnimations.destroy();
+        }
+      });
     }
   }
 }
 if (document.querySelector('.preloader')) {
   new Preloader();
-} 
+}

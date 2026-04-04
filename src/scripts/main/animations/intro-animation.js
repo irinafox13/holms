@@ -1,8 +1,7 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import {XL_WIDTH} from '@main/helpers/consts';
-
-class IntroAnimations {
+export class IntroAnimations {
   constructor() {
     this.DOM = {
       intro: document.querySelector('.intro'),
@@ -176,6 +175,9 @@ class IntroAnimations {
   }
 
   setInitialState() {
+    // Принудительно сбрасываем все стили перед установкой начальных
+    gsap.killTweensOf([this.DOM.headline, this.DOM.title, this.DOM.holmsLight, this.DOM.holmsDark]);
+
     if (this.DOM.headline) {
       gsap.set(this.DOM.headline, {
         fontSize: this.isXlDesktopScreen ? '138px' : '102px',
@@ -225,8 +227,6 @@ class IntroAnimations {
       gsap.set(this.DOM.bottom, {
         opacity: 0,
         y: '100%',
-        position: 'absolute',
-        bottom: 'auto',
       });
     }
   }
@@ -252,7 +252,11 @@ class IntroAnimations {
           }
         },
         onLeaveBack: () => {
-          return false;
+          // При скролле вверх - возвращаем анимацию в начало
+          if (this.timeline && this.animationPlayed) {
+            this.timeline.reverse();
+            this.animationCompleted = false;
+          }
         },
         onUpdate: (self) => {
           if (this.animationCompleted && self.progress < 1) {
@@ -271,7 +275,7 @@ class IntroAnimations {
         this.DOM.headline,
         {
           color: '#C5A267',
-          duration: 1.2, 
+          duration: 1.4,
           ease: 'power2.inOut',
         },
         0,
@@ -280,7 +284,7 @@ class IntroAnimations {
         this.DOM.holmsLight,
         {
           opacity: 0,
-          duration: 1, 
+          duration: 1.2,
           ease: 'power2.inOut',
         },
         0,
@@ -289,7 +293,7 @@ class IntroAnimations {
         this.DOM.holmsDark,
         {
           opacity: 1,
-          duration: 1.2, 
+          duration: 1.4,
           ease: 'power2.inOut',
         },
         0,
@@ -300,7 +304,7 @@ class IntroAnimations {
         this.DOM.holmsContainer,
         {
           y: '100vh',
-          duration: 2, 
+          duration: 2.2,
           ease: 'power2.inOut',
         },
         '+=0.2',
@@ -309,7 +313,7 @@ class IntroAnimations {
         this.DOM.headline,
         {
           fontSize: '20px',
-          duration: 1.5,
+          duration: 1.8,
           ease: 'power2.inOut',
         },
         '<',
@@ -319,7 +323,7 @@ class IntroAnimations {
         {
           scale: 1,
           opacity: 1,
-          duration: 1.5,
+          duration: 1.8,
           ease: 'backOut',
         },
         '<',
@@ -329,7 +333,7 @@ class IntroAnimations {
         {
           opacity: 1,
           y: '0%',
-          duration: 1.8,
+          duration: 2,
           ease: 'power2.out',
         },
         '<',
@@ -339,10 +343,10 @@ class IntroAnimations {
         {
           opacity: 1,
           y: '0%',
-          duration: 1.5, 
+          duration: 1.8,
           ease: 'power2.out',
         },
-        '<',
+        '<+=0.2',
       )
       .call(() => {
         // Сохраняем финальное состояние и отключаем ScrollTrigger
@@ -420,8 +424,6 @@ class IntroAnimations {
       gsap.set(this.DOM.bottom, {
         opacity: 1,
         y: '0%',
-        position: 'sticky', 
-        bottom: '0',
       });
     }
   }
@@ -518,38 +520,3 @@ class IntroAnimations {
     }
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  let introAnimations = null;
-
-  const initOrDestroyAnimations = () => {
-    const isLargeScreen = window.innerWidth >= 1080;
-
-    if (isLargeScreen && !introAnimations) {
-      introAnimations = new IntroAnimations();
-    } else if (!isLargeScreen && introAnimations) {
-      introAnimations.destroy();
-      introAnimations = null;
-    }
-  };
-
-  initOrDestroyAnimations();
-
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      initOrDestroyAnimations();
-
-      if (introAnimations && introAnimations.isInitialized && !introAnimations.animationPlayed) {
-        introAnimations.refresh();
-      }
-    }, 250);
-  });
-
-  window.addEventListener('beforeunload', () => {
-    if (introAnimations) {
-      introAnimations.destroy();
-    }
-  });
-});

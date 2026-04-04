@@ -10,7 +10,7 @@ import '@main/components/burger-menu';
 import '@main/components/scroll-header';
 import '@main/components/scroll-to-top';
 import '@main/components/range-component';
-import '@main/animations/';
+import '@main/animations/scroll-animator';
 
 // Ленивая загрузка компонентов при прокрутке
 class LazyComponentLoader {
