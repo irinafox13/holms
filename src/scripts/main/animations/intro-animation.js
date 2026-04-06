@@ -317,8 +317,8 @@ export class IntroAnimations {
         this.DOM.headline,
         {
           fontSize: '20px',
-          duration: 2.5,
-          ease: 'power2.inOut',
+          duration: 2.2,
+          ease: 'sine.inOut',
         },
         '<',
       )
@@ -327,7 +327,7 @@ export class IntroAnimations {
         {
           scale: 1,
           opacity: 1,
-          duration: 2.5,
+          duration: 2.2,
           ease: 'backOut',
         },
         '<',
