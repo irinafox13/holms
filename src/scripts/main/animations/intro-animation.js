@@ -246,6 +246,10 @@ export class IntroAnimations {
         markers: false,
         once: true,
         onEnter: () => {
+          // Блокируем скролл во время анимации
+          document.body.style.overflow = 'hidden';
+          document.documentElement.style.overflow = 'hidden';
+
           this.hasAnimated = true;
           if (!this.animationPlayed) {
             this.animationPlayed = true;
@@ -275,7 +279,7 @@ export class IntroAnimations {
         this.DOM.headline,
         {
           color: '#C5A267',
-          duration: 1.4,
+          duration: 2.0,
           ease: 'power2.inOut',
         },
         0,
@@ -284,7 +288,7 @@ export class IntroAnimations {
         this.DOM.holmsLight,
         {
           opacity: 0,
-          duration: 1.2,
+          duration: 1.8,
           ease: 'power2.inOut',
         },
         0,
@@ -293,7 +297,7 @@ export class IntroAnimations {
         this.DOM.holmsDark,
         {
           opacity: 1,
-          duration: 1.4,
+          duration: 2.0,
           ease: 'power2.inOut',
         },
         0,
@@ -304,16 +308,16 @@ export class IntroAnimations {
         this.DOM.holmsContainer,
         {
           y: '100vh',
-          duration: 2.2,
+          duration: 3.0,
           ease: 'power2.inOut',
         },
-        '+=0.2',
+        '+=0.3',
       )
       .to(
         this.DOM.headline,
         {
           fontSize: '20px',
-          duration: 1.8,
+          duration: 2.5,
           ease: 'power2.inOut',
         },
         '<',
@@ -323,7 +327,7 @@ export class IntroAnimations {
         {
           scale: 1,
           opacity: 1,
-          duration: 1.8,
+          duration: 2.5,
           ease: 'backOut',
         },
         '<',
@@ -333,7 +337,7 @@ export class IntroAnimations {
         {
           opacity: 1,
           y: '0%',
-          duration: 2,
+          duration: 2.8,
           ease: 'power2.out',
         },
         '<',
@@ -343,12 +347,16 @@ export class IntroAnimations {
         {
           opacity: 1,
           y: '0%',
-          duration: 1.8,
+          duration: 2.5,
           ease: 'power2.out',
         },
-        '<+=0.2',
+        '<+=0.3',
       )
       .call(() => {
+        // Разблокируем скролл после завершения анимации
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+
         // Сохраняем финальное состояние и отключаем ScrollTrigger
         if (this.DOM.intro) {
           gsap.set(this.DOM.intro, {

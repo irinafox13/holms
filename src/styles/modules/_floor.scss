@@ -87,4 +87,10 @@
     left: 16px;
     right: 16px;
   }
+
+  @include media($xl) {
+    &__wrap-picture {
+      max-width: 80vw;
+    }
+  }
 }

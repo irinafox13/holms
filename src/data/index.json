@@ -516,6 +516,11 @@
       "title": "Телефон",
       "required": true
     },
+    "comment": {
+      "name": "comment",
+      "title": "Комментарий",
+      "required": false
+    },
     "privacy": {
       "id": "mortgage_privacy"
     }
