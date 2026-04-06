@@ -185,6 +185,9 @@ export class IntroAnimations {
         fontWeight: 200,
         color: '#ffffff',
         lineHeight: '1',
+        transformPerspective: 1000,
+        transformStyle: 'preserve-3d',
+        force3D: true,
       });
     }
 
@@ -319,6 +322,9 @@ export class IntroAnimations {
           fontSize: '20px',
           duration: 2.2,
           ease: 'sine.inOut',
+          transformPerspective: 1000,
+          transformStyle: 'preserve-3d',
+          force3D: true,
         },
         '<',
       )

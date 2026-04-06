@@ -68,15 +68,31 @@
 
   &__headline {
     color: $gold-60;
+    // Сглаживание для анимации
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    // Аппаратное ускорение
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform, font-size;
   }
 
   &__title {
     text-align: center;
+    // Сглаживание для анимации
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    // Аппаратное ускорение
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform, opacity;
   }
 
   &__bottom-wrap {
     position: sticky;
-    margin-top: auto ;
+    margin-top: auto;
     bottom: 0;
     width: 100%;
     left: 0;
