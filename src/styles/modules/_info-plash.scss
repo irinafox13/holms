@@ -8,6 +8,9 @@
   margin-top: auto;
   padding-block: 16px 24px;
   z-index: 5;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 
   &::before {
     content: '';

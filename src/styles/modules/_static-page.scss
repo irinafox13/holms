@@ -1,0 +1,94 @@
+@use './../abstracts/variables' as *;
+@use './../abstracts/mixins' as *;
+
+.static-page {
+  border-bottom: 1px solid $white-10;
+  color: $white-60;
+  padding: 80px 0;
+  margin-top: 73px;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $white;
+  }
+
+  h1 {
+    @include font(56px, 130%, 300);
+    letter-spacing: 0
+  }
+
+  h2 {
+    @include font(32px, 130%, 300);
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 1px;
+    text-decoration-thickness: from-font;
+    text-decoration-color: $white-60;
+
+    &:hover {
+      text-decoration-color: $white-80;
+    }
+  }
+
+  p {
+    margin: 0;
+
+    & + p,
+    & + ul {
+      margin-top: 12px;
+    }
+  }
+
+  ul {
+    display: grid;
+    gap: 8px;
+    padding-left: 21px;
+    list-style: disc;
+
+    & + p {
+      margin-top: 12px;
+    }
+  }
+
+  li {
+    &::marker {
+      font-size: 12px;
+    }
+  }
+
+  @include media($lg) {
+    border-top: 1px solid $white-10;
+    margin-top: 104px;
+    padding: 112px 0;
+
+    h1 {
+      font-size: 64px;
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+
+    p {
+      letter-spacing: 0.06px;
+      margin: 0;
+
+      & + p,
+      & + ul {
+        margin-top: 16px;
+      }
+    }
+
+    ul {
+      & + p {
+        margin-top: 18px;
+      }
+    }
+  }
+}

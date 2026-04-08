@@ -1,6 +1,16 @@
-<a class="logo {{ dopClass }}" href="#top" aria-label="Вернуться наверх">
-  <svg width="248" height="40">
-    <use href="#logo" />
-  </svg>
+<div class="logo {{ dopClass }}">
   <span class="visually-hidden">Логотип ЖК "Холмс"</span>
-</a>
+  {{#ifCond page '==' 'main'}}
+  <a href="#top" aria-label="Вернуться наверх">
+    <svg width="248" height="40">
+      <use href="#logo" />
+    </svg>
+  </a>
+  {{else}}
+  <a href="/" aria-label="На главную страницу">
+    <svg width="248" height="40">
+      <use href="#logo" />
+    </svg>
+  </a>
+  {{/ifCond}}
+</div>
